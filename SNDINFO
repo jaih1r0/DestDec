@@ -1,0 +1,65 @@
+//GIBBIE "Sounds/DD/Gory/GIBBIE"
+GIB1E "Sounds/DD/Gory/gibbie1.ogg"
+GIB2E "Sounds/DD/Gory/gibbie2.ogg"
+GIB3E "Sounds/DD/Gory/gibbie3.ogg"
+$random GIBBIE { GIB1E GIB2E GIB3E }
+$volume GIBBIE 0.8
+
+Wood1 "Sounds/DD/Wood/DDWOD1.ogg"
+Wood2 "Sounds/DD/Wood/DDWOD2.ogg"
+Wood3 "Sounds/DD/Wood/DDWOD3.ogg"
+Wood4 "Sounds/DD/Wood/DDWOD4.ogg"
+Wood5 "Sounds/DD/Wood/DDWOD5.ogg"
+$random WoodFx { Wood1 Wood2 Wood3 Wood4 Wood5 }
+$volume Wood3 1.5
+$volume Wood4 1.5
+$volume Wood5 1.5
+
+GlassBreak1 "Sounds/DD/Glass/DDGLS1.ogg"
+GlassBreak2 "Sounds/DD/Glass/DDGLS2.ogg"
+GlassBreak3 "Sounds/DD/Glass/DDGLS3.ogg"
+GlassBreak4 "Sounds/DD/Glass/DDGLS4.ogg"
+GlassBreak5 "Sounds/DD/Glass/DDGLS5.ogg"
+GlassBreak6 "Sounds/DD/Glass/DDGLS6.ogg"
+$random GlassBreakFx { GlassBreak1 GlassBreak2 GlassBreak3 GlassBreak4 GlassBreak5 }
+$volume GlassBreakFx 0.75
+
+Metal1 "Sounds/DD/Metal/DDMTL1.ogg"
+Metal2 "Sounds/DD/Metal/DDMTL2.ogg"
+Metal3 "Sounds/DD/Metal/DDMTL3.ogg"
+Metal4 "Sounds/DD/Metal/DDMTL4.ogg"
+Metal5 "Sounds/DD/Metal/DDMTL5.ogg"
+$random MetalFx { Metal1 Metal2 Metal3 Metal4 Metal5 }
+$volume Metal2 0.7
+
+Stone1 "Sounds/DD/Stone/DDSTN1.ogg"
+Stone2 "Sounds/DD/Stone/DDSTN2.ogg"
+Stone3 "Sounds/DD/Stone/DDSTN3.ogg"
+Stone4 "Sounds/DD/Stone/DDSTN4.ogg"
+Stone5 "Sounds/DD/Stone/DDSTN5.ogg"
+Stone6 "Sounds/DD/Stone/DDSTN6.ogg"
+Stone7 "Sounds/DD/Stone/DDSTN7.ogg"
+Stone8 "Sounds/DD/Stone/DDSTN8.ogg"
+Stone9 "Sounds/DD/Stone/DDSTN9.ogg"
+Stone10 "Sounds/DD/Stone/DDSTN10.ogg"
+$random StoneFx { Stone1 Stone2 Stone3 Stone4 Stone5 Stone6 Stone7 Stone8 Stone9 Stone10 }
+$random SkullFx { Stone4 Stone7 Stone8 Stone10 }
+
+TinMetal1 "Sounds/DD/TinMet/DDTTL1.ogg"
+TinMetal2 "Sounds/DD/TinMet/DDTTL2.ogg"
+TinMetal3 "Sounds/DD/TinMet/DDTTL3.ogg"
+TinMetal4 "Sounds/DD/TinMet/DDTTL4.ogg"
+TinMetal5 "Sounds/DD/TinMet/DDTTL5.ogg"
+TinMetal6 "Sounds/DD/TinMet/DDTTL6.ogg"
+$random TinMetalFx { TinMetal1 TinMetal2 TinMetal3 TinMetal4 TinMetal5 TinMetal6 }
+
+TorchOff1 "Sounds/DD/Torches/DD_TOF1.ogg"
+TorchOff2 "Sounds/DD/Torches/DD_TOF2.ogg"
+$random TorchOffFx { TorchOff1 TorchOff2 }
+$volume TorchOffFx 0.65
+
+TorchLp1 "Sounds/DD/Torches/DDFOP1.ogg"
+TorchLp2 "Sounds/DD/Torches/DDFOP2.ogg"
+TorchLp3 "Sounds/DD/Torches/DDFOP3.ogg"
+$random TorchLoop { TorchLp1 TorchLp2 TorchLp3 }
+

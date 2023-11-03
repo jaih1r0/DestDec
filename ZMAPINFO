@@ -1,0 +1,4 @@
+gameinfo
+{
+	addeventhandlers = "DestDec_Handler"
+}

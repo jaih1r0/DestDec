@@ -1,0 +1,101 @@
+Brightmap sprite BRNKA0 { map "Brightmaps/Things/BArrels/BMBRNKA0.png" DisableFullBright}
+
+
+//Things Lights
+Pulselight RedtorchLightBig
+{
+	Color 0.7 0.15 0.1
+	Size 30
+	SecondarySize 50
+	Interval 6.0
+}
+
+Pulselight BluetorchLightBig
+{
+	Color 0.1 0.15 0.8
+	Size 30
+	SecondarySize 50
+	Interval 6.0
+}
+
+Pulselight GreentorchLightBig
+{
+	Color 0.15 0.8 0.15
+	Size 30
+	SecondarySize 50
+	Interval 6.0
+}
+
+Pulselight RedtorchLightSmall
+{
+	Color 0.7 0.15 0.1
+	Size 20
+	SecondarySize 40
+	Interval 6.0
+}
+
+Pulselight BluetorchLightSmall
+{
+	Color 0.1 0.15 0.8
+	Size 20
+	SecondarySize 40
+	Interval 6.0
+}
+
+Pulselight GreentorchLightSmall
+{
+	Color 0.15 0.8 0.15
+	Size 20
+	SecondarySize 40
+	Interval 6.0
+}
+
+
+Pulselight WhiteLampBig
+{
+	Color 0.6 0.6 0.6
+	Size 50
+	SecondarySize 70
+	Interval 6.0
+}
+
+Pulselight WhiteLampSmall
+{
+	Color 0.6 0.6 0.6
+	Size 30
+	SecondarySize 50
+	Interval 6.0
+}
+
+Pulselight YellowLampBig
+{
+	Color 0.6 0.6 0.2
+	Size 50
+	SecondarySize 70
+	Interval 6.0
+}
+
+Pulselight YellowLampSmall
+{
+	Color 0.6 0.5 0.2
+	Size 30
+	SecondarySize 50
+	Interval 6.0
+}
+
+Pulselight YellowLampMini
+{
+	Color 0.5 0.6 0.2
+	Size 15
+	SecondarySize 30
+	Interval 6.0
+}
+
+Pulselight  BurningBarrelFire
+{
+	Color 0.7 0.6 0.2
+	Size 40
+	SecondarySize 60
+	Interval 2.0
+	//chance 0.2
+}

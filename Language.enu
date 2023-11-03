@@ -1,0 +1,22 @@
+[enu default]
+DD_TITLE = "\cdDestroyable Decorations";
+DD_OPTS1 = "\cdDestroyable Decorations Options";
+DD_MaxDebs = "\cfMax number of debris: ";
+DD_BUTNOW = "\cfClear Debris Now, the button: ";
+DD_SMOKE = "\cfAllow Smoke Effects: ";
+DD_FLARES = "\cfAllow Flare effects: ";
+DD_BLUDMS = "\cfAllow Blood Effects: ";
+DD_BARFX = "\cfAllow Barrel Nukage effects: ";
+DD_BARREP = "\cfReplace Nukage/Burning Barrel: ";
+DD_DYNLIGHTS = "\cfAllow Dynamic Lights: ";
+DD_TIP_SMOKE = "\czNote: smoke may affect the performance.";
+DD_TIP_BARREL = "\czSome levels may have too many barrels...";
+DD_TIP_FLARE = "\czNote: this option takes effect on map change.";
+DD_TIP_BARREP = "\czSome mods may have its own barrel with functinoality attached to them, \nthis option is for those cases";
+DD_TIP_DYNLGT = "\czDynamic Lights may tank performance.";
+
+DD_ENAB1 = "\cdEnabled";
+DD_DISAB1 = "\crDisabled";
+
+DD_INSTEFFECT = "\cxThese options take effect instantly";
+DD_MAPEFFECT = "\cxThese options take effect on map change";

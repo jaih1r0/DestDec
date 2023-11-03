@@ -1,0 +1,25 @@
+===	Destroyable Decorations v1	===
+
+Credits:
+
+ID Software:
+	-The doom decorations sprites, and doom itself.
+
+Particle Fire Enhancer:
+	-The metal scraps ("JNK1-JNK3") and the barrel explosions ("BEX0A-M") sprites.
+	
+Beautiful Doom:
+	-Little code snipet to skip actor's tick.
+
+NashGore:
+	-Code to clean debris.
+
+Most of the sounds comes from here:
+	DESTRCrsh_Big Pile Of Trash.Digging,Hitting,Crushing,Breaking Metal,Wood,Glass,Plastic 1_EM.wav 
+	by newlocknew 	("https://freesound.org/s/696071/").
+And part of the glass break sounds:
+	 WindowGlass.mp3
+	 by P.Jezisek 	("https://freesound.org/s/519349/").
+	
+Most of the other things wich i didnt mention here are either made by me 
+or from unkown sources.

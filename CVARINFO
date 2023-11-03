@@ -1,0 +1,9 @@
+Server Bool DD_NoFlares = false;
+Server Bool DD_NoSmokeFx = false;
+server bool DD_NobloodMist = false;
+server int DD_MaxGibsAllowed = 128;
+Server bool DD_NoBarrelNukage = false;
+server bool DD_ReplaceBarrels = true;
+Server Bool DD_DynLights = true;
+
+Server Bool DD_Working = true;

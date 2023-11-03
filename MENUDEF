@@ -1,0 +1,50 @@
+addoptionmenu "OptionsMenu"
+{
+	submenu "$DD_OPTS1","DD_Options"
+}
+
+OptionMenu "DD_Options"
+{
+	Title "$DD_TITLE"
+	Statictext ""
+	Statictext ""
+	statictext "$DD_INSTEFFECT"
+	statictext ""
+	Slider "$DD_MaxDebs","DD_MaxGibsAllowed",0,900,16
+	Statictext ""
+	control "$DD_BUTNOW","netevent DD_ClearDebris"
+	Statictext ""
+	option "$DD_SMOKE","DD_NoSmokeFx","Yesnt"
+	statictext "$DD_TIP_SMOKE"
+	statictext ""
+	option "$DD_BLUDMS","DD_NobloodMist","Yesnt"
+	statictext ""
+	option "$DD_BARFX","DD_NoBarrelNukage","Yesnt"
+	statictext "$DD_TIP_BARREL"
+	statictext ""
+	statictext ""
+	statictext "$DD_MAPEFFECT"
+	statictext ""
+	option "$DD_FLARES","DD_NoFlares","Yesnt"
+	statictext "$DD_TIP_FLARE"
+	statictext ""
+	option "$DD_BARREP","DD_ReplaceBarrels","yessir"
+	statictext "$DD_TIP_BARREP"
+	statictext ""
+	statictext ""
+	option "$DD_DYNLIGHTS","DD_DynLights","yessir"
+	statictext "$DD_TIP_DYNLGT"
+	statictext ""
+}
+
+optionvalue "Yesnt"
+{
+	0,"$DD_ENAB1"
+	1,"$DD_DISAB1"
+}
+
+optionvalue "yessir"
+{
+	0,"$DD_DISAB1"
+	1,"$DD_ENAB1"
+}
