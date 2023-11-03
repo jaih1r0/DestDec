@@ -11,7 +11,6 @@ DD_BARREP = "\cfReplace Nukage/Burning Barrel: ";
 DD_DYNLIGHTS = "\cfAllow Dynamic Lights: ";
 DD_TIP_SMOKE = "\czNote: smoke may affect the performance.";
 DD_TIP_BARREL = "\czSome levels may have too many barrels...";
-DD_TIP_FLARE = "\czNote: this option takes effect on map change.";
 DD_TIP_BARREP = "\czSome mods may have its own barrel with functinoality attached to them, \nthis option is for those cases";
 DD_TIP_DYNLGT = "\czDynamic Lights may tank performance.";
 
