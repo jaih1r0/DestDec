@@ -18,7 +18,7 @@ Class DD_IncendiaryBarrel : DD_ShotDecoBase //replaces burningbarrel
 			loop;
 		Death:
 			TNT1 A 0 A_killFlare();
-			//IBRX AA 10;
+			TNT1 A 0 A_StopSound(69);
 			IBRX AAAAA 4 A_setscale(self.scale.x + frandom(0.03,0.05));
 			IBRX BCDE 2 A_setscale(self.scale.x + 0.01); 
 			TNT1 A 0 A_RemoveLight('FIREBAR1');
@@ -77,6 +77,7 @@ Class DD_IncendiaryBarrel : DD_ShotDecoBase //replaces burningbarrel
 	override void postbeginplay()
 	{
 		A_SpawnLensFlare("DD_YellowFlare",30);
+		A_Startsound("TorchLoop",69,CHANF_LOOPING,1.0,ATTN_NORM,frandom(0.1,1.1));
 		if(DD_DynLights)
 			A_AttachLightDef('FIREBAR1',"BurningBarrelFire");
 		super.postbeginplay();
