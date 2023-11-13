@@ -6,4 +6,7 @@ Server bool DD_NoBarrelNukage = false;
 server bool DD_ReplaceBarrels = true;
 Server Bool DD_DynLights = true;
 
+Server Float DD_HealthMulti = 1.0;
+Server Float DD_BarrelHltMulti = 1.0;
+
 Server Bool DD_Working = true;

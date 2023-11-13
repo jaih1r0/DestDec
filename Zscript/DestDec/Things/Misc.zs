@@ -130,7 +130,7 @@ Class DD_TallGreenColumn : DD_ShotDecoBase //replaces TallGreenColumn
 	{
 		Spawn:
 			GPL1 A 1;
-			TNT1 A 0 A_jumpif(health<70,"MidDamaged");
+			TNT1 A 0 A_jumpif(health<halflife,"MidDamaged");
 			loop;
 		MidDamaged:
 			TNT1 A 0 A_Startsound("StoneFx",62);
@@ -161,7 +161,7 @@ Class DD_TallRedColumn : DD_ShotDecoBase //replaces TallRedColumn
 	{
 		Spawn:
 			RPL1 A 1;
-			TNT1 A 0 A_jumpif(health<70,"MidDamaged");
+			TNT1 A 0 A_jumpif(health<halflife,"MidDamaged");
 			loop;
 			
 		MidDamaged:
@@ -310,7 +310,7 @@ Class DD_EvilierEye : DD_ShotDecoBase //replaces EvilEye
 			A_SpawnEvilFire();
 		}
 		
-		if(health < 100 && !flarechanged)
+		if(health < 100 && health > 0 && !flarechanged)
 		{
 			damaged = true;
 			A_killflare();
@@ -407,14 +407,14 @@ Class DD_TechPillar : DD_ShotDecoBase //replaces TechPillar
 	states
 	{
 		Spawn:
-			TCPA A 1 A_jumpif(health < 150,"LowDamage");
+			TCPA A 1 A_jumpif(health < slightdamaged,"LowDamage");
 			loop;
 		LowDamage:
 			TNT1 A 0 A_Startsound("MetalFx",61);
 			TNT1 A 0 A_Startsound("GlassBreakFx",60);
 			TNT1 A 0 DD_SpawnDebris("GlassShard1",random(5,9),(0,0,40),random(3,8),random(3,8));
 		LowDamageLoop:
-			TCPD A 1 A_jumpif(health < 80,"MidDamage");
+			TCPD A 1 A_jumpif(health < halflife,"MidDamage");
 			loop;
 			
 		MidDamage:

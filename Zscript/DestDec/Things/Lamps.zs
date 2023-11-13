@@ -18,7 +18,7 @@ Class DD_Lamp1 : DD_ShotDecoBase //replaces TechLamp
 	{
 		Spawn:
 			DLM1 A 1 BRIGHT;
-			TNT1 A 0 A_jumpif(health < 80,"Damaged_Low");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"Damaged_Low");
 			Loop;
 		Damaged_Low:
 			TNT1 A 0 A_RemoveLight('Lamp1');
@@ -28,7 +28,7 @@ Class DD_Lamp1 : DD_ShotDecoBase //replaces TechLamp
 			TNT1 A 0 DD_SpawnDebris("GlassShard1",random(5,9),(0,0,45),random(3,10),random(3,10));
 		D_LowLoop:
 			DLM1 B 1;
-			TNT1 A 0 A_jumpif(health < 40,"Damaged_Mid");
+			TNT1 A 0 A_jumpif(health < halflife,"Damaged_Mid");
 			loop;
 		Damaged_Mid:
 			TNT1 A 0 A_RemoveLight('Lamp1');
@@ -92,7 +92,7 @@ Class DD_Lamp2 : DD_ShotDecoBase //replaces TechLamp2
 	{
 		Spawn:
 			DLM2 A 1 BRIGHT;
-			TNT1 A 0 A_jumpif(health < 80,"Damaged_Low");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"Damaged_Low");
 			Loop;
 		Damaged_Low:
 			TNT1 A 0 A_RemoveLight('Lamp2');
@@ -151,7 +151,7 @@ Class DD_Lamp3 : DD_ShotDecoBase //replaces column
 	{
 		Spawn:
 			DLM3 A 1 BRIGHT;
-			TNT1 A 0 A_jumpif(health < 80,"Damaged_Low");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"Damaged_Low");
 			Loop;
 		Damaged_Low:
 			TNT1 A 0 A_RemoveLight('Lamp3');
@@ -205,7 +205,7 @@ Class DD_Candil1 : DD_ShotDecoBase //replaces Candelabra
 	{
 		Spawn: 
 			CND0 A 1 BRIGHT;
-			TNT1 A 0 A_jumpif(health<75,"NoCandil");
+			TNT1 A 0 A_jumpif(health<slightdamaged,"NoCandil");
 			loop;
 		NoCandil:
 			TNT1 A 0 A_RemoveLight('Lamp4');

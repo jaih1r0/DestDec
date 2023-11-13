@@ -74,6 +74,12 @@ Class DD_IncendiaryBarrel : DD_ShotDecoBase //replaces burningbarrel
 		Level.SpawnParticle (Smkfx);
 	}
 	
+	override void DD_SetSpawnHealth()
+	{
+		self.StartHealth = int(self.spawnhealth() * DD_BarrelHltMulti);
+		self.health = self.starthealth;
+	}
+	
 	override void postbeginplay()
 	{
 		A_SpawnLensFlare("DD_YellowFlare",30);
@@ -142,6 +148,12 @@ Class DD_NukageBarrel :DD_ShotDecoBase //replaces explosivebarrel
 			BRNK D 350;
 			BRNK DDDDDDDD 1 A_Fadeout(0.1);
 			stop;
+	}
+	
+	override void DD_SetSpawnHealth()
+	{
+		self.StartHealth = int(self.spawnhealth() * DD_BarrelHltMulti);
+		self.health = self.starthealth;
 	}
 	
 	override void postbeginplay()

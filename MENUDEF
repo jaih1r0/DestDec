@@ -25,6 +25,12 @@ OptionMenu "DD_Options"
 	statictext ""
 	statictext "$DD_MAPEFFECT"
 	statictext ""
+	Slider "$DD_MULHT","DD_HealthMulti",0.2,10.0,0.1
+	statictext "$DD_TIP_HEALTH1"
+	Statictext ""
+	Slider "$DD_MULHTBAR","DD_BarrelHltMulti",0.2,10.0,0.1
+	statictext "$DD_TIP_HEALTH2"
+	Statictext ""
 	option "$DD_FLARES","DD_NoFlares","Yesnt"
 	statictext ""
 	option "$DD_BARREP","DD_ReplaceBarrels","yessir"

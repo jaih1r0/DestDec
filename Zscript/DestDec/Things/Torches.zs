@@ -71,11 +71,11 @@ Class DD_RedTorch : DD_TorchBase //replaces RedTorch
 	{
 		Spawn:
 			TRCS A 2 A_SpawnFireFx();
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			TRCS A 2 A_SpawnFireFx();
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			TRCS A 1 A_SpawnSmokeFx();
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			loop;
 		NoFire:
 			TNT1 A 0 A_RemoveLight('Red1');
@@ -119,11 +119,11 @@ Class DD_BlueTorch : DD_TorchBase //replaces BlueTorch
 	{
 		Spawn:
 			TRCS A 2 A_SpawnFireFx("DD_BF1");
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			TRCS A 2 A_SpawnFireFx("DD_BF1");
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			TRCS A 1 A_SpawnSmokeFx();
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			loop;
 		NoFire:
 			TNT1 A 0 A_stopsound(69);
@@ -166,11 +166,11 @@ Class DD_GreenTorch : DD_TorchBase //replaces GreenTorch
 	{
 		Spawn:
 			TRCS A 2 A_SpawnFireFx("DD_GF1");
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			TRCS A 2 A_SpawnFireFx("DD_GF1");
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			TRCS A 1 A_SpawnSmokeFx();
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			loop;
 		NoFire:
 			TNT1 A 0 A_stopsound(69);
@@ -238,11 +238,11 @@ Class DD_SRedTorch : DD_SmallTorchBase //replaces ShortRedTorch
 	{
 		Spawn:
 			SRCS A 2 A_SpawnFireFx("DD_RF1",32);
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			SRCS A 2 A_SpawnFireFx("DD_RF1",32);
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			SRCS A 1 A_SpawnSmokeFx(52);
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			loop;
 		NoFire:
 			TNT1 A 0 A_stopsound(69);
@@ -290,11 +290,11 @@ Class DD_SblueTorch : DD_SmallTorchBase //replaces ShortBlueTorch
 	{
 		Spawn:
 			SRCS A 2 A_SpawnFireFx("DD_BF1",32);
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			SRCS A 2 A_SpawnFireFx("DD_BF1",32);
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			SRCS A 1 A_SpawnSmokeFx(52);
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			loop;
 		NoFire:
 			TNT1 A 0 A_stopsound(69);
@@ -342,11 +342,11 @@ Class DD_SGreenTorch : DD_SmallTorchBase //replaces ShortGreenTorch
 	{
 		Spawn:
 			SRCS A 2 A_SpawnFireFx("DD_GF1",32);
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			SRCS A 2 A_SpawnFireFx("DD_GF1",32);
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			SRCS A 1 A_SpawnSmokeFx(52);
-			TNT1 A 0 A_jumpif(health < 80,"NoFire");
+			TNT1 A 0 A_jumpif(health < slightdamaged,"NoFire");
 			loop;
 		NoFire:
 			TNT1 A 0 A_stopsound(69);

@@ -57,7 +57,7 @@ Class DD_BigTree : DD_NatureThing //replaces BigTree
 	states
 	{
 		spawn:
-			BTR3 A 1 A_Jumpif(health < 300,"LowDamage");
+			BTR3 A 1 A_Jumpif(health < slightdamaged,"LowDamage");
 			loop;
 			
 		LowDamage:
@@ -66,7 +66,7 @@ Class DD_BigTree : DD_NatureThing //replaces BigTree
 			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 A 0 DD_SpawnDebris("BigWoodStick",random(4,7),(0,0,40),random(3,8),random(3,8));
 		LowDamageLoop:
-			BTR3 B 1 A_Jumpif(health < 200,"MidDamage");
+			BTR3 B 1 A_Jumpif(health < halflife,"MidDamage");
 			loop;
 			
 		MidDamage:
@@ -76,7 +76,7 @@ Class DD_BigTree : DD_NatureThing //replaces BigTree
 			TNT1 A 0 DD_SpawnDebris("BigWoodStick",random(4,7),(0,0,40),random(3,8),random(3,8));
 		MidDamageLoop:
 			BTR3 C 1;
-			TNT1 A 0 A_Jumpif(health < 100,"HighDamage");
+			TNT1 A 0 A_Jumpif(health < heavydamaged,"HighDamage");
 			loop;
 			
 		HighDamage:

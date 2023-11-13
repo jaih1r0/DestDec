@@ -62,7 +62,7 @@ Class DD_BloodyTwitch : DD_GoryDec //replaces BloodyTwitch
 	states
 	{
 		Spawn:
-			0RE0 A 2 A_jumpif(health < 60,"DamageLow");
+			0RE0 A 2 A_jumpif(health < halflife,"DamageLow");
 			Loop;
 		DamageLow:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,0.75,ATTN_NORM,frandom(0.8,1.2));
@@ -104,7 +104,7 @@ Class DD_Meat2 : DD_GoryDec //replaces meat2
 	states
 	{
 		Spawn:
-			0RE2 A 2 A_jumpif(health < 80,"DamageLow");
+			0RE2 A 2 A_jumpif(health < halflife,"DamageLow");
 			loop;
 		DamageLow:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,0.7,ATTN_NORM,frandom(0.8,1.2));
@@ -143,7 +143,7 @@ Class DD_Meat3 : DD_GoryDec //replaces meat3
 	states
 	{
 		Spawn:
-			0RE1 A 2 A_jumpif(health < 60,"DamageLow");
+			0RE1 A 2 A_jumpif(health < halflife,"DamageLow");
 			loop;
 		DamageLow:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,0.75,ATTN_NORM,frandom(0.8,1.2));
@@ -246,7 +246,7 @@ Class DD_Hang1NG : DD_GoryDec //replaces HangNoGuts
 	states
 	{
 		Spawn:
-			0RE5 A 1 A_jumpif(health < 80,"DamageLow");
+			0RE5 A 1 A_jumpif(health < halflife,"DamageLow");
 			loop;
 		DamageLow:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,0.7,ATTN_NORM,frandom(0.8,1.2));
@@ -275,7 +275,7 @@ Class DD_Hang2NB : DD_GoryDec //replaces HangBNoBrain
 	states
 	{
 		Spawn:
-			0RE6 A 1 A_jumpif(health < 80,"DamageLow");
+			0RE6 A 1 A_jumpif(health < halflife,"DamageLow");
 			loop;
 		DamageLow:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,0.7,ATTN_NORM,frandom(0.8,1.2));
@@ -446,7 +446,7 @@ Class DD_HeadStick : DD_GoryDec //replaces HeadOnAStick
 	states
 	{
 		Spawn:
-			HST1 A 1 A_jumpif(health < 60,"LowDamage");
+			HST1 A 1 A_jumpif(health < halflife,"LowDamage");
 			loop;
 		LowDamage:
 			TNT1 A 0 A_Startsound("SkullFx",66);
@@ -474,11 +474,17 @@ Class DD_HeadsStick : DD_GoryDec //replaces HeadsOnAStick
 		health 350;
 	}
 	int headsleft;
+	int health_5head;
+	int health_4head;
+	int health_3head;
+	int health_2head;
+	int health_1head;
+	
 	states
 	{
 		Spawn:
 		HeadFull:
-			HST2 A 1 A_jumpif(health < 300,"4Heads");
+			HST2 A 1 A_jumpif(health < health_4head,"4Heads");
 			loop;
 			
 		4Heads:
@@ -486,7 +492,7 @@ Class DD_HeadsStick : DD_GoryDec //replaces HeadsOnAStick
 			TNT1 A 0 DD_SkullSub();
 			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,45),random(3,6),random(3,7));
 		4HeadsLoop:
-			HST2 B 1 A_jumpif(health < 250,"3Heads");
+			HST2 B 1 A_jumpif(health < health_3head,"3Heads");
 			loop;
 		
 		3Heads:
@@ -494,7 +500,7 @@ Class DD_HeadsStick : DD_GoryDec //replaces HeadsOnAStick
 			TNT1 A 0 DD_SkullSub();
 			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,45),random(3,6),random(3,7));
 		3HeadsLoop:
-			HST2 C 1 A_jumpif(health < 200,"2Heads");
+			HST2 C 1 A_jumpif(health < health_2head,"2Heads");
 			loop;
 		
 		2Heads:
@@ -502,7 +508,7 @@ Class DD_HeadsStick : DD_GoryDec //replaces HeadsOnAStick
 			TNT1 A 0 DD_SkullSub();
 			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,45),random(3,6),random(3,7));
 		2HeadsLoop:
-			HST2 D 1 A_jumpif(health < 150,"AHead");
+			HST2 D 1 A_jumpif(health < health_1head,"AHead");
 			loop;
 		
 		AHead:
@@ -510,7 +516,7 @@ Class DD_HeadsStick : DD_GoryDec //replaces HeadsOnAStick
 			TNT1 A 0 DD_SkullSub();
 			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,45),random(3,6),random(3,7));
 		AHeadLoop:
-			HST2 E 1 A_jumpif(health < 100,"Stick");
+			HST2 E 1 A_jumpif(health < heavydamaged,"Stick");
 			loop;
 		
 		Stick:
@@ -538,9 +544,20 @@ Class DD_HeadsStick : DD_GoryDec //replaces HeadsOnAStick
 		headsleft--;
 	}
 	
+	override void DD_sethealthvars()
+	{
+		health_5head = int(health);
+		health_4head = int(health * 0.8);
+		health_3head = int(health * 0.6);
+		health_2head = int(health * 0.4);
+		health_1head = int(health * 0.2);
+		heavydamaged = int(health * 0.1);
+	}
+	
 	override void beginplay()
 	{
 		headsleft = 5;
 		super.beginplay();
 	}
+	
 }

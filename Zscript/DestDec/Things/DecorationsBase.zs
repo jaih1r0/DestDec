@@ -19,6 +19,10 @@ Class DD_ShotDecoBase : Actor
 	DD_FlareBase FB;
 	int zofs;
 	
+	//this are used instead of explicit values for destruction state checks
+	int slightdamaged;
+	int halflife;
+	int heavydamaged;
 	
 	//functions
 	void A_SpawnSparksFx1(int zoffset = 50)
@@ -97,9 +101,24 @@ Class DD_ShotDecoBase : Actor
 		}
 	}
 	
+	virtual void DD_SetSpawnHealth()
+	{
+		self.StartHealth = int(self.spawnhealth() * DD_HealthMulti);
+		self.health = self.starthealth;
+	}
+	
+	virtual void DD_sethealthvars()
+	{
+		self.slightdamaged = int(health * 0.75);
+		self.halflife = int(health *0.5);
+		self.heavydamaged = int(health * 0.25);
+	}
 	
 	override void beginplay()
 	{
+		DD_SetSpawnHealth();
+		DD_sethealthvars();
+		
 		if(RandomFlipX)
 			self.bXFLIP = random(0,1);
 		Super.Beginplay();
