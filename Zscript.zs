@@ -13,3 +13,11 @@ Version "4.3"
 #include "Zscript/DestDec/Things/Misc.zs"
 #include "Zscript/DestDec/Things/Nature.zs"
 #include "Zscript/DestDec/Things/Gory.zs"
+
+//Heretic compat
+#include "Zscript/DestDec/Things/Heretic/Torches.zs"
+#include "Zscript/DestDec/Things/Heretic/Columns.zs"
+#include "Zscript/DestDec/Things/Heretic/Gizmos.zs"
+#include "Zscript/DestDec/Things/Heretic/Misc.zs"
+
+

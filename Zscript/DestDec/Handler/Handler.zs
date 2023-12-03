@@ -115,6 +115,20 @@ Class DestDec_Handler : EventHandler
 				case 'livestick'	: e.replacement =	'DD_livestick'; 	Break;
 				case 'HeadOnAStick'	: e.replacement =	'DD_HeadStick'; 	Break;
 				case 'HeadsOnAStick'	: e.replacement =	'DD_HeadsStick'; 	Break;
+				
+				
+				//Heretic compat
+				case 'BrownPillar'	: e.replacement =	'DD_BrownPillar'; 	Break;
+				
+				case 'KeyGizmoBlue'	: e.replacement =	'DD_KeyGizmoBlue'; 	Break;
+				case 'KeyGizmoGreen'	: e.replacement =	'DD_KeyGizmoGreen'; 	Break;
+				case 'KeyGizmoYellow'	: e.replacement =	'DD_KeyGizmoYellow'; 	Break;
+				
+				case 'barrel'	: e.replacement =	'DD_WoodenBarrel'; 	Break;
+				
+				case 'FireBrazier'	: e.replacement =	'DD_FireBrazier'; 	Break;
+				case 'WallTorch'	: e.replacement =	'DD_WallTorch'; 	Break;
+				case 'SerpentTorch'	: e.replacement =	'DD_SerpentTorch'; 	Break;
 			}
 		}
 	}

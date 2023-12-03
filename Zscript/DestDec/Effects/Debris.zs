@@ -108,6 +108,15 @@ Class WoodenStickPc2 : WoodenStickPc
 	}
 }
 
+//forgot the heretic pallete
+Class HWoodenstick1 : WoodenStickPc
+{
+	default
+	{
+		translation "66:136=4:31";
+	}
+}
+
 Class BigWoodStick : WoodenStickPc
 {
 	default
