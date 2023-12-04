@@ -105,7 +105,7 @@ Class DD_BarrelExplosionFx : NoTickActor
 	}
 	override void beginplay()
 	{
-		A_Setscale(self.scale.x + frandom(-0.1,0.2));
+		A_Setscale(self.scale.x + frandom(-0.1,0.35));
 		bxflip = random(0,1);
 		super.beginplay();
 	}

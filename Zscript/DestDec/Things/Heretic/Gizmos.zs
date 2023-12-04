@@ -8,7 +8,7 @@ Class DD_GizmoBase : DD_ShotDecoBase
 		Radius 16;
 		Height 50;
 		+SOLID
-		DD_GizmoBase.gizmocolor 1;
+		DD_GizmoBase.gizmocolor GZ_BLUE;
 	}
 	enum gizmcol {
 		GZ_BLUE = 1,
@@ -16,7 +16,7 @@ Class DD_GizmoBase : DD_ShotDecoBase
 		GZ_YELLOW = 3
 	}
 	
-	void A_SpawnGizmo(int col = 1) //1 blue 2 green 3 yellow
+	void A_SpawnGizmo(int col = GZ_BLUE) //1 blue 2 green 3 yellow
 	{
 		Gizmo = Spawn("DD_GizmoBall",(pos.XY,pos.z + 64));
 		if(!Gizmo)
@@ -63,9 +63,9 @@ Class DD_GizmoBase : DD_ShotDecoBase
 		string flare;
 		switch(gizmocolor)
 		{
-			case 1: flare = "DD_BlueFlare"; break;
-			case 2: flare = "DD_GreenFlare"; break;
-			case 3: flare = "DD_YellowFlare"; break;
+			case GZ_BLUE: flare = "DD_BlueFlare"; break;
+			case GZ_GREEN: flare = "DD_GreenFlare"; break;
+			case GZ_YELLOW: flare = "DD_YellowFlare"; break;
 		}
 		A_SpawnLensFlare(flare,64,(0.3,0.3));
 		super.beginplay();
@@ -139,7 +139,7 @@ Class DD_KeyGizmoGreen : DD_KeyGizmoBlue
 {
 	default
 	{
-		DD_GizmoBase.gizmocolor 2;
+		DD_GizmoBase.gizmocolor GZ_GREEN;
 	}
 	states
 	{
@@ -168,7 +168,7 @@ Class DD_KeyGizmoYellow : DD_KeyGizmoBlue
 {
 	default
 	{
-		DD_GizmoBase.gizmocolor 3;
+		DD_GizmoBase.gizmocolor GZ_YELLOW;
 	}
 	states
 	{
@@ -181,7 +181,7 @@ Class DD_KeyGizmoYellow : DD_KeyGizmoBlue
 	override void postbeginplay()
 	{
 		if(DD_DynLights)
-			A_AttachLightDef('YEL1',"BurningBarrelFire");
+			A_AttachLightDef('YEL1',"YellowLampBig");
 		super.postbeginplay();
 	}
 	

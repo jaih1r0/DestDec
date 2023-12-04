@@ -8,6 +8,7 @@ Class DD_ShotDecoBase : Actor
 		+MOVEWITHSECTOR;
 		+DONTTHRUST;
 		+nodamagethrust;
+		+NOTAUTOAIMED;
 		+NOBLOOD;
 		ProjectilePassHeight -16;
 		DD_ShotDecoBase.RandomFlipX true;

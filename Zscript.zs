@@ -19,5 +19,6 @@ Version "4.3"
 #include "Zscript/DestDec/Things/Heretic/Columns.zs"
 #include "Zscript/DestDec/Things/Heretic/Gizmos.zs"
 #include "Zscript/DestDec/Things/Heretic/Misc.zs"
+#include "Zscript/DestDec/Things/Heretic/Skulls.zs"
 
 

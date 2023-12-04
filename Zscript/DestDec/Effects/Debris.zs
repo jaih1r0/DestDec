@@ -113,7 +113,7 @@ Class HWoodenstick1 : WoodenStickPc
 {
 	default
 	{
-		translation "66:136=4:31";
+		translation "0:255=#[143,129,112]";//translation "66:136=4:31";
 	}
 }
 
@@ -153,7 +153,7 @@ Class RockDebris1 : BouncingDebrisBase
 		super.beginplay();
 	}
 }
-
+//"0:255=66:127"
 Class RedRockDebris1 : RockDebris1
 {
 	default
@@ -167,6 +167,15 @@ Class GreenRockDebris1:RockDebris1
 	default
 	{
 		translation "0:255=#[60,96,30]";
+	}
+}
+
+Class BrownRockDebris1:RockDebris1
+{
+	default
+	{
+		translation "0:255=@35[164,70,0]";
+//		translation "0:31=66:78", "20:65=66:110", "111:127=209:240";//"0:65=66:110", "209:240=111:122";
 	}
 }
 

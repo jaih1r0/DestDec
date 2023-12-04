@@ -27,14 +27,22 @@ Class DD_FireBrazier : DD_TorchBase
 			loop;
 		MidDamage:
 		NoBowl:
+			TNT1 A 0 A_RemoveLight('YFLAR1');
+			TNT1 A 0 A_killFlare();
 			TNT1 A 0 DD_SpawnDebris("GoldScrap1",random(3,5),(0,0,30),random(3,10),random(3,10));
 			HFH1 B -1;
 			stop;
 		Death:
+			TNT1 A 0 A_RemoveLight('YFLAR1');
+			TNT1 A 0 A_killFlare();
 			TNT1 A 0 DD_SpawnDebris("RockDebris1",random(4,6),(0,0,40),random(3,8),random(3,8));
 			HFH1 C -1;
 			stop;
 		Xdeath:
+			TNT1 A 0 A_RemoveLight('YFLAR1');
+			TNT1 A 0 A_stopsound(69);
+			TNT1 A 0 DD_TurnTorchFire();
+			TNT1 A 0 A_killFlare();
 			TNT1 A 0 DD_SpawnDebris("RockDebris1",random(4,8),(0,0,40),random(3,8),random(3,8));
 			HFH1 D -1;
 			stop;
@@ -91,10 +99,12 @@ Class DD_WallTorch : DD_TorchBase
 			loop;
 			
 		TorchOff:
+			TNT1 A 0 A_RemoveLight('YFLAR1');
 			TNT1 A 0 A_killFlare();
 			HTR1 A -1;
 			stop;
 		Death:
+			TNT1 A 0 A_RemoveLight('YFLAR1');
 			TNT1 A 0 A_killFlare();
 			TNT1 A 0 DD_SpawnDebris("WoodenStickPc",random(3,6),(0,0,35),random(3,10),random(3,10));
 			TNT1 A 1;
@@ -105,8 +115,8 @@ Class DD_WallTorch : DD_TorchBase
 	override void PostBeginPlay()
 	{
 		A_SpawnLensFlare("DD_YellowFlare",24,(0.15,0.15));
-		//if(DD_DynLights)
-			//A_AttachLightDef('YFLAR1',"BurningBarrelFire");
+		if(DD_DynLights)
+			A_AttachLightDef('YFLAR1',"YellowLampSmall");
 		self.setorigin((self.pos.XY,self.pos.z + 40),0);
 		super.postbeginplay();
 	}
@@ -129,12 +139,14 @@ Class DD_SerpentTorch : DD_TorchBase
 			TNT1 A 0 A_jumpif(health < slightdamaged,"TorchOff");
 			loop;
 		TorchOff:
+			TNT1 A 0 A_RemoveLight('YFLAR1');
 			TNT1 A 0 A_killFlare();
 		TorchOffLoop:
 			HTR2 A 1;
 			TNT1 A 0 A_jumpif(health < slightdamaged,"MidDamage");
 			loop;
 		MidDamage:
+			TNT1 A 0 A_RemoveLight('YFLAR1');
 			TNT1 A 0 A_killFlare();
 			TNT1 A 0 DD_SpawnDebris("HWoodenstick1",random(3,6),(0,0,35),random(3,10),random(3,10));
 			HTR2 B -1;
@@ -150,13 +162,13 @@ Class DD_SerpentTorch : DD_TorchBase
 	override void PostBeginPlay()
 	{
 		A_SpawnLensFlare("DD_YellowFlare",54,(0.16,0.16));
-		//if(DD_DynLights)
-			//A_AttachLightDef('YFLAR1',"BurningBarrelFire");
+		if(DD_DynLights)
+			A_AttachLightDef('YFLAR1',"YellowLampSmall");
 		super.postbeginplay();
 	}
 }
 
-Class DD_Candelabra : DD_ShotDecoBase replaces Chandelier
+Class DD_Candelabra : DD_ShotDecoBase
 {
 	Default
 	{
@@ -176,10 +188,12 @@ Class DD_Candelabra : DD_ShotDecoBase replaces Chandelier
 			TNT1 A 0 A_jumpif(health < slightdamaged,"CandilOff");
 			loop;
 		CandilOff:
+			TNT1 A 0 A_RemoveLight('YFLAR1');
 			TNT1 A 0 A_killFlare();
 			HCND D -1;
 			stop;
 		Death:
+			TNT1 A 0 A_RemoveLight('YFLAR1');
 			TNT1 A 0 A_killFlare();
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(2,6),(0,0,20),random(3,10),random(3,10));
 			HCND E -1;
@@ -191,8 +205,8 @@ Class DD_Candelabra : DD_ShotDecoBase replaces Chandelier
 		A_SpawnLensFlare("DD_YellowFlare",20,(0.7,0.25));
 		if(FB)
 			FB.A_Setroll(0);
-		//if(DD_DynLights)
-			//A_AttachLightDef('YFLAR1',"BurningBarrelFire");
+		if(DD_DynLights)
+			A_AttachLightDef('YFLAR1',"YellowLampSmall");
 	}
 	override void die(actor source,actor inflictor,int dmgflags,name meansofdeath)
 	{

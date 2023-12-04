@@ -69,7 +69,8 @@ Pulselight WhiteLampSmall
 
 Pulselight YellowLampBig
 {
-	Color 0.6 0.6 0.2
+	Color 0.9 0.8 0.1
+	//Color 0.6 0.6 0.2
 	Size 50
 	SecondarySize 70
 	Interval 6.0
@@ -77,7 +78,7 @@ Pulselight YellowLampBig
 
 Pulselight YellowLampSmall
 {
-	Color 0.6 0.5 0.2
+	Color 0.9 0.8 0.1
 	Size 30
 	SecondarySize 50
 	Interval 6.0
@@ -85,7 +86,8 @@ Pulselight YellowLampSmall
 
 Pulselight YellowLampMini
 {
-	Color 0.5 0.6 0.2
+	Color 0.9 0.8 0.1
+	//Color 0.5 0.6 0.2
 	Size 15
 	SecondarySize 30
 	Interval 6.0
@@ -93,7 +95,8 @@ Pulselight YellowLampMini
 
 Pulselight  BurningBarrelFire
 {
-	Color 0.7 0.6 0.2
+	Color 0.9 0.8 0.1
+	//Color 0.7 0.6 0.2
 	Size 40
 	SecondarySize 60
 	Interval 2.0

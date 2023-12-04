@@ -58,6 +58,9 @@ Class DestDec_Handler : EventHandler
 		{
 			switch(e.replacee.GetClassName())
 			{
+				//
+				// Doom
+				//
 				case 'RedTorch'	: e.replacement =	'DD_RedTorch'; 	Break;
 				case 'BlueTorch'	: e.replacement =	'DD_BlueTorch'; 	Break;
 				case 'GreenTorch'	: e.replacement =	'DD_GreenTorch'; 	Break;
@@ -116,8 +119,9 @@ Class DestDec_Handler : EventHandler
 				case 'HeadOnAStick'	: e.replacement =	'DD_HeadStick'; 	Break;
 				case 'HeadsOnAStick'	: e.replacement =	'DD_HeadsStick'; 	Break;
 				
-				
+				//
 				//Heretic compat
+				//
 				case 'BrownPillar'	: e.replacement =	'DD_BrownPillar'; 	Break;
 				
 				case 'KeyGizmoBlue'	: e.replacement =	'DD_KeyGizmoBlue'; 	Break;
@@ -129,6 +133,24 @@ Class DestDec_Handler : EventHandler
 				case 'FireBrazier'	: e.replacement =	'DD_FireBrazier'; 	Break;
 				case 'WallTorch'	: e.replacement =	'DD_WallTorch'; 	Break;
 				case 'SerpentTorch'	: e.replacement =	'DD_SerpentTorch'; 	Break;
+				
+				case 'SmallPillar'	: e.replacement =	'DD_SmallPillar'; 	Break;
+				case 'Moss1'	: e.replacement =	'DD_Moss1'; 	Break;
+				case 'Moss2'	: e.replacement =	'DD_Moss2'; 	Break;
+				case 'StalactiteSmall'	: e.replacement =	'DD_StalactiteSmall'; 	Break;
+				case 'StalactiteLarge'	: e.replacement =	'DD_StalactiteLarge'; 	Break;
+				case 'StalagmiteSmall'	: e.replacement =	'DD_StalagmiteSmall'; 	Break;
+				case 'StalagmiteLarge'	: e.replacement =	'DD_StalagmiteLarge'; 	Break;
+				
+				case 'SkullHang35'	: e.replacement =	'DD_Skull35'; 	Break;
+				case 'SkullHang45'	: e.replacement =	'DD_Skull45'; 	Break;
+				case 'SkullHang60'	: e.replacement =	'DD_Skull60'; 	Break;
+				case 'SkullHang70'	: e.replacement =	'DD_Skull70'; 	Break;
+				
+				case 'HangingCorpse'	: e.replacement =	'DD_HangingCorpse'; 	Break;
+				
+				case 'Chandelier'	: e.replacement =	'DD_Candelabra'; 	Break;
+				
 			}
 		}
 	}
