@@ -14,10 +14,14 @@ Class DD_BrownPillar : DD_ShotDecoBase
 			TNT1 A 0 A_jumpif(health < halflife,"MidDamage");
 			loop;
 		MidDamage:
+			TNT1 A 0 A_Startsound("MetalFx",61);
+			TNT1 A 0 A_startsound("TinMetalFx",70);
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(5,10),(0,0,90),random(3,10),random(3,10));
 			HCL1 B -1;
 			stop;
 		Death:
+			TNT1 A 0 A_Startsound("MetalFx",61);
+			TNT1 A 0 A_startsound("TinMetalFx",70);
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(5,10),(0,0,45),random(3,10),random(3,10));
 			HCL1 C -1;
 			stop;
@@ -38,6 +42,7 @@ Class DD_SmallPillar : DD_ShotDecoBase
 			HCB1 A -1;
 			stop;
 		Death:
+			TNT1 A 0 A_Startsound("StoneFx",62);
 			TNT1 A 0 DD_SpawnDebris("RockDebris1",random(6,10),(0,0,40),random(3,8),random(3,8));
 			HCB1 B -1;
 			stop;

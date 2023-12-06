@@ -3,6 +3,7 @@ Class DD_GizmoBase : DD_ShotDecoBase
 	int gizmocolor;
 	property gizmocolor:gizmocolor;
 	Actor Gizmo;
+	Bool GizmoAlive;
 	Default
 	{
 		Radius 16;
@@ -21,6 +22,7 @@ Class DD_GizmoBase : DD_ShotDecoBase
 		Gizmo = Spawn("DD_GizmoBall",(pos.XY,pos.z + 64));
 		if(!Gizmo)
 			return;
+		GizmoAlive = true;
 		switch(col)
 		{
 			case 1: Gizmo.setstatelabel("Spawn_Blue"); break;
@@ -33,8 +35,14 @@ Class DD_GizmoBase : DD_ShotDecoBase
 	virtual void A_KillGizmo()
 	{
 		A_killFlare();
+		if(GizmoAlive)
+		{
+			A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+			A_Startsound("GlassBreakFx",60);
+		}	
 		if(Gizmo)
 			Gizmo.destroy();
+		GizmoAlive = false;
 	}
 	
 	void A_SpawnOrbFxs(string fx = "DD_BS1")
@@ -112,11 +120,13 @@ Class DD_KeyGizmoBlue : DD_GizmoBase
 			loop;
 		MidDamage:
 			TNT1 A 0 A_KillGizmo();
+			TNT1 A 0 A_Startsound("StoneFx",62);
 			TNT1 A 0 DD_SpawnDebris("RockDebris1",random(4,6),(0,0,40),random(3,8),random(3,8));
 			HKH1 B -1;
 			stop;
 		Death:
 			TNT1 A 0 A_KillGizmo();
+			TNT1 A 0 A_Startsound("StoneFx",62);
 			TNT1 A 0 DD_SpawnDebris("RockDebris1",random(4,10),(0,0,40),random(3,8),random(3,8));
 			HKH1 C -1;
 			stop;

@@ -16,7 +16,6 @@ Class DD_FireBrazier : DD_TorchBase
 			TNT1 A 0 A_SpawnSmokeFx(56);
 			loop;
 		NoFire:
-			TNT1 A 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
 			TNT1 A 0 A_killFlare();
 		NoFireLoop:
 			HFH1 A 1;
@@ -25,16 +24,19 @@ Class DD_FireBrazier : DD_TorchBase
 		MidDamage:
 		NoBowl:
 			TNT1 A 0 A_killFlare();
+			TNT1 A 0 A_startsound("TinMetalFx",70);
 			TNT1 A 0 DD_SpawnDebris("GoldScrap1",random(3,5),(0,0,30),random(3,10),random(3,10));
 			HFH1 B -1;
 			stop;
 		Death:
 			TNT1 A 0 A_killFlare();
+			TNT1 A 0 A_Startsound("StoneFx",62);
 			TNT1 A 0 DD_SpawnDebris("RockDebris1",random(4,6),(0,0,40),random(3,8),random(3,8));
 			HFH1 C -1;
 			stop;
 		Xdeath:
 			TNT1 A 0 A_killFlare();
+			TNT1 A 0 A_Startsound("StoneFx",62);
 			TNT1 A 0 DD_SpawnDebris("RockDebris1",random(4,8),(0,0,40),random(3,8),random(3,8));
 			HFH1 D -1;
 			stop;
@@ -108,6 +110,7 @@ Class DD_WallTorch : DD_TorchBase
 			stop;
 		Death:
 			TNT1 A 0 A_killFlare();
+			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 A 0 DD_SpawnDebris("WoodenStickPc",random(3,6),(0,0,35),random(3,10),random(3,10));
 			TNT1 A 1;
 			stop;
@@ -117,6 +120,12 @@ Class DD_WallTorch : DD_TorchBase
 	{
 		super.A_killflare();
 		A_RemoveLight('YFLAR1');
+		if(FireOn)
+		{
+			A_stopsound(69);
+			A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+			FireOn = false;
+		}
 	}
 	
 	override void PostBeginPlay()
@@ -141,6 +150,7 @@ Class DD_SerpentTorch : DD_TorchBase
 	{
 		Spawn:
 			HTR2 A 1 A_SpawnFireFx("DD_RF1",52);
+			TNT1 A 0 A_jumpif(health < slightdamaged,"TorchOff");
 			HTR2 A 1;
 			TNT1 A 0 A_SpawnSmokeFx(56);
 			TNT1 A 0 A_jumpif(health < slightdamaged,"TorchOff");
@@ -149,15 +159,19 @@ Class DD_SerpentTorch : DD_TorchBase
 			TNT1 A 0 A_killFlare();
 		TorchOffLoop:
 			HTR2 A 1;
-			TNT1 A 0 A_jumpif(health < slightdamaged,"MidDamage");
+			TNT1 A 0 A_jumpif(health < halflife,"MidDamage");
 			loop;
 		MidDamage:
 			TNT1 A 0 A_killFlare();
+			TNT1 A 0 A_Startsound("WoodFx",64,0,0.6);
+			TNT1 A 0 A_startsound("TinMetalFx",70);
 			TNT1 A 0 DD_SpawnDebris("HWoodenstick1",random(3,6),(0,0,35),random(3,10),random(3,10));
 			HTR2 B -1;
 			stop;
 		
 		Death:
+			TNT1 A 0 A_startsound("TinMetalFx",70);
+			TNT1 A 0 A_Startsound("WoodFx",64,0,0.65);
 			TNT1 A 0 DD_SpawnDebris("HWoodenstick1",random(4,8),(0,0,35),random(3,10),random(3,10));
 			TNT1 A 0 A_killFlare();
 			HTR2 C -1;
@@ -168,6 +182,12 @@ Class DD_SerpentTorch : DD_TorchBase
 	{
 		super.A_killflare();
 		A_RemoveLight('YFLAR1');
+		if(FireOn)
+		{
+			A_stopsound(69);
+			A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+			FireOn = false;
+		}
 	}
 	
 	override void PostBeginPlay()
@@ -199,10 +219,12 @@ Class DD_Candelabra : DD_ShotDecoBase
 			TNT1 A 0 A_jumpif(health < slightdamaged,"CandilOff");
 			loop;
 		CandilOff:
+			TNT1 A 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
 			TNT1 A 0 A_killFlare();
 			HCND D -1;
 			stop;
 		Death:
+			TNT1 A 0 A_startsound("TinMetalFx",70);
 			TNT1 A 0 A_killFlare();
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(2,6),(0,0,20),random(3,10),random(3,10));
 			HCND E -1;

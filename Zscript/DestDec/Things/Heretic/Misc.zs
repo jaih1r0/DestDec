@@ -14,12 +14,16 @@ Class DD_WoodenBarrel : DD_ShotDecoBase
 			loop;
 			
 		LowDamage:
+			TNT1 A 0 A_startsound("TinMetalFx",70);
+			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(2,5),(0,0,45),random(3,10),random(3,10));
 			TNT1 A 0 DD_SpawnDebris("WoodenStickPc",random(3,6),(0,0,35),random(3,10),random(3,10));
 			HWBR B -1;
 			stop;
 		
 		Death:
+			TNT1 A 0 A_startsound("TinMetalFx",70);
+			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(2,6),(0,0,45),random(3,10),random(3,10));
 			TNT1 A 0 DD_SpawnDebris("WoodenStickPc",random(6,10),(0,0,35),random(3,10),random(3,10));
 			HWBR C -1;
@@ -131,6 +135,7 @@ Class DD_StalactiteSmall : DD_ShotDecoBase
 			STG2 A -1;
 			stop;
 		Death:
+			TNT1 A 0 A_Startsound("StoneFx",62);
 			TNT1 A 0 DD_SpawnDebris("BrownRockDebris1",random(4,6),(0,0,10),random(3,8),random(3,8));
 			STG2 B -1;
 			stop;
@@ -158,6 +163,7 @@ Class DD_StalactiteLarge : DD_StalactiteSmall
 			STG1 A -1;
 			stop;
 		Death:
+			TNT1 A 0 A_Startsound("StoneFx",62);
 			TNT1 A 0 DD_SpawnDebris("BrownRockDebris1",random(5,10),(0,0,40),random(3,8),random(3,8));
 			STG1 B -1;
 			stop;
@@ -178,6 +184,7 @@ Class DD_StalagmiteSmall : DD_ShotDecoBase
 			STG4 A -1;
 			stop;
 		Death:
+			TNT1 A 0 A_Startsound("StoneFx",62);
 			TNT1 A 0 DD_SpawnDebris("BrownRockDebris1",random(4,6),(0,0,10),random(3,8),random(3,8));
 			STG4 B -1;
 			stop;
@@ -198,6 +205,7 @@ Class DD_StalagmiteLarge : DD_StalagmiteSmall
 			STG3 A -1;
 			stop;
 		Death:
+			TNT1 A 0 A_Startsound("StoneFx",62);
 			TNT1 A 0 DD_SpawnDebris("BrownRockDebris1",random(5,10),(0,0,40),random(3,8),random(3,8));
 			STG3 B -1;
 			stop;
@@ -230,6 +238,8 @@ Class DD_Volcano : DD_ShotDecoBase
 			HVLC GGGG 1 A_SpawnVolcSmokeFx();
 			loop;
 		Death:
+			TNT1 A 0 A_Startsound("StoneFx",62);
+			TNT1 A 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
 			TNT1 A 0 DD_VBlast();//DD_VolcanoBlast();
 			TNT1 A 0 A_SpawnVolcanoFireFx();
 			TNT1 A 0 DD_SpawnDebris("BrownRockDebris1",random(4,8),(0,0,12),random(3,8),random(3,8));

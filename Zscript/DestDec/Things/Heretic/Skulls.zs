@@ -42,6 +42,7 @@ Class DD_Skull35 : DD_HangingSkullBase
 			stop;
 		Death:
 			TNT1 A 0 A_SpawnSmokeSkull(0,0,20);
+			TNT1 A 0 A_Startsound("SkullFx",63);
 			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,15),random(3,6),random(3,7));
 			HSK1 B -1;
 			stop;
@@ -61,6 +62,7 @@ Class DD_Skull45 : DD_HangingSkullBase
 			stop;
 		Death:
 			TNT1 A 0 A_SpawnSmokeSkull(0,0,15);
+			TNT1 A 0 A_Startsound("SkullFx",63);
 			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,20),random(3,6),random(3,7));
 			HSK2 B -1;
 			stop;
@@ -80,6 +82,7 @@ Class DD_Skull60 : DD_HangingSkullBase
 			stop;
 		Death:
 			TNT1 A 0 A_SpawnSmokeSkull(0,0,10);
+			TNT1 A 0 A_Startsound("SkullFx",63);
 			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,30),random(3,6),random(3,7));
 			HSK3 B -1;
 			stop;
@@ -100,6 +103,7 @@ Class DD_Skull70 : DD_HangingSkullBase
 			stop;
 		Death:
 			TNT1 A 0 A_SpawnSmokeSkull();
+			TNT1 A 0 A_Startsound("SkullFx",63);
 			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,35),random(3,6),random(3,7));
 			HSK4 B -1;
 			stop;
