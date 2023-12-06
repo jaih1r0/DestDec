@@ -16,9 +16,6 @@ Class DD_FireBrazier : DD_TorchBase
 			TNT1 A 0 A_SpawnSmokeFx(56);
 			loop;
 		NoFire:
-			TNT1 A 0 A_RemoveLight('YFLAR1');
-			TNT1 A 0 A_stopsound(69);
-			TNT1 A 0 DD_TurnTorchFire();
 			TNT1 A 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
 			TNT1 A 0 A_killFlare();
 		NoFireLoop:
@@ -27,25 +24,32 @@ Class DD_FireBrazier : DD_TorchBase
 			loop;
 		MidDamage:
 		NoBowl:
-			TNT1 A 0 A_RemoveLight('YFLAR1');
 			TNT1 A 0 A_killFlare();
 			TNT1 A 0 DD_SpawnDebris("GoldScrap1",random(3,5),(0,0,30),random(3,10),random(3,10));
 			HFH1 B -1;
 			stop;
 		Death:
-			TNT1 A 0 A_RemoveLight('YFLAR1');
 			TNT1 A 0 A_killFlare();
 			TNT1 A 0 DD_SpawnDebris("RockDebris1",random(4,6),(0,0,40),random(3,8),random(3,8));
 			HFH1 C -1;
 			stop;
 		Xdeath:
-			TNT1 A 0 A_RemoveLight('YFLAR1');
-			TNT1 A 0 A_stopsound(69);
-			TNT1 A 0 DD_TurnTorchFire();
 			TNT1 A 0 A_killFlare();
 			TNT1 A 0 DD_SpawnDebris("RockDebris1",random(4,8),(0,0,40),random(3,8),random(3,8));
 			HFH1 D -1;
 			stop;
+	}
+	
+	override void A_KillFlare()
+	{
+		super.A_killflare();
+		A_RemoveLight('YFLAR1');
+		if(FireOn)
+		{
+			A_stopsound(69);
+			A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+			FireOn = false;
+		}
 	}
 	
 	override void PostBeginPlay()
@@ -68,10 +72,10 @@ Class DD_FireBrazier : DD_TorchBase
 		FireParticle.RollVel = frandom(-0.5,0.5);
 		FireParticle.StartAlpha = 0.45;
 		FireParticle.FadeStep = -0.1;
-		FireParticle.Size = frandom(20,42);
-		FireParticle.SizeStep = -0.5;
+		FireParticle.Size = frandom(35,50);
+		FireParticle.SizeStep = -0.8;
 		FireParticle.Lifetime = FRandom (35,35*3); 
-		FireParticle.Pos = vec3offset(0,0,zoffset);
+		FireParticle.Pos = vec3offset(random(-6,6),random(-6,6),zoffset);
 		
 		Level.SpawnParticle (FireParticle);
 	}
@@ -99,17 +103,20 @@ Class DD_WallTorch : DD_TorchBase
 			loop;
 			
 		TorchOff:
-			TNT1 A 0 A_RemoveLight('YFLAR1');
 			TNT1 A 0 A_killFlare();
 			HTR1 A -1;
 			stop;
 		Death:
-			TNT1 A 0 A_RemoveLight('YFLAR1');
 			TNT1 A 0 A_killFlare();
 			TNT1 A 0 DD_SpawnDebris("WoodenStickPc",random(3,6),(0,0,35),random(3,10),random(3,10));
 			TNT1 A 1;
 			stop;
 			
+	}
+	override void A_KillFlare()
+	{
+		super.A_killflare();
+		A_RemoveLight('YFLAR1');
 	}
 	
 	override void PostBeginPlay()
@@ -139,14 +146,12 @@ Class DD_SerpentTorch : DD_TorchBase
 			TNT1 A 0 A_jumpif(health < slightdamaged,"TorchOff");
 			loop;
 		TorchOff:
-			TNT1 A 0 A_RemoveLight('YFLAR1');
 			TNT1 A 0 A_killFlare();
 		TorchOffLoop:
 			HTR2 A 1;
 			TNT1 A 0 A_jumpif(health < slightdamaged,"MidDamage");
 			loop;
 		MidDamage:
-			TNT1 A 0 A_RemoveLight('YFLAR1');
 			TNT1 A 0 A_killFlare();
 			TNT1 A 0 DD_SpawnDebris("HWoodenstick1",random(3,6),(0,0,35),random(3,10),random(3,10));
 			HTR2 B -1;
@@ -157,6 +162,12 @@ Class DD_SerpentTorch : DD_TorchBase
 			TNT1 A 0 A_killFlare();
 			HTR2 C -1;
 			stop;
+	}
+	
+	override void A_KillFlare()
+	{
+		super.A_killflare();
+		A_RemoveLight('YFLAR1');
 	}
 	
 	override void PostBeginPlay()
@@ -188,17 +199,22 @@ Class DD_Candelabra : DD_ShotDecoBase
 			TNT1 A 0 A_jumpif(health < slightdamaged,"CandilOff");
 			loop;
 		CandilOff:
-			TNT1 A 0 A_RemoveLight('YFLAR1');
 			TNT1 A 0 A_killFlare();
 			HCND D -1;
 			stop;
 		Death:
-			TNT1 A 0 A_RemoveLight('YFLAR1');
 			TNT1 A 0 A_killFlare();
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(2,6),(0,0,20),random(3,10),random(3,10));
 			HCND E -1;
 			stop;
 	}
+	
+	override void A_KillFlare()
+	{
+		super.A_killflare();
+		A_RemoveLight('YFLAR1');
+	}
+	
 	override void PostBeginPlay()
 	{
 		super.postbeginplay();

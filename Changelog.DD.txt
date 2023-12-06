@@ -1,0 +1,7 @@
+===	Destroyable Decorations v1	===
+-Initial Release of this mod
+
+===	Destroyable Decorations v2	===
+-Added Heretic Compatibility
+-Added option to modify the health of the decorations (and a second option for barrels)
+-Added a Sigil wad Compatibility option

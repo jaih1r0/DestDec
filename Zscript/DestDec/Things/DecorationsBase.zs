@@ -67,7 +67,7 @@ Class DD_ShotDecoBase : Actor
 	}
 	
 	
-	void A_killFlare()
+	virtual void A_killFlare()
 	{
 		if(FB)
 			FB.Destroy();

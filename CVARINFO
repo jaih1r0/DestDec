@@ -5,8 +5,11 @@ server int DD_MaxGibsAllowed = 128;
 Server bool DD_NoBarrelNukage = false;
 server bool DD_ReplaceBarrels = true;
 Server Bool DD_DynLights = true;
+Server Bool DD_ReplacePods = true;
+Server Bool DD_ReplaceVolcano = true;
 
 Server Float DD_HealthMulti = 1.0;
 Server Float DD_BarrelHltMulti = 1.0;
 
+Server Bool DD_SigilEvEyes = false;
 Server Bool DD_Working = true;

@@ -151,6 +151,11 @@ Class DestDec_Handler : EventHandler
 				
 				case 'Chandelier'	: e.replacement =	'DD_Candelabra'; 	Break;
 				
+				case 'Pod'	: e.replacement =	DD_ReplacePods ? 'DD_Pod'  : 'Pod'; 	Break; 
+				
+				case 'volcanoblast'	: e.replacement =	DD_ReplaceVolcano ? 'DD_VolcanoBlaster' : 'VolcanoBlast'; 	Break;
+				case 'Volcano'	: e.replacement =	DD_ReplaceVolcano ? 'DD_Volcano' : 'Volcano'; 	Break;
+				
 			}
 		}
 	}

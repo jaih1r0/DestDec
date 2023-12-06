@@ -11,15 +11,21 @@ DD_BARREP = "\cfReplace Nukage/Burning Barrel: ";
 DD_DYNLIGHTS = "\cfAllow Dynamic Lights: ";
 DD_MULHT = "\cfDecorations Health Multiplier: ";
 DD_MULHTBAR = "\cfBarrels Health Multiplier:";
+DD_SIGILEYES = "\cfSigil Compatibility: ";
+DD_HERETICPOD = "\cfReplace Heretic Pods: ";
+DD_HERETICVOLCANO = "\cfReplace Heretic Volcano's: ";
 DD_TIP_SMOKE = "\czNote: smoke may affect the performance.";
 DD_TIP_BARREL = "\czSome levels may have too many barrels...";
 DD_TIP_BARREP = "\czSome mods may have its own barrel with functinoality attached to them, \nthis option is for those cases";
 DD_TIP_DYNLGT = "\czDynamic Lights may tank performance.";
 DD_TIP_HEALTH1 = "\czThis slider multiplies the default health of a decoration.\nuseful to tweak the decorations resistance";
 DD_TIP_HEALTH2 = "\czSame as above, but for barrels, leave this at 1.0 if the map requires the default behavior barrels";
+DD_TIP_SIGEYE = "\czMakes the 'Evil Eye' unshootable, useful for sigil or similar maps.";
 
 DD_ENAB1 = "\cdEnabled";
 DD_DISAB1 = "\crDisabled";
 
 DD_INSTEFFECT = "\cxThese options take effect instantly";
 DD_MAPEFFECT = "\cxThese options take effect on map change";
+
+DD_HERETICS = "\cdHeretic Specific";

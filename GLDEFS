@@ -1,4 +1,12 @@
-Brightmap sprite BRNKA0 { map "Brightmaps/Things/BArrels/BMBRNKA0.png" DisableFullBright}
+Brightmap sprite BRNKA0 { map "Brightmaps/Things/Barrels/BMBRNKA0.png" DisableFullBright}
+
+Brightmap sprite HVLCA0 { map "Brightmaps/Things/Volcano/volcbm1.png" DisableFullBright}
+Brightmap sprite HVLCB0 { map "Brightmaps/Things/Volcano/volcbm1.png" DisableFullBright}
+Brightmap sprite HVLCC0 { map "Brightmaps/Things/Volcano/volcbm1.png" DisableFullBright}
+Brightmap sprite HVLCG0 { map "Brightmaps/Things/Volcano/volcbm1.png" DisableFullBright}
+Brightmap sprite HVLCD0 { map "Brightmaps/Things/Volcano/volcbm2.png" DisableFullBright}
+Brightmap sprite HVLCE0 { map "Brightmaps/Things/Volcano/volcbm2.png" DisableFullBright}
+Brightmap sprite HVLCF0 { map "Brightmaps/Things/Volcano/volcbm2.png" DisableFullBright}
 
 
 //Things Lights

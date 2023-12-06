@@ -326,6 +326,8 @@ Class DD_EvilierEye : DD_ShotDecoBase //replaces EvilEye
 	{
 		A_SpawnLensFlare("DD_GreenFlare",14,(0.2,0.2));
 		candil = Spawn("DD_DummyCandil",self.pos);
+		if(DD_SigilEvEyes)
+			self.bShootable = false;
 		super.postbeginplay();
 	}
 	
@@ -412,7 +414,7 @@ Class DD_TechPillar : DD_ShotDecoBase //replaces TechPillar
 		LowDamage:
 			TNT1 A 0 A_Startsound("MetalFx",61);
 			TNT1 A 0 A_Startsound("GlassBreakFx",60);
-			TNT1 A 0 DD_SpawnDebris("GlassShard1",random(5,9),(0,0,40),random(3,8),random(3,8));
+			TNT1 A 0 DD_SpawnDebris("GlassShard1",random(5,9),(0,0,90),random(3,8),random(3,8));
 		LowDamageLoop:
 			TCPD A 1 A_jumpif(health < halflife,"MidDamage");
 			loop;
@@ -420,7 +422,7 @@ Class DD_TechPillar : DD_ShotDecoBase //replaces TechPillar
 		MidDamage:
 			TNT1 A 0 A_Startsound("MetalFx",61);
 			TNT1 A 0 A_startsound("TinMetalFx",70);
-			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(4,7),(0,0,40),random(3,8),random(3,8));
+			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(4,7),(0,0,60),random(3,8),random(3,8));
 		MidDamageLoop:
 			TCPD B -1;
 			stop;

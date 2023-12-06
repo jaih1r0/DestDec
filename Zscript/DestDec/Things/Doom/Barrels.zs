@@ -25,7 +25,7 @@ Class DD_IncendiaryBarrel : DD_ShotDecoBase //replaces burningbarrel
 			TNT1 A 0 A_QuakeEx(2,2,2,6,0,150,"");
 			TNT1 A 0 A_Startsound("world/barrelx",32);
 			TNT1 A 0 A_Spawnitem("DD_BarrelExplosionFx");
-			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(5,8),(0,0,40),random(3,10),random(3,10));
+			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(10,16),(0,0,40),random(3,10),random(3,10));
 			TNT1 A 0 A_explode(30,-1);
 			TNT1 AAA 0 A_SpawnIncSmokeFx(20);
 			TNT1 A 0 A_SpawnEndSmokeFx(0,0,30);
@@ -46,7 +46,7 @@ Class DD_IncendiaryBarrel : DD_ShotDecoBase //replaces burningbarrel
 		IncFx.StartAlpha = 0.45;
 		IncFx.FadeStep = -0.1;
 		IncFx.Size = frandom(40,60);
-		IncFx.SizeStep = -0.5;
+		IncFx.SizeStep = -0.7;
 		IncFx.Lifetime = FRandom (35,35*3); 
 		IncFx.Pos = vec3offset(random(-2,2),random(-2,2),32);
 		Level.SpawnParticle (IncFx);
@@ -142,7 +142,7 @@ Class DD_NukageBarrel :DD_ShotDecoBase //replaces explosivebarrel
 			TNT1 A 0 A_QuakeEx(2,2,2,10,0,150,"");
 			TNT1 A 0 A_Startsound("world/barrelx",32);
 			TNT1 A 0 A_Spawnitem("DD_BarrelExplosionFx");
-			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(5,8),(0,0,40),random(3,10),random(3,10));
+			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(10,16),(0,0,40),random(3,10),random(3,10));
 			TNT1 A 0 A_SpawnEndSmokeFx(0,0,30);
 			BRNK D 10 A_explode();
 			BRNK D 350;
@@ -162,6 +162,7 @@ Class DD_NukageBarrel :DD_ShotDecoBase //replaces explosivebarrel
 			A_AttachLightDef('NUKEBAR1',"GreentorchLightSmall");
 		super.postbeginplay();
 	}
+	
 	
 	Void A_SpawnBarrelNukage()
 	{
