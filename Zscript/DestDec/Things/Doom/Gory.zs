@@ -2,6 +2,13 @@ Class DD_GoryDec : DD_ShotDecoBase
 {
 	
 	bool StopBleed;
+	//this is just because a head on a stick wont be gibbing and spawning tons of blood, isnt?
+	bool isGibbingCorpse;
+	property isGibbingCorpse : isGibbingCorpse;
+	default
+	{
+		DD_GoryDec.isGibbingCorpse true;
+	}
 	
 	void A_SpawnBloodMist1(vector3 where)//(int xofs = 0,int yofs = 0, int zofs = 0)
 	{
@@ -29,9 +36,13 @@ Class DD_GoryDec : DD_ShotDecoBase
 	
 	override void SpawnLineAttackBlood(Actor attacker, Vector3 bleedpos, double SrcAngleFromTarget, int originaldamage, int actualdamage)
 	{
-		return;
-		//A_SpawnBloodMist1(bleedpos);
+		//if the custom blood isnt allowed, or is not a corpse, return the function here
+		if(!DD_AllowCustomBlood || !isGibbingCorpse)
+			return;
+			
+		super.SpawnLineAttackBlood(attacker,bleedpos,SrcAngleFromTarget,originaldamage,actualdamage);
 	}
+	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
 		if(inflictor)
@@ -44,6 +55,20 @@ Class DD_GoryDec : DD_ShotDecoBase
 	{
 		super.Die(Source,inflictor,dmgflags,meansofdeath);
 		self.bnogravity = true;
+	}
+	
+	override void postbeginplay()
+	{
+		super.postbeginplay();
+		
+		//if custom blood is allowed and its a corpse, make this a monster that doesnt count towards kills,
+		//allowing it to spawn blood
+		if(DD_AllowCustomBlood && isGibbingCorpse)
+		{
+			bismonster = true;
+			bcountkill = false;
+			bnoblood = false;
+		}
 	}
 	
 }
@@ -392,6 +417,7 @@ Class DD_DeadStick : DD_GoryDec //replaces DeadStick
 		Height 64;
 		ProjectilePassHeight -16;
 		+SOLID;
+		
 	}
 	states
 	{
@@ -441,6 +467,7 @@ Class DD_HeadStick : DD_GoryDec //replaces HeadOnAStick
 		Radius 16;
 		Height 56;
 		ProjectilePassHeight -16;
+		DD_GoryDec.isGibbingCorpse false;
 		+SOLID
 	}
 	states
@@ -471,6 +498,7 @@ Class DD_HeadsStick : DD_GoryDec //replaces HeadsOnAStick
 		Height 64;;
 		ProjectilePassHeight -16;
 		+SOLID
+		DD_GoryDec.isGibbingCorpse false;
 		health 350;
 	}
 	int headsleft;
