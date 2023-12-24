@@ -138,4 +138,9 @@ Class DD_HangingCorpse : DD_GoryDec
 			HHC1 C -1;
 			stop;
 	}
+	
+	override string DD_GetBonusDrop()
+	{
+		return "CrystalVial";
+	}
 }

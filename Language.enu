@@ -15,6 +15,7 @@ DD_SIGILEYES = "\cfSigil Compatibility: ";
 DD_HERETICPOD = "\cfReplace Heretic Pods: ";
 DD_HERETICVOLCANO = "\cfReplace Heretic Volcano's: ";
 DD_CUSTOMBLUD = "\cfAllows gory decorations to spawn blood: ";
+DD_BONUSHCRP = "\cfAllows gory decorations to spawn health bonuses when destroyed: ";
 
 DD_TIP_SMOKE = "\czNote: smoke may affect the performance.";
 DD_TIP_BARREL = "\czSome levels may have too many barrels...";
@@ -24,6 +25,7 @@ DD_TIP_HEALTH1 = "\czThis slider multiplies the default health of a decoration.\
 DD_TIP_HEALTH2 = "\czSame as above, but for barrels, leave this at 1.0 if the map requires the default behavior barrels";
 DD_TIP_SIGEYE = "\czMakes the 'Evil Eye' unshootable, useful for sigil or similar maps.";
 DD_TIP_CUSTOMBLUD = "\czUse this if using custom gore mods to allow custom blood";
+DD_TIP_BONCRPH = "\cz*Health bonus spawned by this wont count towards the items counter\nunless another mod replaces them with something not inheriting from inventory";
 
 DD_ENAB1 = "\cdEnabled";
 DD_DISAB1 = "\crDisabled";

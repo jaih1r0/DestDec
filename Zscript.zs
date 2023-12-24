@@ -6,6 +6,7 @@ Version "4.3"
 
 #include "Zscript/DestDec/Handler/Handler.zs"
 #include "Zscript/DestDec/Things/DecorationsBase.zs"
+#include "Zscript/DestDec/Things/GoryBase.zs"
 
 //Doom
 #include "Zscript/DestDec/Things/Doom/Lamps.zs"
