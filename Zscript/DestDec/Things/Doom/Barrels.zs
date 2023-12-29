@@ -26,9 +26,11 @@ Class DD_IncendiaryBarrel : DD_ShotDecoBase //replaces burningbarrel
 			TNT1 A 0 A_Startsound("world/barrelx",32);
 			TNT1 A 0 A_Spawnitem("DD_BarrelExplosionFx");
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(10,16),(0,0,40),random(3,10),random(3,10));
+			TNT1 A 0 SpawnExploFx();
+			TNT1 AAA 0 A_SpawnSparksFx1();
 			TNT1 A 0 A_explode(30,-1);
-			TNT1 AAA 0 A_SpawnIncSmokeFx(20);
-			TNT1 A 0 A_SpawnEndSmokeFx(0,0,30);
+			TNT1 AAA 0 A_SpawnIncSmokeFx(10);
+			TNT1 AA 0 A_SpawnEndSmokeFx(0,0,40);
 			TNT1 A 6;
 			stop;
 	}
@@ -88,6 +90,31 @@ Class DD_IncendiaryBarrel : DD_ShotDecoBase //replaces burningbarrel
 			A_AttachLightDef('FIREBAR1',"BurningBarrelFire");
 		super.postbeginplay();
 	}
+	
+	Void SpawnExploFx()
+	{
+		FSpawnParticleParams XPFX;
+		XPFX.Texture = TexMan.CheckForTexture("DD_RF1");
+		XPFX.Color1 = "FFFFFF";
+		XPFX.Style = STYLE_Add;
+		XPFX.Flags = SPF_ROLL|SPF_FULLBRIGHT;
+		XPFX.Startroll = random(0,360);
+		XPFX.RollVel = frandom(-0.5,0.5);
+		XPFX.StartAlpha = 0.60;
+		XPFX.FadeStep = -0.1;
+		int f = random(3,6);
+		for(int i = 0; i < f; i++)
+		{
+			XPFX.Size = frandom(60,70);
+			XPFX.SizeStep = -1.5;
+			XPFX.Lifetime = FRandom (35,35*2); 
+			XPFX.Pos = vec3offset(random(-2,2),random(-2,2),random(10,32));
+			XPFX.Vel = (FRandom (-2,2),FRandom (-2,2),FRandom (2.5,6.0));
+			XPFX.Accel = (0,0,frandom(-0.35,-0.15));
+			Level.SpawnParticle (XPFX);
+		}
+	}
+	
 }
 
 Class DD_BarrelExplosionFx : NoTickActor
@@ -111,7 +138,7 @@ Class DD_BarrelExplosionFx : NoTickActor
 	}
 }
 
-Class DD_NukageBarrel :DD_ShotDecoBase //replaces explosivebarrel
+Class DD_NukageBarrel : DD_ShotDecoBase //replaces explosivebarrel
 {
 	default
 	{
@@ -144,7 +171,10 @@ Class DD_NukageBarrel :DD_ShotDecoBase //replaces explosivebarrel
 			TNT1 A 0 A_Spawnitem("DD_BarrelExplosionFx");
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(10,16),(0,0,40),random(3,10),random(3,10));
 			TNT1 A 0 A_SpawnEndSmokeFx(0,0,30);
+			TNT1 A 0 SpawnExploFx();
 			BRNK D 10 A_explode();
+			TNT1 AAA 0 A_SpawnSparksFx1();
+			TNT1 A 0 A_SpawnEndSmokeFx(0,0,50);
 			BRNK D 350;
 			BRNK DDDDDDDD 1 A_Fadeout(0.1);
 			stop;
@@ -184,4 +214,30 @@ Class DD_NukageBarrel :DD_ShotDecoBase //replaces explosivebarrel
 		
 		Level.SpawnParticle (NKGFX);
 	}
+	
+	Void SpawnExploFx()
+	{
+		FSpawnParticleParams XPFX;
+		XPFX.Texture = TexMan.CheckForTexture("DD_RF1");
+		XPFX.Color1 = "FFFFFF";
+		XPFX.Style = STYLE_Add;
+		XPFX.Flags = SPF_ROLL|SPF_FULLBRIGHT;
+		XPFX.Startroll = random(0,360);
+		XPFX.RollVel = frandom(-0.5,0.5);
+		XPFX.StartAlpha = 0.45;
+		XPFX.FadeStep = -0.1;
+		int f = random(2,4);
+		for(int i = 0; i < f; i++)
+		{
+			XPFX.Size = frandom(60,70);
+			XPFX.SizeStep = -0.7;
+			XPFX.Lifetime = FRandom (35,35*2); 
+			XPFX.Pos = vec3offset(random(-2,2),random(-2,2),random(10,32));
+			//XPFX.Vel = (FRandom (-2,2),FRandom (-2,2),FRandom (-0.5,2.5)); 
+			XPFX.Vel = (FRandom (-2,2),FRandom (-2,2),FRandom (2.5,6.0));
+			XPFX.Accel = (0,0,frandom(-0.35,-0.15));
+			Level.SpawnParticle (XPFX);
+		}
+	}
+	
 }
