@@ -322,6 +322,10 @@ Class DD_EvilierEye : DD_GoryDec //replaces EvilEye
 		super.tick();
 	}
 	
+	override string DD_GetBonusDrop()
+	{
+		return "";
+	}
 	override void postbeginplay()
 	{
 		A_SpawnLensFlare("DD_GreenFlare",14,(0.2,0.2));
