@@ -8,6 +8,7 @@ Class DD_GoryDec : DD_ShotDecoBase
 	default
 	{
 		DD_GoryDec.isGibbingCorpse true;
+		+noicedeath;
 	}
 	
 	void A_SpawnBloodMist1(vector3 where)//(int xofs = 0,int yofs = 0, int zofs = 0)

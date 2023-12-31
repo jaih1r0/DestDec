@@ -1,0 +1,23 @@
+excludeactor DD_BloodyTwitch
+excludeactor DD_NonSolidTwitch
+excludeactor DD_Meat2
+excludeactor DD_Meat3
+excludeactor DD_Meat4
+excludeactor DD_Meat5
+excludeactor DD_Meat2b
+excludeactor DD_Meat3b
+excludeactor DD_Meat4b
+excludeactor DD_Meat5b
+excludeactor DD_Hang1NG
+excludeactor DD_Hang2NB
+excludeactor DD_Hang3TLD
+excludeactor DD_HAng4TLU
+excludeactor DD_HangTSK
+excludeactor DD_HangTNB
+excludeactor DD_DeadStick
+excludeactor DD_livestick
+excludeactor DD_HeadStick
+excludeactor DD_HeadsStick
+excludeactor DD_HangingCorpse
+excludeactor DD_EvilierEye
+

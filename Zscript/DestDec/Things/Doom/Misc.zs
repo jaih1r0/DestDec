@@ -255,7 +255,7 @@ Class DD_HeadCandles : DD_GoryDec //replaces HeadCandles
 	}
 }
 
-Class DD_EvilierEye : DD_ShotDecoBase //replaces EvilEye
+Class DD_EvilierEye : DD_GoryDec //replaces EvilEye
 {
 	Default
 	{
