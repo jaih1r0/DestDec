@@ -5,6 +5,7 @@ DD_MaxDebs = "\cfMax number of debris: ";
 DD_BUTNOW = "\cfClear Debris Now, the button: ";
 DD_SMOKE = "\cfAllow Smoke Effects: ";
 DD_FLARES = "\cfAllow Flare effects: ";
+DD_FLARESALFA = "\cfFlare effects alpha: ";
 DD_BLUDMS = "\cfAllow Blood Effects: ";
 DD_BARFX = "\cfAllow Barrel Nukage effects: ";
 DD_BARREP = "\cfReplace Nukage/Burning Barrel: ";

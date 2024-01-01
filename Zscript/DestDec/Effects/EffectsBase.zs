@@ -62,6 +62,7 @@ Class DD_FlareBase : NoTickActor
 	override void beginplay()
 	{
 		//if the flares are disabled, die
+		alpha = DD_Flarealpha;
 		if(DD_NoFlares)
 			destroy();
 		super.beginplay();
