@@ -352,6 +352,7 @@ Class DD_DeadStick : DD_GoryDec //replaces DeadStick
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(8,12),(0,0,40),random(3,6),random(3,7));
 			TNT1 A 0 DD_SpawnDebris("PinkSkullDebris1",1,(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 { bnoblood = true; }
 			0RE3 E -1;
 			stop;
 	}
@@ -378,6 +379,7 @@ Class DD_liveStick : DD_GoryDec //replaces livestick
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(8,12),(0,0,40),random(3,6),random(3,7));
 			TNT1 A 0 DD_SpawnDebris("PinkSkullDebris1",1,(0,0,40),random(3,6),random(3,7));
 			TNT1 A 0 DD_SpawnDebris("HeartofGlass1",1,(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 { bnoblood = true; }
 			0RE3 E -1;
 			stop;
 	}

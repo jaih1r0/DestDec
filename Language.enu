@@ -17,6 +17,7 @@ DD_HERETICPOD = "\cfReplace Heretic Pods: ";
 DD_HERETICVOLCANO = "\cfReplace Heretic Volcano's: ";
 DD_CUSTOMBLUD = "\cfAllows gory decorations to spawn blood: ";
 DD_BONUSHCRP = "\cfAllows gory decorations to spawn health bonuses when destroyed: ";
+DD_BURNNATURE = "\cfNature decorations burns when fired with fire/plasma attacks: ";
 
 DD_TIP_SMOKE = "\czNote: smoke may affect the performance.";
 DD_TIP_BARREL = "\czSome levels may have too many barrels...";
@@ -27,11 +28,12 @@ DD_TIP_HEALTH2 = "\czSame as above, but for barrels, leave this at 1.0 if the ma
 DD_TIP_SIGEYE = "\czMakes the 'Evil Eye' unshootable, useful for sigil or similar maps.";
 DD_TIP_CUSTOMBLUD = "\czUse this if using custom gore mods to allow custom blood";
 DD_TIP_BONCRPH = "\cz*Health bonus spawned by this wont count towards the items counter\nunless another mod replaces them with something not inheriting from inventory";
+DD_TIP_TREEBURN = "\cz*they only burn when damaged with attacks with fire/plasma damage type explicitly defined";
 
 DD_ENAB1 = "\cdEnabled";
 DD_DISAB1 = "\crDisabled";
 
-DD_INSTEFFECT = "\cxThese options take effect instantly";
-DD_MAPEFFECT = "\cxThese options take effect on map change";
+DD_INSTEFFECT = "\ct=========\cc These options take effect instantly \ct=========\c-";
+DD_MAPEFFECT = "\ct=========\cc These options take effect on map change \ct=========\c-";
 
 DD_HERETICS = "\cdHeretic Specific";

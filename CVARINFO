@@ -10,6 +10,8 @@ Server Bool DD_ReplaceVolcano = true;
 Server Bool DD_AllowCustomBlood = false;
 Server Bool DD_CrpSpwnbonus = false;
 server float DD_Flarealpha = 1.0;
+server bool DD_NoFlareDim = false;
+server bool DD_NoBurnTree = false;
 
 Server Float DD_HealthMulti = 1.0;
 Server Float DD_BarrelHltMulti = 1.0;

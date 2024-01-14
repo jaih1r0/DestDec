@@ -1,5 +1,8 @@
 Class DD_NatureThing : DD_ShotDecoBase
 {
+	mixin DD_BurnableThing;
+	int firesep;
+	
 	void A_SpawnFiringDeath(int xofs = 0,int yofs = 0,int zofs = 50)
 	{
 		FSpawnParticleParams BurningParticle;
@@ -38,6 +41,32 @@ Class DD_NatureThing : DD_ShotDecoBase
 		Smkfx.Pos = vec3offset(xofs,yofs,zofs);
 		
 		Level.SpawnParticle (Smkfx);
+	}
+	
+	override void postbeginplay()
+	{
+		SetUpBurnableThing(self);
+		firesep = random(3,5);
+		super.postbeginplay();
+	}
+	
+	override void tick()
+	{
+		super.tick();
+		DD_handleBurning(fireevery: (firesep > 0 ? firesep : 3),ofs: (random(-radius,radius),random(-radius,radius),random(15,30)),who: self);
+	}
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		if(health > 0 && (mod == 'Fire' || mod == 'Electric' ||mod == 'plasma' || mod == 'Incinerate' || mod == 'Disintegrate'))
+			AddBurnDamage(damage);
+		return super.damagemobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	override void Die(Actor source, Actor inflictor, int dmgflags, Name MeansOfDeath)
+	{
+		A_stopsound(39);
+		super.Die(source, inflictor, dmgflags, MeansOfDeath);
 	}
 	
 }
@@ -95,7 +124,7 @@ Class DD_BigTree : DD_NatureThing //replaces BigTree
 			TNT1 A 0 DD_SpawnDebris("BigWoodStick",random(4,7),(0,0,40),random(3,8),random(3,8));
 			BTR3 E -1;
 			stop;
-			
+		/*	
 		Death.Electric:
 		Death.Fire:
 		Death.Plasma:
@@ -112,8 +141,16 @@ Class DD_BigTree : DD_NatureThing //replaces BigTree
 			BTR3 "#" 0 A_KillFlare();
 			BTR3 "#" 0 A_SpawnEndSmokeFx(random(-radius,radius),random(-radius,radius),45);
 			BTR3 "#" -1;
-			stop;
+			stop;*/
 	}
+	
+	override void tick()
+	{
+		DD_ShotDecoBase.tick();
+		double zof = height - (15 * (1 + stateact)) + random(-5,5); //when the tree dies, the particles spawns under the floor, so below i check if this is more than 0 to avoid that
+		DD_handleBurning(fireevery: (firesep > 0 ? firesep : 3),ofs: (random(-radius,radius),random(-radius,radius),zof > 0 ? zof : random(10,20)),who: self);
+	}
+	
 }
 
 
@@ -138,7 +175,7 @@ Class DD_torchTree : DD_NatureThing //replaces TorchTree
 			TRE3 B -1;
 			stop;
 		
-		Death.Electric:
+		/*Death.Electric:
 		Death.plasma:
 		Death.Fire:
 			TNT1 A 0 A_settranslation("Burned");
@@ -152,7 +189,7 @@ Class DD_torchTree : DD_NatureThing //replaces TorchTree
 			TNT1 A 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
 			TNT1 A 0 A_killflare();
 			TRE3 B -1;
-			stop;
+			stop;*/
 			
 	}
 }

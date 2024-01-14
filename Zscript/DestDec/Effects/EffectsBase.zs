@@ -38,6 +38,8 @@ Class DD_FlareBase : NoTickActor
 	Actor Atc; //the actor this flare is attached to
 	int zofs; //the height offset (used to keep it in place)
 	vector3 atclastpos; //a vector 3 used to keep track of the last pos of the actor, if it changes, we need to move, otherwise, just dont do anything
+	double startalfa,subalfa; //the initial alpha and how many alpha substract
+	int dimofstime;
 	
 	override void tick()
 	{
@@ -55,17 +57,35 @@ Class DD_FlareBase : NoTickActor
 		if(atclastpos != atc.pos)
 			setorigin((atc.pos.XY,atc.pos.z + zofs),1);
 		
+		DimFlare();
+		
 		//update the last known pos
-		atclastpos = atc.pos;
+		atclastpos = atc ? atc.pos : atclastpos;
 	}
 	
 	override void beginplay()
 	{
 		//if the flares are disabled, die
-		alpha = DD_Flarealpha;
 		if(DD_NoFlares)
 			destroy();
+		startalfa = DD_Flarealpha;
+		alpha = startalfa;
+		subalfa = startalfa * 0.1;
+		dimofstime = randompick(5,10,15,20);
 		super.beginplay();
+	}
+	
+	Void DimFlare()
+	{
+		if(DD_NoFlareDim || dimofstime <= 0)
+			return;
+		if(GetAge() % dimofstime == 0)
+		{
+			double al = alpha - subalfa;
+			self.alpha = al;
+		}
+		else
+			self.alpha = startalfa;
 	}
 	
 }

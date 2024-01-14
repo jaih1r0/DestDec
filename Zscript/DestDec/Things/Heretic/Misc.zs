@@ -1,5 +1,6 @@
 Class DD_WoodenBarrel : DD_ShotDecoBase
 {
+	mixin DD_BurnableThing;
 	Default
 	{
 		Radius 12;
@@ -29,6 +30,32 @@ Class DD_WoodenBarrel : DD_ShotDecoBase
 			HWBR C -1;
 			stop;
 	}
+	
+	override void postbeginplay()
+	{
+		SetUpBurnableThing(self);
+		super.postbeginplay();
+	}
+	
+	override void tick()
+	{
+		super.tick();
+		DD_handleBurning(fireevery: 3,ofs: (random(-radius,radius),random(-radius,radius),random(10,25)),who: self);
+	}
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		if(health > 0 && (mod == 'Fire' || mod == 'Electric' ||mod == 'plasma' || mod == 'Incinerate' || mod == 'Disintegrate'))
+			AddBurnDamage(damage);
+		return super.damagemobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	override void Die(Actor source, Actor inflictor, int dmgflags, Name MeansOfDeath)
+	{
+		A_stopsound(39);
+		super.Die(source, inflictor, dmgflags, MeansOfDeath);
+	}
+	
 }
 
 Class DD_Moss1 : DD_ShotDecoBase 
