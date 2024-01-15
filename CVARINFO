@@ -9,7 +9,7 @@ Server Bool DD_ReplacePods = true;
 Server Bool DD_ReplaceVolcano = true;
 Server Bool DD_AllowCustomBlood = false;
 Server Bool DD_CrpSpwnbonus = false;
-server float DD_Flarealpha = 1.0;
+server float DD_Flarealpha = 0.75;
 server bool DD_NoFlareDim = false;
 server bool DD_NoBurnTree = false;
 

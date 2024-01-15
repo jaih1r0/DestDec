@@ -2,7 +2,7 @@ Class DD_WhiteFlare:DD_FlareBase
 {
 	default
 	{
-		scale 0.6;
+		scale 0.50;
 		+forcexybillboard;
 		+rollsprite;
 		+rollcenter;
