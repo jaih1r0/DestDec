@@ -9,12 +9,15 @@ Server Bool DD_ReplacePods = true;
 Server Bool DD_ReplaceVolcano = true;
 Server Bool DD_AllowCustomBlood = false;
 Server Bool DD_CrpSpwnbonus = false;
-server float DD_Flarealpha = 0.75;
+server float DD_Flarealpha = 0.65;
 server bool DD_NoFlareDim = false;
 server bool DD_NoBurnTree = false;
+server bool DD_NoSpecificDeaths = false;
 
 Server Float DD_HealthMulti = 1.0;
 Server Float DD_BarrelHltMulti = 1.0;
 
 Server Bool DD_SigilEvEyes = false;
 Server Bool DD_Working = true;
+
+server int DD_CleanTics = 0;

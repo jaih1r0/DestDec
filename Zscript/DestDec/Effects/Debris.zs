@@ -305,3 +305,61 @@ Class BouncingGib1 : BouncingDebrisBase
 		super.beginplay();
 	}
 }
+
+Class DD_BurningDebris : BouncingDebrisBase
+{
+	default
+	{
+		bouncecount 2;
+	}
+	states
+	{
+		Spawn:
+			TNT1 A 0 nodelay A_FlareFx();
+			TNT1 A 1 A_FireTrail();
+			loop;
+		Death:
+			TNT1 A 5;
+			TNT1 AAAAAAA 5 A_FireTrail(1);
+			stop;
+	}
+	
+	void A_FireTrail(bool up = false,string spt = "DD_RF1")
+	{			
+		FSpawnParticleParams FireParticle;
+		FireParticle.Texture = TexMan.CheckForTexture (spt);
+		FireParticle.Color1 = "FFFFFF";
+		FireParticle.Style = STYLE_Add;
+		FireParticle.Flags = SPF_ROLL|SPF_FULLBRIGHT;
+		FireParticle.Vel = up ? (FRandom (0.1,-0.1),FRandom (0.1,-0.1),FRandom (0.5,1.5)) : (FRandom (0.1,-0.1),FRandom (0.1,-0.1),FRandom (0.1,-0.1)); 
+		FireParticle.Startroll = random(0,360);
+		FireParticle.RollVel = frandom(-0.5,0.5);
+		FireParticle.StartAlpha = 0.45;
+		FireParticle.FadeStep = -0.1;
+		FireParticle.Size = frandom(10,15);
+		FireParticle.SizeStep = -0.5;
+		FireParticle.Lifetime = FRandom (12,15); 
+		FireParticle.Pos = pos;
+		
+		Level.SpawnParticle (FireParticle);
+	}
+	
+	void A_FlareFx()
+	{			
+		FSpawnParticleParams FlarePx;
+		FlarePx.Texture = TexMan.CheckForTexture ("LFXYA0");
+		FlarePx.Color1 = "FFFFFF";
+		FlarePx.Style = STYLE_Add;
+		FlarePx.Flags = SPF_ROLL|SPF_FULLBRIGHT;
+		FlarePx.Vel = (0,0,0);
+		FlarePx.Startroll = random(0,360);
+		FlarePx.RollVel = frandom(-0.5,0.5);
+		FlarePx.StartAlpha = 0.65;
+		FlarePx.FadeStep = -0.35;
+		FlarePx.Size = frandom(10,15);
+		FlarePx.SizeStep = -0.5;
+		FlarePx.Lifetime = 2; 
+		FlarePx.Pos = pos;
+		Level.SpawnParticle (FlarePx);
+	}
+}

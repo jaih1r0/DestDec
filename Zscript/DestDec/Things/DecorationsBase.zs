@@ -14,6 +14,41 @@ Class DD_ShotDecoBase : Actor
 		DD_ShotDecoBase.RandomFlipX true;
 	}
 	
+	states
+	{
+		Death.Void: Death.BlackHole: Death.Tachyon:
+			"####" "#" 0 A_Jumpif(DD_NoSpecificDeaths,"Death"); //jump to basic death state if the specific deaths are disabled
+			"####" "#" 1 {A_SetTranslation("Blacked1"); D_SpawnFireFx();}
+			"####" "#" 1 {A_SetTranslation("Blacked2"); D_SpawnFireFx();}
+			"####" "#" 1 {A_SetTranslation("Blacked3"); A_Setscale(self.scale.x * 0.99); D_SpawnFireFx();}
+			"####" "#" 1 {A_SetTranslation("Blacked4"); A_Setscale(self.scale.x * 0.98); D_SpawnFireFx();}
+			"####" "#" 1 {A_SetTranslation("Blacked5"); A_Setscale(self.scale.x * 0.99); D_SpawnFireFx();}
+			"####" "######" 1 { D_SpawnFireFx(); A_Setscale(self.scale.x * 0.98);}
+			"####" "#" 1 { A_Fadeout(0.1); D_SpawnFireFx(); A_Setscale(self.scale.x * 0.99);}
+			wait;
+	}
+	
+	void D_SpawnFireFx(string spt = "DD_PF1")
+	{			
+		FSpawnParticleParams FireParticle;
+		FireParticle.Texture = TexMan.CheckForTexture (spt);
+		FireParticle.Color1 = "FFFFFF";
+		FireParticle.Style = STYLE_TRANSLUCENT;
+		FireParticle.Flags = SPF_ROLL|SPF_FULLBRIGHT;
+		FireParticle.Vel = (FRandom (0.2,-0.2),FRandom (0.2,-0.2),FRandom (0.3,1.2)); 
+		FireParticle.Startroll = random(0,360);
+		FireParticle.RollVel = frandom(-1.5,1.5);
+		FireParticle.StartAlpha = 0.55;
+		FireParticle.FadeStep = -0.1;
+		FireParticle.Size = frandom(20,48);
+		FireParticle.SizeStep = -0.5;
+		FireParticle.Lifetime = FRandom (35,35*3); 
+		FireParticle.Pos = vec3offset(random(-radius,radius),random(-radius,radius),random(5,height));
+		
+		Level.SpawnParticle (FireParticle);
+
+	}
+	
 	bool randomflipx;
 	property RandomFlipX:randomflipx;
 	//variables

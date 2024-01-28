@@ -3,6 +3,7 @@ DD_TITLE = "\cdDestroyable Decorations";
 DD_OPTS1 = "\cdDestroyable Decorations Options";
 DD_MaxDebs = "\cfMax number of debris: ";
 DD_BUTNOW = "\cfClear Debris Now, the button: ";
+DD_CLEANTIME = "\cfAuto clean debris every: ";
 DD_SMOKE = "\cfAllow Smoke Effects: ";
 DD_FLARES = "\cfAllow Flare effects: ";
 DD_FLARESALFA = "\cfFlare effects alpha: ";
@@ -18,6 +19,7 @@ DD_HERETICVOLCANO = "\cfReplace Heretic Volcano's: ";
 DD_CUSTOMBLUD = "\cfAllows gory decorations to spawn blood: ";
 DD_BONUSHCRP = "\cfAllows gory decorations to spawn health bonuses when destroyed: ";
 DD_BURNNATURE = "\cfNature decorations burns when fired with fire/plasma attacks: ";
+DD_SPECIFICSDT = "\cfAllow special deaths to decorations: ";
 
 DD_TIP_SMOKE = "\czNote: smoke may affect the performance.";
 DD_TIP_BARREL = "\czSome levels may have too many barrels...";
@@ -29,6 +31,8 @@ DD_TIP_SIGEYE = "\czMakes the 'Evil Eye' unshootable, useful for sigil or simila
 DD_TIP_CUSTOMBLUD = "\czUse this if using custom gore mods to allow custom blood";
 DD_TIP_BONCRPH = "\cz*Health bonus spawned by this wont count towards the items counter\nunless another mod replaces them with something not inheriting from inventory";
 DD_TIP_TREEBURN = "\cz*they only burn when damaged with attacks with fire/plasma damage type explicitly defined";
+DD_TIP_SPECDEATH = "\cz*decorations reacts to specific damagetype";
+DD_TIP_CLEANTIME = "\cz*time in seconds (set to 0 to disable autoclean)";
 
 DD_ENAB1 = "\cdEnabled";
 DD_DISAB1 = "\crDisabled";

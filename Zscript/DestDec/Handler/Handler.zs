@@ -25,6 +25,9 @@ Class DestDec_Handler : EventHandler
 		
 		while(worlddebris.size() > DD_MaxGibsAllowed)
 			worlddebris[0].destroy();
+			
+		if(DD_CleanTics > 0 && level.time % (DD_CleanTics * 35) == 0)
+			DD_ClearDebris();
 		
 	}
 	
