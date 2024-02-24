@@ -84,10 +84,10 @@ Class DD_RedTorch : DD_TorchBase //replaces RedTorch
 			TNT1 A 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
 			TNT1 A 0 A_killFlare();
 		NoFireLoop:
-			TRCS A 2;
+			TRCS A 1;
+			TNT1 A 0 A_jumpif(health < halflife,"Damaged_Mid");
 			loop;
-		Xdeath:
-		Death:
+		Damaged_Mid:
 			TNT1 A 0 A_stopsound(69);
 			TNT1 A 0 {
 				if(FireOn)
@@ -99,7 +99,23 @@ Class DD_RedTorch : DD_TorchBase //replaces RedTorch
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(3,6),(0,0,30),random(3,10),random(3,10));
 			TNT1 A 0 A_SpawnEndSmokeFx(0,0,30);
 			TNT1 A 0 A_killFlare();
+		D_MidLoop:
 			TRCS B -1;
+			stop;
+		Xdeath:
+		Death:
+			TNT1 A 0 A_stopsound(69);
+			TNT1 A 0 {
+				if(FireOn)
+					A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+			}
+			TNT1 A 0 A_Startsound("MetalFx",61);
+			TNT1 A 0 A_startsound("TinMetalFx",70);
+			TNT1 A 0 A_RemoveLight('Red1');
+			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(3,5),(0,0,10),random(3,10),random(3,10));
+			TNT1 A 0 A_SpawnEndSmokeFx(0,0,30);
+			TNT1 A 0 A_killFlare();
+			TNT1 A 1;
 			stop;
 	}
 	
@@ -132,10 +148,10 @@ Class DD_BlueTorch : DD_TorchBase //replaces BlueTorch
 			TNT1 A 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
 			TNT1 A 0 A_RemoveLight('Blue1');
 		NoFireLoop:
-			TRCS A 2;
+			TRCS A 1;
+			TNT1 A 0 A_jumpif(health < halflife,"Damaged_Mid");
 			loop;
-		Xdeath:
-		Death:
+		Damaged_Mid:
 			TNT1 A 0 A_stopsound(69);
 			TNT1 A 0 {
 				if(FireOn)
@@ -147,7 +163,23 @@ Class DD_BlueTorch : DD_TorchBase //replaces BlueTorch
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(3,6),(0,0,30),random(3,10),random(3,10));
 			TNT1 A 0 A_SpawnEndSmokeFx(0,0,30);
 			TNT1 A 0 A_killFlare();
+		D_MidLoop:
 			TRCS B -1;
+			stop;
+		Xdeath:
+		Death:
+			TNT1 A 0 A_stopsound(69);
+			TNT1 A 0 {
+				if(FireOn)
+					A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+			}
+			TNT1 A 0 A_Startsound("MetalFx",61);
+			TNT1 A 0 A_startsound("TinMetalFx",70);
+			TNT1 A 0 A_RemoveLight('Blue1');
+			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(3,5),(0,0,10),random(3,10),random(3,10));
+			TNT1 A 0 A_SpawnEndSmokeFx(0,0,30);
+			TNT1 A 0 A_killFlare();
+			TNT1 A 1;
 			stop;
 	}
 	
@@ -179,10 +211,10 @@ Class DD_GreenTorch : DD_TorchBase //replaces GreenTorch
 			TNT1 A 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
 			TNT1 A 0 A_RemoveLight('Green1');
 		NoFireLoop:
-			TRCS A 2;
+			TRCS A 1;
+			TNT1 A 0 A_jumpif(health < halflife,"Damaged_Mid");
 			loop;
-		Xdeath:
-		Death:
+		Damaged_Mid:
 			TNT1 A 0 A_stopsound(69);
 			TNT1 A 0 {
 				if(FireOn)
@@ -194,7 +226,23 @@ Class DD_GreenTorch : DD_TorchBase //replaces GreenTorch
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(3,6),(0,0,30),random(3,10),random(3,10));
 			TNT1 A 0 A_SpawnEndSmokeFx(0,0,30);
 			TNT1 A 0 A_killFlare();
+		D_MidLoop:
 			TRCS B -1;
+			stop;
+		Xdeath:
+		Death:
+			TNT1 A 0 A_stopsound(69);
+			TNT1 A 0 {
+				if(FireOn)
+					A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+			}
+			TNT1 A 0 A_Startsound("MetalFx",61);
+			TNT1 A 0 A_startsound("TinMetalFx",70);
+			TNT1 A 0 A_RemoveLight('Green1');
+			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(3,5),(0,0,10),random(3,10),random(3,10));
+			TNT1 A 0 A_SpawnEndSmokeFx(0,0,30);
+			TNT1 A 0 A_killFlare();
+			TNT1 A 1;
 			stop;
 	}
 	
@@ -251,10 +299,10 @@ Class DD_SRedTorch : DD_SmallTorchBase //replaces ShortRedTorch
 			TNT1 A 0 A_RemoveLight('Red2');
 			TNT1 A 0 A_killFlare();
 		NoFireLoop:
-			SRCS A 2;
+			SRCS A 1;
+			TNT1 A 0 A_jumpif(health < halflife,"Damaged_Mid");
 			loop;
-		Xdeath:
-		Death:
+		Damaged_Mid:
 			TNT1 A 0 A_stopsound(69);
 			TNT1 A 0 {
 				if(FireOn)
@@ -264,7 +312,21 @@ Class DD_SRedTorch : DD_SmallTorchBase //replaces ShortRedTorch
 			TNT1 A 0 A_RemoveLight('Red2');
 			TNT1 A 0 DD_SpawnDebris("WoodenStickPc",random(2,5),(0,0,35),random(3,10),random(3,10));
 			TNT1 A 0 A_killFlare();
+		D_MidLoop:
 			SRCS B -1;
+			stop;
+		Xdeath:
+		Death:
+			TNT1 A 0 A_stopsound(69);
+			TNT1 A 0 {
+				if(FireOn)
+					A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+			}
+			TNT1 A 0 A_Startsound("WoodFx",64);
+			TNT1 A 0 A_RemoveLight('Red2');
+			TNT1 A 0 DD_SpawnDebris("WoodenStickPc",random(2,5),(0,0,12),random(3,10),random(3,10));
+			TNT1 A 0 A_killFlare();
+			TNT1 A 1;
 			stop;
 	}
 	override void postbeginplay()
@@ -303,10 +365,10 @@ Class DD_SblueTorch : DD_SmallTorchBase //replaces ShortBlueTorch
 			TNT1 A 0 A_RemoveLight('Blue2');
 			TNT1 A 0 A_killFlare();
 		NoFireLoop:
-			SRCS A 2;
+			SRCS A 1;
+			TNT1 A 0 A_jumpif(health < halflife,"Damaged_Mid");
 			loop;
-		Xdeath:
-		Death:
+		Damaged_Mid:
 			TNT1 A 0 A_stopsound(69);
 			TNT1 A 0 {
 				if(FireOn)
@@ -316,7 +378,21 @@ Class DD_SblueTorch : DD_SmallTorchBase //replaces ShortBlueTorch
 			TNT1 A 0 A_RemoveLight('Blue2');
 			TNT1 A 0 DD_SpawnDebris("WoodenStickPc",random(2,5),(0,0,35),random(3,10),random(3,10));
 			TNT1 A 0 A_killFlare();
+		D_MidLoop:
 			SRCS B -1;
+			stop;
+		Xdeath:
+		Death:
+			TNT1 A 0 A_stopsound(69);
+			TNT1 A 0 {
+				if(FireOn)
+					A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+			}
+			TNT1 A 0 A_Startsound("WoodFx",64);
+			TNT1 A 0 A_RemoveLight('Blue2');
+			TNT1 A 0 DD_SpawnDebris("WoodenStickPc",random(2,5),(0,0,12),random(3,10),random(3,10));
+			TNT1 A 0 A_killFlare();
+			TNT1 A 1;
 			stop;
 	}
 	override void postbeginplay()
@@ -355,10 +431,10 @@ Class DD_SGreenTorch : DD_SmallTorchBase //replaces ShortGreenTorch
 			TNT1 A 0 A_RemoveLight('Green2');
 			TNT1 A 0 A_killFlare();
 		NoFireLoop:
-			SRCS A 2;
+			SRCS A 1;
+			TNT1 A 0 A_jumpif(health < halflife,"Damaged_Mid");
 			loop;
-		Xdeath:
-		Death:
+		Damaged_Mid:
 			TNT1 A 0 A_stopsound(69);
 			TNT1 A 0 {
 				if(FireOn)
@@ -368,7 +444,21 @@ Class DD_SGreenTorch : DD_SmallTorchBase //replaces ShortGreenTorch
 			TNT1 A 0 A_RemoveLight('Green2');
 			TNT1 A 0 DD_SpawnDebris("WoodenStickPc",random(2,5),(0,0,35),random(3,10),random(3,10));
 			TNT1 A 0 A_killFlare();
+		D_MidLoop:
 			SRCS B -1;
+			stop;
+		Xdeath:
+		Death:
+			TNT1 A 0 A_stopsound(69);
+			TNT1 A 0 {
+				if(FireOn)
+					A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+			}
+			TNT1 A 0 A_Startsound("WoodFx",64);
+			TNT1 A 0 A_RemoveLight('Green2');
+			TNT1 A 0 DD_SpawnDebris("WoodenStickPc",random(2,5),(0,0,12),random(3,10),random(3,10));
+			TNT1 A 0 A_killFlare();
+			TNT1 A 1;
 			stop;
 	}
 	override void postbeginplay()

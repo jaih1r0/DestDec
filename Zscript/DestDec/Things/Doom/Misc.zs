@@ -10,12 +10,20 @@ Class DD_ShortRedColumn : DD_ShotDecoBase //replaces ShortRedColumn
 	states
 	{
 		Spawn:
-			RPL2 A -1;
-			Stop;
+			RPL2 A 1;
+			TNT1 A 0 A_jumpif(health < halflife,"Damaged_Mid");
+			loop;
 		Death:
+		Damaged_Mid:
 			TNT1 A 0 A_Startsound("StoneFx",62);
 			TNT1 A 0 DD_SpawnDebris("RedRockDebris1",random(4,7),(0,0,40),random(3,8),random(3,8));
+		D_MidLoop:
 			RPL2 B -1;
+			stop;
+		Death:
+			TNT1 A 0 A_Startsound("StoneFx",62);
+			TNT1 A 0 DD_SpawnDebris("RedRockDebris1",random(4,6),(0,0,15),random(3,8),random(3,8));
+			TNT1 A 1;
 			stop;
 	}
 }
@@ -29,16 +37,38 @@ Class DD_SkullColumn : DD_ShotDecoBase //replaces SkullColumn
 		ProjectilePassHeight -16;
 		+SOLID
 	}
+	bool noskull;
 	states
 	{
 		Spawn:
-			RPL3 A -1;
-			Stop;
+			RPL3 A 1;
+			TNT1 A 0 A_jumpif(health < halflife,"Damaged_Mid");
+			Loop;
+		
+		Damaged_Mid:
+			TNT1 A 0 A_Startsound("StoneFx",62);
+			TNT1 A 0 DD_SpawnDebris("RedRockDebris1",random(4,7),(0,0,40),random(3,8),random(3,8));
+			TNT1 A 0 {
+				if(!noskull)
+				{
+					noskull = true;
+					DD_SpawnDebris("SkullDebris1",1,(0,0,40),random(3,8),random(3,8));
+				}
+			}
+		D_MidLoop:
+			RPL3 B -1;
+			stop;
 		Death:
 			TNT1 A 0 A_Startsound("StoneFx",62);
 			TNT1 A 0 DD_SpawnDebris("RedRockDebris1",random(4,7),(0,0,40),random(3,8),random(3,8));
-			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,40),random(3,8),random(3,8));
-			RPL3 B -1;
+			TNT1 A 0 {
+				if(!noskull)
+				{
+					noskull = true;
+					DD_SpawnDebris("SkullDebris1",1,(0,0,40),random(3,8),random(3,8));
+				}
+			}
+			TNT1 A 1;
 			stop;
 	}
 }
@@ -56,12 +86,19 @@ Class DD_GreenColumn : DD_ShotDecoBase //replaces ShortGreenColumn
 	states
 	{
 		Spawn:
-			GPL2 A -1;
-			Stop;
-		Death:
+			GPL2 A 1;
+			TNT1 A 0 A_jumpif(health < halflife,"Damaged_Mid");
+			Loop;
+		Damaged_Mid:
 			TNT1 A 0 A_Startsound("StoneFx",62);
 			TNT1 A 0 DD_SpawnDebris("GreenRockDebris1",random(4,7),(0,0,40),random(3,8),random(3,8));
+		D_MidLoop:
 			GPL2 B -1;
+			stop;
+		Death:
+			TNT1 A 0 A_Startsound("StoneFx",62);
+			TNT1 A 0 DD_SpawnDebris("GreenRockDebris1",random(3,5),(0,0,20),random(3,8),random(3,8));
+			TNT1 A 1;
 			stop;
 	}
 }
@@ -75,20 +112,46 @@ CLass DD_HeartColumn : DD_ShotDecoBase //replaces HeartColumn
 		ProjectilePassHeight -16;
 		+SOLID
 	}
+	bool noheart;
 	states
 	{
 		Spawn:
-			GPL2 C 10;
-			GPL2 CCCDE 2;
+			GPL2 CCCCC 2 A_jumpif(health < halflife,"Damaged_Mid");
+			GPL2 CCCDE 2 A_jumpif(health < halflife,"Damaged_Mid");
 			TNT1 A 0 A_SpawnBloodMist2();
-			GPL2 ED 2;
+			GPL2 ED 2 A_jumpif(health < halflife,"Damaged_Mid");
 			loop;
-		Death: 
+			
+		Damaged_Mid:
 			TNT1 A 0 A_Startsound("StoneFx",62);
 			TNT1 A 0 DD_SpawnDebris("GreenRockDebris1",random(4,7),(0,0,40),random(3,8),random(3,8));
-			TNT1 AAA 0 A_SpawnBloodMist2();
-			TNT1 A 0 DD_SpawnDebris("HeartofGlass1",1,(0,0,40),random(3,8),random(3,8));
+			TNT1 A 0 {
+				if(!noheart)
+				{
+					noheart = true;
+					DD_SpawnDebris("HeartofGlass1",1,(0,0,40),random(3,8),random(3,8)); //once i had a love and it was a gas
+					A_SpawnBloodMist2();
+					A_SpawnBloodMist2();
+					A_SpawnBloodMist2();
+				}
+			}
+		D_MidLoop:
 			GPL2 B -1;
+			stop;
+		Death:
+			TNT1 A 0 A_Startsound("StoneFx",62);
+			TNT1 A 0 DD_SpawnDebris("GreenRockDebris1",random(4,7),(0,0,25),random(3,8),random(3,8));
+			TNT1 A 0 {
+				if(!noheart)
+				{
+					noheart = true;
+					DD_SpawnDebris("HeartofGlass1",1,(0,0,32),random(3,8),random(3,8));
+					A_SpawnBloodMist2();
+					A_SpawnBloodMist2();
+					A_SpawnBloodMist2();
+				}
+			}
+			TNT1 A 1;
 			stop;
 	}
 	
@@ -137,11 +200,18 @@ Class DD_TallGreenColumn : DD_ShotDecoBase //replaces TallGreenColumn
 			TNT1 A 0 DD_SpawnDebris("GreenRockDebris1",random(4,7),(0,0,45),random(3,8),random(3,8));
 		MidDamagedLoop:
 			GPL1 B 2;
+			TNT1 A 0 A_jumpif(health<heavydamaged,"Damaged_High");
 			loop;
+		Damaged_High:
+			TNT1 A 0 A_Startsound("StoneFx",63);
+			TNT1 A 0 DD_SpawnDebris("GreenRockDebris1",random(4,7),(0,0,35),random(3,8),random(3,8));
+		D_HighLoop:
+			GPL1 C -1;
+			stop;
 		Death:
 			TNT1 A 0 A_Startsound("StoneFx",63);
 			TNT1 A 0 DD_SpawnDebris("GreenRockDebris1",random(4,7),(0,0,35),random(3,8),random(3,8));
-			GPL1 C -1;
+			TNT1 A 1;
 			stop;
 	}
 	
@@ -163,18 +233,24 @@ Class DD_TallRedColumn : DD_ShotDecoBase //replaces TallRedColumn
 			RPL1 A 1;
 			TNT1 A 0 A_jumpif(health<halflife,"MidDamaged");
 			loop;
-			
+		
 		MidDamaged:
 			TNT1 A 0 A_Startsound("StoneFx",62);
-			TNT1 A 0 DD_SpawnDebris("RedRockDebris1",random(4,6),(0,0,45),random(3,8),random(3,8));
+			TNT1 A 0 DD_SpawnDebris("RedRockDebris1",random(4,7),(0,0,45),random(3,8),random(3,8));
 		MidDamagedLoop:
 			RPL1 B 2;
+			TNT1 A 0 A_jumpif(health<heavydamaged,"Damaged_High");
 			loop;
-			
+		Damaged_High:
+			TNT1 A 0 A_Startsound("StoneFx",63);
+			TNT1 A 0 DD_SpawnDebris("RedRockDebris1",random(4,7),(0,0,35),random(3,8),random(3,8));
+		D_HighLoop:
+			RPL1 C -1;
+			stop;
 		Death:
 			TNT1 A 0 A_Startsound("StoneFx",63);
-			TNT1 A 0 DD_SpawnDebris("RedRockDebris1",random(4,7),(0,0,40),random(3,8),random(3,8));
-			RPL1 C -1;
+			TNT1 A 0 DD_SpawnDebris("RedRockDebris1",random(4,7),(0,0,35),random(3,8),random(3,8));
+			TNT1 A 1;
 			stop;
 	}
 }
@@ -231,6 +307,8 @@ Class DD_HeadCandles : DD_GoryDec //replaces HeadCandles
 	{
 		Radius 20;
 		Height 40;
+		ProjectilePassHeight -16;
+		+solid
 	}
 	States
 	{
@@ -407,7 +485,7 @@ Class DD_TechPillar : DD_ShotDecoBase //replaces TechPillar
 	{
 		Radius 16;
 		Height 128;
-		health 200;
+		health 320;
 		+SOLID
 	}
 	states
@@ -419,7 +497,7 @@ Class DD_TechPillar : DD_ShotDecoBase //replaces TechPillar
 			TNT1 A 0 A_Startsound("MetalFx",61);
 			TNT1 A 0 A_Startsound("GlassBreakFx",60);
 			TNT1 A 0 DD_SpawnDebris("GlassShard1",random(5,9),(0,0,90),random(3,8),random(3,8));
-		LowDamageLoop:
+		D_LowLoop:
 			TCPD A 1 A_jumpif(health < halflife,"MidDamage");
 			loop;
 			
@@ -427,15 +505,21 @@ Class DD_TechPillar : DD_ShotDecoBase //replaces TechPillar
 			TNT1 A 0 A_Startsound("MetalFx",61);
 			TNT1 A 0 A_startsound("TinMetalFx",70);
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(4,7),(0,0,60),random(3,8),random(3,8));
-		MidDamageLoop:
-			TCPD B -1;
+		D_MidLoop:
+			TCPD B 1;
+			TNT1 A 0 A_jumpif(health < heavydamaged,"Damaged_High");
+			loop;
+		Damaged_High:
+			TNT1 A 0 A_Startsound("MetalFx",61);
+			TNT1 A 0 A_startsound("TinMetalFx",70);
+			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(6,12),(0,0,30),random(3,8),random(3,8));
+			TCPD C -1;
 			stop;
-			
 		Death:
 			TNT1 A 0 A_Startsound("MetalFx",61);
 			TNT1 A 0 A_startsound("TinMetalFx",70);
-			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(6,12),(0,0,40),random(3,8),random(3,8));
-			TCPD C -1;
+			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(6,12),(0,0,10),random(3,8),random(3,8));
+			TNT1 A 1;
 			stop;
 	}
 }

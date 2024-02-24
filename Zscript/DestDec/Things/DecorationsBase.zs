@@ -4,7 +4,7 @@ Class DD_ShotDecoBase : Actor
 	{
 		+shootable;
 		+vulnerable;
-		health 120;
+		health 180;
 		+MOVEWITHSECTOR;
 		+DONTTHRUST;
 		+nodamagethrust;

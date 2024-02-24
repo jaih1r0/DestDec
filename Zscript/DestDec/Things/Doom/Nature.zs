@@ -114,15 +114,15 @@ Class DD_BigTree : DD_NatureThing //replaces BigTree
 			TNT1 A 0 A_SpawnWoodSmoke(0,0,40);
 			TNT1 A 0 DD_SpawnDebris("BigWoodStick",random(4,7),(0,0,40),random(3,8),random(3,8));
 		highDamageLooP:
-			BTR3 D 1 A_Jumpif(health < 1,"Death");
+			BTR3 E 1 A_Jumpif(health < 1,"Death");
 			loop;
 			
 		Death:
 			TNT1 A 0 {stateact = 4; }
 			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 AA 0 A_SpawnWoodSmoke(0,0,35);
-			TNT1 A 0 DD_SpawnDebris("BigWoodStick",random(4,7),(0,0,40),random(3,8),random(3,8));
-			BTR3 E -1;
+			TNT1 A 0 DD_SpawnDebris("BigWoodStick",random(7,12),(0,0,40),random(3,8),random(3,8));
+			TNT1 A 1;
 			stop;
 		/*	
 		Death.Electric:
@@ -167,30 +167,21 @@ Class DD_torchTree : DD_NatureThing //replaces TorchTree
 	states
 	{
 		Spawn:
-			TRE3 A -1;
-			stop;
+			TRE3 A 1 A_Jumpif(health < halflife,"MidDamage");
+			loop;
+		MidDamage:
+			TNT1 A 0 A_SpawnWoodSmoke(0,0,50);
+			TNT1 A 0 A_Startsound("WoodFx",64);
+			TNT1 A 0 DD_SpawnDebris("BigWoodStick",random(3,6),(0,0,40),random(3,8),random(3,8));
+		MidDamageLoop:
+			TRE3 B -1;
+			loop;
 		Death:
 			TNT1 A 0 A_Startsound("WoodFx",64);
-			TNT1 A 0 DD_SpawnDebris("BigWoodStick",random(4,7),(0,0,40),random(3,8),random(3,8));
-			TRE3 B -1;
+			TNT1 A 0 DD_SpawnDebris("BigWoodStick",random(4,8),(0,0,40),random(3,8),random(3,8));
+			TNT1 A 1;
 			stop;
 		
-		/*Death.Electric:
-		Death.plasma:
-		Death.Fire:
-			TNT1 A 0 A_settranslation("Burned");
-			TNT1 A 0 A_Startsound("TorchLoop",69,CHANF_LOOPING,1.0,ATTN_NORM,frandom(0.1,1.1));
-			TNT1 A 0 { rept = random(10,25); }
-		burnLoop:
-			TNT1 A 0 { rept--; }
-			TRE3 BBBBBBBBBB 2 A_SpawnFiringDeath(random(-radius,radius),random(-radius,radius),28);
-			TNT1 A 0 A_jumpif(rept > 0,"burnLoop");
-			TNT1 A 0 A_Stopsound(69);
-			TNT1 A 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
-			TNT1 A 0 A_killflare();
-			TRE3 B -1;
-			stop;*/
-			
 	}
 }
 //this is the grey one
@@ -207,13 +198,20 @@ Class DD_Stalagmite : DD_NatureThing //replaces stalagmite
 	states
 	{
 		Spawn:
-			STM3 A -1;
-			Stop;
+			STM3 A 1 A_Jumpif(health < halflife,"MidDamage");
+			loop;
+		MidDamage:
+			TNT1 A 0 A_SpawnWoodSmoke(0,0,50);
+			TNT1 A 0 A_Startsound("WoodFx",64);
+			TNT1 A 0 DD_SpawnDebris("WoodenStickPc2",random(3,6),(0,0,40),random(3,8),random(3,8));
+		MidDamageLoop:
+			STM3 B -1;
+			loop;
 		Death:
 			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 A 0 A_SpawnWoodSmoke(0,0,30);
 			TNT1 A 0 DD_SpawnDebris("WoodenStickPc2",random(4,7),(0,0,40),random(3,8),random(3,8));
-			STM3 B -1;
+			TNT1 A 1;
 			Stop;
 	}
 }
@@ -229,14 +227,22 @@ Class DD_Stalagtite : DD_NatureThing //replaces Stalagtite
 	}
 	states
 	{
+
 		Spawn:
-			STT3 A -1;
-			Stop;
+			STT3 A 1 A_Jumpif(health < halflife,"MidDamage");
+			loop;
+		MidDamage:
+			TNT1 A 0 A_SpawnWoodSmoke(0,0,50);
+			TNT1 A 0 A_Startsound("WoodFx",64);
+			TNT1 A 0 DD_SpawnDebris("WoodenStickPc2",random(3,6),(0,0,40),random(3,8),random(3,8));
+		MidDamageLoop:
+			STT3 B -1;
+			loop;
 		Death:
 			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 A 0 A_SpawnWoodSmoke(0,0,30);
 			TNT1 A 0 DD_SpawnDebris("WoodenStickPc",random(4,7),(0,0,40),random(3,8),random(3,8));
-			STT3 B -1;
+			TNT1 A 1;
 			Stop;
 	}
 }
