@@ -46,10 +46,10 @@ Class DD_IncendiaryBarrel : DD_ShotDecoBase //replaces burningbarrel
 		IncFx.Startroll = random(0,360);
 		IncFx.RollVel = frandom(-0.5,0.5);
 		IncFx.StartAlpha = 0.45;
-		IncFx.FadeStep = -0.1;
+		//IncFx.FadeStep = 0.01;
 		IncFx.Size = frandom(40,60);
 		IncFx.SizeStep = -0.7;
-		IncFx.Lifetime = FRandom (35,35*3); 
+		IncFx.Lifetime = Random (35,35*2); 
 		IncFx.Pos = vec3offset(random(-2,2),random(-2,2),32);
 		Level.SpawnParticle (IncFx);
 
@@ -67,10 +67,10 @@ Class DD_IncendiaryBarrel : DD_ShotDecoBase //replaces burningbarrel
 		Smkfx.Startroll = random(0,360);
 		Smkfx.RollVel = frandom(-0.2,0.2);
 		Smkfx.StartAlpha = 0.35;
-		Smkfx.FadeStep = -0.1;
+		Smkfx.FadeStep = 0.005;
 		Smkfx.Size = frandom(30,50);
 		Smkfx.SizeStep = 1.5;
-		Smkfx.Lifetime = fRandom(35,35*3); 
+		Smkfx.Lifetime = fRandom(30,56); 
 		Smkfx.Pos = vec3offset(random(-2,2),random(-2,2),zoffset);
 		
 		Level.SpawnParticle (Smkfx);
@@ -101,13 +101,13 @@ Class DD_IncendiaryBarrel : DD_ShotDecoBase //replaces burningbarrel
 		XPFX.Startroll = random(0,360);
 		XPFX.RollVel = frandom(-0.5,0.5);
 		XPFX.StartAlpha = 0.60;
-		XPFX.FadeStep = -0.1;
+		//XPFX.FadeStep = 0.1;
 		int f = random(3,6);
 		for(int i = 0; i < f; i++)
 		{
 			XPFX.Size = frandom(60,70);
 			XPFX.SizeStep = -1.5;
-			XPFX.Lifetime = FRandom (35,35*2); 
+			XPFX.Lifetime = Random (15,50); 
 			XPFX.Pos = vec3offset(random(-2,2),random(-2,2),random(10,32));
 			XPFX.Vel = (FRandom (-2,2),FRandom (-2,2),FRandom (2.5,6.0));
 			XPFX.Accel = (0,0,frandom(-0.35,-0.15));
@@ -225,10 +225,10 @@ Class DD_NukageBarrel : DD_ShotDecoBase //replaces explosivebarrel
 		NKGFX.Startroll = random(0,360);
 		NKGFX.RollVel = frandom(-0.5,0.5);
 		NKGFX.StartAlpha = 0.4;
-		NKGFX.FadeStep = -0.1;
+		//NKGFX.FadeStep = 0.1;
 		NKGFX.Size = frandom(14,28);
 		NKGFX.SizeStep = 0.5;
-		NKGFX.Lifetime = FRandom (35,35*3); 
+		NKGFX.Lifetime = FRandom (30,50); 
 		NKGFX.Pos = vec3offset(random(-4,4),random(-4,4),random(30,32));
 		
 		Level.SpawnParticle (NKGFX);
@@ -244,13 +244,13 @@ Class DD_NukageBarrel : DD_ShotDecoBase //replaces explosivebarrel
 		XPFX.Startroll = random(0,360);
 		XPFX.RollVel = frandom(-0.5,0.5);
 		XPFX.StartAlpha = 0.45;
-		XPFX.FadeStep = -0.1;
+		//XPFX.FadeStep = 0.1;
 		int f = random(2,4);
 		for(int i = 0; i < f; i++)
 		{
 			XPFX.Size = frandom(60,70);
 			XPFX.SizeStep = -0.7;
-			XPFX.Lifetime = FRandom (35,35*2); 
+			XPFX.Lifetime = Random (15,50); 
 			XPFX.Pos = vec3offset(random(-2,2),random(-2,2),random(10,32));
 			//XPFX.Vel = (FRandom (-2,2),FRandom (-2,2),FRandom (-0.5,2.5)); 
 			XPFX.Vel = (FRandom (-2,2),FRandom (-2,2),FRandom (2.5,6.0));
@@ -271,7 +271,7 @@ Class DD_NukageBarrel : DD_ShotDecoBase //replaces explosivebarrel
 		LGTB.Startroll = random(0,360);
 		LGTB.RollVel = 0;
 		LGTB.StartAlpha = 0.9;
-		LGTB.FadeStep = -0.35;
+		LGTB.FadeStep = 0.35;
 		LGTB.Size = frandom(60,100);
 		LGTB.SizeStep = 3.5;
 		LGTB.Lifetime = Random (1,3); 

@@ -73,10 +73,10 @@ Class DD_FireBrazier : DD_TorchBase
 		FireParticle.Startroll = random(0,360);
 		FireParticle.RollVel = frandom(-0.5,0.5);
 		FireParticle.StartAlpha = 0.45;
-		FireParticle.FadeStep = -0.1;
+		//FireParticle.FadeStep = 0.005;
 		FireParticle.Size = frandom(35,50);
 		FireParticle.SizeStep = -0.8;
-		FireParticle.Lifetime = FRandom (35,35*3); 
+		FireParticle.Lifetime = Random(35,85); 
 		FireParticle.Pos = vec3offset(random(-6,6),random(-6,6),zoffset);
 		
 		Level.SpawnParticle (FireParticle);

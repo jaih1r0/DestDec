@@ -168,7 +168,7 @@ CLass DD_HeartColumn : DD_ShotDecoBase //replaces HeartColumn
 		BldFx.Startroll = random(0,360);
 		BldFx.RollVel = frandom(-0.2,0.2);
 		BldFx.StartAlpha = 0.4;
-		BldFx.FadeStep = -0.1;
+		BldFx.FadeStep = 0.025;
 		BldFx.Size = frandom(10,30);
 		BldFx.SizeStep = 1.5;
 		BldFx.Lifetime = fRandom(35,35*3); 
@@ -291,7 +291,7 @@ Class DD_FloatingSkull : DD_ShotDecoBase //replaces FloatingSkull
 		DFparticle.Startroll = random(0,360);
 		DFparticle.RollVel = frandom(-0.5,0.5);
 		DFparticle.StartAlpha = 0.45;
-		DFparticle.FadeStep = -0.1;
+		DFparticle.FadeStep = 0.01;
 		DFparticle.Size = frandom(15,40);
 		DFparticle.SizeStep = -0.5;
 		DFparticle.Lifetime = FRandom (35,35*2); 
@@ -424,7 +424,7 @@ Class DD_EvilierEye : DD_GoryDec //replaces EvilEye
 		EYEFX.Startroll = random(0,360);
 		EYEFX.RollVel = frandom(-0.3,0.3);
 		EYEFX.StartAlpha = 0.55;
-		EYEFX.FadeStep = -0.1;
+		EYEFX.FadeStep = 0.018;
 		EYEFX.Size = frandom(20,40);
 		EYEFX.SizeStep = 1.5;
 		EYEFX.Lifetime = fRandom(35,35*2); 
@@ -445,7 +445,7 @@ Class DD_EvilierEye : DD_GoryDec //replaces EvilEye
 		FireParticle.Startroll = random(0,360);
 		FireParticle.RollVel = frandom(-0.5,0.5);
 		FireParticle.StartAlpha = 0.45;
-		FireParticle.FadeStep = -0.1;
+		FireParticle.FadeStep = 0.015;
 		FireParticle.Size = frandom(25,40);
 		FireParticle.SizeStep = -0.5;
 		FireParticle.Lifetime = FRandom (35,35*3); 

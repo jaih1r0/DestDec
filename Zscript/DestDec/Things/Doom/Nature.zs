@@ -14,10 +14,10 @@ Class DD_NatureThing : DD_ShotDecoBase
 		BurningParticle.Startroll = random(0,360);
 		BurningParticle.RollVel = frandom(-0.5,0.5);
 		BurningParticle.StartAlpha = 0.50;
-		BurningParticle.FadeStep = -0.1;
+		//BurningParticle.FadeStep = 0.1;
 		BurningParticle.Size = frandom(30,50);
 		BurningParticle.SizeStep = -0.5;
-		BurningParticle.Lifetime = FRandom (35,35*3); 
+		BurningParticle.Lifetime = FRandom (35,35*2); 
 		BurningParticle.Pos = vec3offset(xofs,yofs,zofs);
 		
 		Level.SpawnParticle (BurningParticle);
@@ -34,10 +34,10 @@ Class DD_NatureThing : DD_ShotDecoBase
 		Smkfx.Startroll = random(0,360);
 		Smkfx.RollVel = frandom(-0.2,0.2);
 		Smkfx.StartAlpha = 0.45;
-		Smkfx.FadeStep = -0.1;
+		Smkfx.FadeStep = 0.010;
 		Smkfx.Size = frandom(45,80);
 		Smkfx.SizeStep = 1.5;
-		Smkfx.Lifetime = fRandom(35,35*5); 
+		Smkfx.Lifetime = fRandom(35,35*3); 
 		Smkfx.Pos = vec3offset(xofs,yofs,zofs);
 		
 		Level.SpawnParticle (Smkfx);

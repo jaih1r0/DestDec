@@ -92,10 +92,10 @@ Class DD_Moss1 : DD_ShotDecoBase
 		MOSFX.Startroll = random(0,360);
 		MOSFX.RollVel = frandom(-0.3,0.3);
 		MOSFX.StartAlpha = 0.5;
-		MOSFX.FadeStep = -0.1;
+		//MOSFX.FadeStep = -0.1;
 		MOSFX.Size = frandom(20,40);
 		MOSFX.SizeStep = 1.6;
-		MOSFX.Lifetime = fRandom(35,35*4); 
+		MOSFX.Lifetime = fRandom(35,55); 
 		MOSFX.Pos = pos;
 		Level.SpawnParticle (MOSFX);
 	}
@@ -113,7 +113,7 @@ Class DD_Moss1 : DD_ShotDecoBase
 		BldFx.RollVel = frandom(-0.5,0.5);
 		BldFx.accel = (0,0,frandom(-0.9,-0.3));
 		BldFx.StartAlpha = 1.0;
-		BldFx.FadeStep = -0.1;
+		BldFx.FadeStep = 0.05;
 		BldFx.Size = frandom(10,40);
 		BldFx.SizeStep = frandom(3.5,5.0);
 		BldFx.Lifetime = fRandom(8,18); 
@@ -316,10 +316,10 @@ Class DD_Volcano : DD_ShotDecoBase
 		IncFx.Startroll = random(0,360);
 		IncFx.RollVel = frandom(-0.9,0.9);
 		IncFx.StartAlpha = 0.54;
-		IncFx.FadeStep = -0.1;
+		//IncFx.FadeStep = 0.1;
 		IncFx.Size = frandom(20,35);
 		IncFx.SizeStep = -0.8;
-		IncFx.Lifetime = FRandom (35,35*2); 
+		IncFx.Lifetime = FRandom (35,60); 
 		IncFx.Pos = vec3offset(0,0,21);
 		Level.SpawnParticle(IncFx);
 	}
@@ -336,10 +336,10 @@ Class DD_Volcano : DD_ShotDecoBase
 		Smkfx.Startroll = random(0,360);
 		Smkfx.RollVel = frandom(-0.2,0.2);
 		Smkfx.StartAlpha = 0.65;
-		Smkfx.FadeStep = -0.1;
+		//Smkfx.FadeStep = 0.1;
 		Smkfx.Size = frandom(20,40);
 		Smkfx.SizeStep = 1.5;
-		Smkfx.Lifetime = fRandom(35,35*2); 
+		Smkfx.Lifetime = fRandom(35,62); 
 		Smkfx.Pos = vec3offset(0,0,zoffset);
 		
 		Level.SpawnParticle (Smkfx);
@@ -388,7 +388,7 @@ Class DD_VolcanoBlaster : Actor
 		IncFx.Startroll = random(0,360);
 		IncFx.RollVel = frandom(-0.8,0.8);
 		IncFx.StartAlpha = 0.85;
-		IncFx.FadeStep = -0.1;
+		//IncFx.FadeStep = 0.1;
 		IncFx.Size = frandom(20,35);
 		IncFx.SizeStep = -0.8;
 		IncFx.Lifetime = FRandom (15,35); 
@@ -424,7 +424,7 @@ Class DD_FlammingRemnant : NoTickActor
 		IncFx.Startroll = random(0,360);
 		IncFx.RollVel = frandom(-0.8,0.8);
 		IncFx.StartAlpha = 0.75;
-		IncFx.FadeStep = -0.1;
+		//IncFx.FadeStep = 0.1;
 		IncFx.Size = frandom(12,26);
 		IncFx.SizeStep = -0.5;
 		IncFx.Lifetime = FRandom (10,25); 
@@ -516,10 +516,10 @@ Class DD_Pod : DD_ShotDecoBase
 		GSMK.Startroll = random(0,360);
 		GSMK.RollVel = frandom(-0.2,0.2);
 		GSMK.StartAlpha = 0.8;
-		GSMK.FadeStep = -0.1;
+		GSMK.FadeStep = 0.05;
 		GSMK.Size = frandom(30,60);
 		GSMK.SizeStep = 12.0;
-		GSMK.Lifetime = fRandom(12,25); 
+		GSMK.Lifetime = Random(12,25); 
 		GSMK.Pos = vec3offset(0,0,height*2);
 		Level.SpawnParticle (GSMK);
 	}
@@ -543,6 +543,7 @@ Class DD_Pod : DD_ShotDecoBase
 		GooPx.SizeStep = -0.5;
 		GooPx.Lifetime = FRandom (35,35*2); 
 		GooPx.Pos = vec3offset(0,0,height * 0.9);
+		
 		int qt = random(1,4);
 		for(int i = 0; i < qt; i++)
 		{

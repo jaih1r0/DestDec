@@ -57,10 +57,10 @@ Class DD_GizmoBase : DD_ShotDecoBase
 		FxParticle.Startroll = random(0,360);
 		FxParticle.RollVel = frandom(-0.5,0.5);
 		FxParticle.StartAlpha = 0.45;
-		FxParticle.FadeStep = -0.1;
+		//FxParticle.FadeStep = 0.1;
 		FxParticle.Size = frandom(15,32);
 		FxParticle.SizeStep = -0.5;
-		FxParticle.Lifetime = FRandom (35,35*2); 
+		FxParticle.Lifetime = FRandom (35,85); 
 		FxParticle.Pos = vec3offset(random(-5,5),random(-5,5),random(55,65));
 		Level.SpawnParticle (FxParticle);
 	}

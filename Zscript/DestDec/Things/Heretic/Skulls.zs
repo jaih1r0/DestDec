@@ -24,10 +24,10 @@ Class DD_HangingSkullBase : DD_ShotDecoBase
 		Smkfx.Startroll = random(0,360);
 		Smkfx.RollVel = frandom(-0.3,0.3);
 		Smkfx.StartAlpha = 0.5;
-		Smkfx.FadeStep = -0.1;
+		Smkfx.FadeStep = 0.05;
 		Smkfx.Size = frandom(20,40);
 		Smkfx.SizeStep = 1.6;
-		Smkfx.Lifetime = fRandom(35,35*4); 
+		Smkfx.Lifetime = fRandom(35,60); 
 		Smkfx.Pos = vec3offset(xof,yof,zof);
 		Level.SpawnParticle (Smkfx);
 	}

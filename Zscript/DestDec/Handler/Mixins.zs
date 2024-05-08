@@ -36,10 +36,10 @@ mixin Class DD_BurnableThing
 		Burnablepx.Startroll = random(0,360);
 		Burnablepx.RollVel = frandom(-0.5,0.5);
 		Burnablepx.StartAlpha = 0.75;
-		Burnablepx.FadeStep = -0.1;
+		//Burnablepx.FadeStep = 0.1;
 		Burnablepx.Size = frandom(30,60);
 		Burnablepx.SizeStep = -0.85;
-		Burnablepx.Lifetime = FRandom (35,35*2); 
+		Burnablepx.Lifetime = FRandom (35,60); 
 		Burnablepx.Pos = who.vec3offset(ofs.x,ofs.y,ofs.z);
 		Level.SpawnParticle (Burnablepx);
 	}
@@ -58,11 +58,11 @@ mixin Class DD_BurnableThing
 		Bsmkfx.Vel = (frandom (0.1,-0.1),frandom (0.1,-0.1),frandom (0.8,1.5)); 
 		Bsmkfx.Startroll = random(0,360);
 		Bsmkfx.RollVel = frandom(-0.3,0.3);
-		Bsmkfx.StartAlpha = 0.35;
-		Bsmkfx.FadeStep = -0.05;
+		Bsmkfx.StartAlpha = 0.3;
+		//Bsmkfx.FadeStep = 0.05;
 		Bsmkfx.Size = frandom(20,30);
 		Bsmkfx.SizeStep = 2.5;
-		Bsmkfx.Lifetime = fRandom(35,35*3); 
+		Bsmkfx.Lifetime = fRandom(35,62); 
 		Bsmkfx.Pos = who.vec3offset(ofs.x,ofs.y,ofs.z);
 		
 		Level.SpawnParticle (Bsmkfx);
@@ -98,7 +98,7 @@ mixin Class DD_BurnableThing
 		if(who && (who.getage() % fireevery == 0))
 		{
 			DD_SpawnBurnableFire(ofs,who);
-			DD_SPawnBurningsmoke((ofs.xy,ofs.z + 10),who);
+			//DD_SPawnBurningsmoke((ofs.xy,ofs.z + 10),who);
 			DD_SPawnBurningsmoke((-ofs.xy,ofs.z + 5),who);
 		}
 		

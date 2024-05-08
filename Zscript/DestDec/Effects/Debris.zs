@@ -335,7 +335,7 @@ Class DD_BurningDebris : BouncingDebrisBase
 		FireParticle.Startroll = random(0,360);
 		FireParticle.RollVel = frandom(-0.5,0.5);
 		FireParticle.StartAlpha = 0.45;
-		FireParticle.FadeStep = -0.1;
+		FireParticle.FadeStep = 0.1;
 		FireParticle.Size = frandom(10,15);
 		FireParticle.SizeStep = -0.5;
 		FireParticle.Lifetime = FRandom (12,15); 
@@ -348,17 +348,17 @@ Class DD_BurningDebris : BouncingDebrisBase
 	{			
 		FSpawnParticleParams FlarePx;
 		FlarePx.Texture = TexMan.CheckForTexture ("LFXYA0");
-		FlarePx.Color1 = "FFFFFF";
+		FlarePx.Color1 = "FE9900";//"FFFFFF";
 		FlarePx.Style = STYLE_Add;
 		FlarePx.Flags = SPF_ROLL|SPF_FULLBRIGHT;
 		FlarePx.Vel = (0,0,0);
 		FlarePx.Startroll = random(0,360);
 		FlarePx.RollVel = frandom(-0.5,0.5);
-		FlarePx.StartAlpha = 0.65;
-		FlarePx.FadeStep = -0.35;
-		FlarePx.Size = frandom(10,15);
+		FlarePx.StartAlpha = 0.54;
+		FlarePx.FadeStep = 0.35;
+		FlarePx.Size = frandom(25,32);
 		FlarePx.SizeStep = -0.5;
-		FlarePx.Lifetime = 2; 
+		FlarePx.Lifetime = 1; 
 		FlarePx.Pos = pos;
 		Level.SpawnParticle (FlarePx);
 	}

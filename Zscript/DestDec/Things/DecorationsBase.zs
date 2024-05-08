@@ -26,28 +26,39 @@ Class DD_ShotDecoBase : Actor
 			"####" "######" 1 { D_SpawnFireFx(); A_Setscale(self.scale.x * 0.98);}
 			"####" "#" 1 { A_Fadeout(0.1); D_SpawnFireFx(); A_Setscale(self.scale.x * 0.99);}
 			wait;
+		Death.overcharge: Death.Purifying: Death.Spiritual: Death.XSpark: Death.EnergyExplosive: //hehe funny half life 2 reference
+			"####" "#" 0 A_Jumpif(DD_NoSpecificDeaths,"Death"); //jump to basic death state if the specific deaths are disabled
+			"####" "#" 1 bright {A_SetTranslation("Whited1"); D_SpawnFireFx("LFXWA0",STYLE_ADD);}
+			"####" "#" 1 bright {A_SetTranslation("Whited2"); D_SpawnFireFx("LFXWA0",STYLE_ADD);}
+			"####" "#" 1 bright {A_SetTranslation("Whited3"); A_Setscale(self.scale.x * 1.02); D_SpawnFireFx("LFXWA0",STYLE_ADD);}
+			"####" "#" 1 bright {A_SetTranslation("Whited4"); A_Setscale(self.scale.x * 1.02); D_SpawnFireFx("LFXWA0",STYLE_ADD);}
+			"####" "#" 1 bright {A_SetTranslation("Whited5"); A_Setscale(self.scale.x * 1.02); D_SpawnFireFx("LFXWA0",STYLE_ADD); bnogravity = true;}
+			"####" "######" 1 bright { D_SpawnFireFx("LFXWA0",STYLE_ADD); A_Setscale(self.scale.x * 1.02); vel.z += 0.1;}
+			"####" "#" 1 bright { A_Fadeout(0.1); D_SpawnFireFx("LFXWA0",STYLE_ADD); A_Setscale(self.scale.x * 1.02);}
+			wait;
+		
 	}
 	
-	void D_SpawnFireFx(string spt = "DD_PF1")
+	void D_SpawnFireFx(string spt = "DD_PF1",int rstyle = STYLE_TRANSLUCENT)
 	{			
 		FSpawnParticleParams FireParticle;
 		FireParticle.Texture = TexMan.CheckForTexture (spt);
 		FireParticle.Color1 = "FFFFFF";
-		FireParticle.Style = STYLE_TRANSLUCENT;
+		FireParticle.Style = rstyle;
 		FireParticle.Flags = SPF_ROLL|SPF_FULLBRIGHT;
-		FireParticle.Vel = (FRandom (0.2,-0.2),FRandom (0.2,-0.2),FRandom (0.3,1.2)); 
+		FireParticle.Vel = (FRandom (0.2,-0.2),FRandom (0.2,-0.2),FRandom (0.3,1.6)); 
 		FireParticle.Startroll = random(0,360);
 		FireParticle.RollVel = frandom(-1.5,1.5);
 		FireParticle.StartAlpha = 0.55;
-		FireParticle.FadeStep = -0.1;
+		//FireParticle.FadeStep = 0.1;
 		FireParticle.Size = frandom(20,48);
 		FireParticle.SizeStep = -0.5;
-		FireParticle.Lifetime = FRandom (35,35*3); 
+		FireParticle.Lifetime = FRandom (35,69); 
 		FireParticle.Pos = vec3offset(random(-radius,radius),random(-radius,radius),random(5,height));
-		
 		Level.SpawnParticle (FireParticle);
 
 	}
+	
 	
 	bool randomflipx;
 	property RandomFlipX:randomflipx;
@@ -71,10 +82,10 @@ Class DD_ShotDecoBase : Actor
 		Sparkfx.Vel = (FRandom (-4.1,4.1),FRandom (-4.1,4.1),FRandom (-0.8,3.2)); 
 		Sparkfx.accel = (0,0,frandom(-0.3,-0.9));
 		Sparkfx.StartAlpha = 0.45;
-		Sparkfx.FadeStep = -0.1;
+		//Sparkfx.FadeStep = 0.1;
 		Sparkfx.Size = frandom(15,32);
 		Sparkfx.SizeStep = -0.5;
-		Sparkfx.Lifetime = FRandom (35,35*3); 
+		Sparkfx.Lifetime = FRandom (35,35*2); 
 		Sparkfx.Pos = vec3offset(0,0,zoffset);
 		
 		Level.SpawnParticle (Sparkfx);
@@ -92,10 +103,10 @@ Class DD_ShotDecoBase : Actor
 		Smkfx.Startroll = random(0,360);
 		Smkfx.RollVel = frandom(-0.2,0.2);
 		Smkfx.StartAlpha = 0.35;
-		Smkfx.FadeStep = -0.1;
+		//Smkfx.FadeStep = 0.1;
 		Smkfx.Size = frandom(20,40);
 		Smkfx.SizeStep = 1.5;
-		Smkfx.Lifetime = fRandom(35,35*4); 
+		Smkfx.Lifetime = fRandom(35,35*3); 
 		Smkfx.Pos = vec3offset(xof,yof,zof);
 		
 		Level.SpawnParticle (Smkfx);

@@ -26,7 +26,7 @@ Class DD_GoryDec : DD_ShotDecoBase
 		BldFx.RollVel = frandom(-0.5,0.5);
 		BldFx.accel = (0,0,frandom(-0.9,-0.3));
 		BldFx.StartAlpha = 1.0;
-		BldFx.FadeStep = -0.1;
+		BldFx.FadeStep = 0.1;
 		BldFx.Size = frandom(10,32);
 		BldFx.SizeStep = frandom(3.0,5.0);
 		BldFx.Lifetime = fRandom(8,18); 
