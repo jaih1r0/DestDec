@@ -24,6 +24,7 @@ Class DD_IncendiaryBarrel : DD_ShotDecoBase //replaces burningbarrel
 			TNT1 A 0 A_RemoveLight('FIREBAR1');
 			TNT1 A 0 A_QuakeEx(2,2,2,6,0,150,"");
 			TNT1 A 0 A_Startsound("world/barrelx",32);
+			TNT1 A 0 A_SpawnExploFlare(24);
 			TNT1 A 0 A_Spawnitem("DD_BarrelExplosionFx");
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(10,16),(0,0,40),random(3,10),random(3,10));
 			//TNT1 A 0 SpawnExploFx();
@@ -88,6 +89,8 @@ Class DD_IncendiaryBarrel : DD_ShotDecoBase //replaces burningbarrel
 		A_Startsound("TorchLoop",69,CHANF_LOOPING,1.0,ATTN_NORM,frandom(0.1,1.1));
 		if(DD_DynLights)
 			A_AttachLightDef('FIREBAR1',"BurningBarrelFire");
+		if(DD_PushBarrel)
+			bPushable = true;
 		super.postbeginplay();
 	}
 	
@@ -105,14 +108,32 @@ Class DD_IncendiaryBarrel : DD_ShotDecoBase //replaces burningbarrel
 		int f = random(3,6);
 		for(int i = 0; i < f; i++)
 		{
-			XPFX.Size = frandom(60,70);
+			XPFX.Size = frandom(40,60);
 			XPFX.SizeStep = -1.5;
-			XPFX.Lifetime = Random (15,50); 
+			XPFX.Lifetime = Random (15,30); 
 			XPFX.Pos = vec3offset(random(-2,2),random(-2,2),random(10,32));
-			XPFX.Vel = (FRandom (-2,2),FRandom (-2,2),FRandom (2.5,6.0));
-			XPFX.Accel = (0,0,frandom(-0.35,-0.15));
+			XPFX.Vel = (FRandom (-2,2),FRandom (-2,2),FRandom (3.5,7.0));
+			XPFX.Accel = (0,0,frandom(-0.5,-0.25));
 			Level.SpawnParticle (XPFX);
 		}
+	}
+	
+	void A_SpawnExploFlare(int zoff = 15)
+	{
+		FSpawnParticleParams XPFLAR;
+		XPFLAR.Texture = TexMan.CheckForTexture ("LFXYA0");
+		XPFLAR.Color1 = "FFFFFF";
+		XPFLAR.Style = STYLE_Add;
+		XPFLAR.Flags = SPF_ROLL|SPF_FULLBRIGHT;
+		XPFLAR.Vel = (0,0,0);
+		XPFLAR.Startroll = random(0,360);
+		XPFLAR.StartAlpha = 0.6;
+		XPFLAR.Size = frandom(170,210);
+		XPFLAR.SizeStep = 0.5;
+		XPFLAR.Lifetime = FRandom (5,7); 
+		XPFLAR.Pos = vec3offset(0,0,zoff);
+		
+		Level.SpawnParticle(XPFLAR);
 	}
 	
 }
@@ -168,11 +189,12 @@ Class DD_NukageBarrel : DD_ShotDecoBase //replaces explosivebarrel
 			TNT1 A 0 A_RemoveLight('NUKEBAR1');
 			TNT1 A 0 A_QuakeEx(2,2,2,10,0,150,"");
 			TNT1 A 0 A_Startsound("world/barrelx",32);
+			TNT1 A 0 A_SpawnExploFlare(24);
 			TNT1 A 0 A_Spawnitem("DD_BarrelExplosionFx");
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(10,16),(0,0,40),random(3,10),random(3,10));
 			TNT1 A 0 DD_SpawnDebris("DD_BurningDebris",random(2,6),(0,0,40),random(3,10),random(3,10));
 			TNT1 A 0 A_SpawnEndSmokeFx(0,0,30);
-			TNT1 A 0 SpawnExploFx();
+			//TNT1 A 0 SpawnExploFx();
 			BRNK D 10 A_explode();
 			TNT1 A 0 A_SpawnEndSmokeFx(0,0,50);
 			BRNK D 350;
@@ -186,11 +208,12 @@ Class DD_NukageBarrel : DD_ShotDecoBase //replaces explosivebarrel
 			TNT1 A 0 A_RemoveLight('NUKEBAR1');
 			TNT1 A 0 A_QuakeEx(2,2,2,10,0,150,"");
 			TNT1 A 0 A_Startsound("world/barrelx",32);
+			TNT1 A 0 A_SpawnExploFlare(24);
 			TNT1 A 0 A_Spawnitem("DD_BarrelExplosionFx");
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(10,16),(0,0,40),random(3,10),random(3,10));
 			TNT1 A 0 DD_SpawnDebris("DD_BurningDebris",random(2,6),(0,0,40),random(3,10),random(3,10));
 			TNT1 A 0 A_SpawnEndSmokeFx(0,0,30);
-			TNT1 A 0 SpawnExploFx();
+			//TNT1 A 0 SpawnExploFx();
 			BRNK D 10 A_explode(100,260);
 			TNT1 AA 0  A_SpawnLightningfx();
 			TNT1 A 0 A_SpawnEndSmokeFx(0,0,50);
@@ -209,6 +232,8 @@ Class DD_NukageBarrel : DD_ShotDecoBase //replaces explosivebarrel
 	{
 		if(DD_DynLights)
 			A_AttachLightDef('NUKEBAR1',"GreentorchLightSmall");
+		if(DD_PushBarrel)
+			bPushable = true;
 		super.postbeginplay();
 	}
 	
@@ -221,14 +246,14 @@ Class DD_NukageBarrel : DD_ShotDecoBase //replaces explosivebarrel
 		NKGFX.Color1 = "FFFFFF";
 		NKGFX.Style = STYLE_Add;
 		NKGFX.Flags = SPF_ROLL|SPF_FULLBRIGHT;
-		NKGFX.Vel = (FRandom(-0.2,0.2),FRandom(-0.2,0.2),FRandom(0.2,-0.1)); 
+		NKGFX.Vel = (0,0,FRandom(0.1,0.35)); 
 		NKGFX.Startroll = random(0,360);
 		NKGFX.RollVel = frandom(-0.5,0.5);
 		NKGFX.StartAlpha = 0.4;
 		//NKGFX.FadeStep = 0.1;
 		NKGFX.Size = frandom(14,28);
-		NKGFX.SizeStep = 0.5;
-		NKGFX.Lifetime = FRandom (30,50); 
+		NKGFX.SizeStep = -0.5;
+		NKGFX.Lifetime = FRandom (15,20); 
 		NKGFX.Pos = vec3offset(random(-4,4),random(-4,4),random(30,32));
 		
 		Level.SpawnParticle (NKGFX);
@@ -250,7 +275,7 @@ Class DD_NukageBarrel : DD_ShotDecoBase //replaces explosivebarrel
 		{
 			XPFX.Size = frandom(60,70);
 			XPFX.SizeStep = -0.7;
-			XPFX.Lifetime = Random (15,50); 
+			XPFX.Lifetime = Random (15,30); 
 			XPFX.Pos = vec3offset(random(-2,2),random(-2,2),random(10,32));
 			//XPFX.Vel = (FRandom (-2,2),FRandom (-2,2),FRandom (-0.5,2.5)); 
 			XPFX.Vel = (FRandom (-2,2),FRandom (-2,2),FRandom (2.5,6.0));
@@ -279,6 +304,24 @@ Class DD_NukageBarrel : DD_ShotDecoBase //replaces explosivebarrel
 			ofs = (random(-45,45), random(-45,45), random(-5,50));
 		LGTB.Pos = self.vec3offset(ofs.x,ofs.y,ofs.z);
 		Level.SpawnParticle (LGTB);
+	}
+	
+	void A_SpawnExploFlare(int zoff = 15)
+	{
+		FSpawnParticleParams XPFLAR;
+		XPFLAR.Texture = TexMan.CheckForTexture ("LFXOA0");
+		XPFLAR.Color1 = "FFFFFF";
+		XPFLAR.Style = STYLE_Add;
+		XPFLAR.Flags = SPF_ROLL|SPF_FULLBRIGHT;
+		XPFLAR.Vel = (0,0,0);
+		XPFLAR.Startroll = random(0,360);
+		XPFLAR.StartAlpha = 0.6;
+		XPFLAR.Size = frandom(170,210);
+		XPFLAR.SizeStep = 0.5;
+		XPFLAR.Lifetime = FRandom (5,7); 
+		XPFLAR.Pos = vec3offset(0,0,zoff);
+		
+		Level.SpawnParticle(XPFLAR);
 	}
 	
 	

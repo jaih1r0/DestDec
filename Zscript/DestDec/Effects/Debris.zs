@@ -51,7 +51,7 @@ Class GlassShard1 : BouncingDebrisBase
 	{
 		Spawn:
 			MSC1 A 0 nodelay {
-				int rfm = random(0,1);
+				int rfm = random(0,3);
 				frame = rfm;
 			}
 			MSC1 "#" 3 A_Setroll(roll + rollsidespeed);
@@ -337,8 +337,8 @@ Class DD_BurningDebris : BouncingDebrisBase
 		FireParticle.StartAlpha = 0.45;
 		FireParticle.FadeStep = 0.1;
 		FireParticle.Size = frandom(10,15);
-		FireParticle.SizeStep = -0.5;
-		FireParticle.Lifetime = FRandom (12,15); 
+		FireParticle.SizeStep = -1.2;
+		FireParticle.Lifetime = FRandom (8,10); 
 		FireParticle.Pos = pos;
 		
 		Level.SpawnParticle (FireParticle);
@@ -348,7 +348,7 @@ Class DD_BurningDebris : BouncingDebrisBase
 	{			
 		FSpawnParticleParams FlarePx;
 		FlarePx.Texture = TexMan.CheckForTexture ("LFXYA0");
-		FlarePx.Color1 = "FE9900";//"FFFFFF";
+		FlarePx.Color1 = "FFFFFF";//"FE9900";//"FFFFFF";
 		FlarePx.Style = STYLE_Add;
 		FlarePx.Flags = SPF_ROLL|SPF_FULLBRIGHT;
 		FlarePx.Vel = (0,0,0);
@@ -356,7 +356,7 @@ Class DD_BurningDebris : BouncingDebrisBase
 		FlarePx.RollVel = frandom(-0.5,0.5);
 		FlarePx.StartAlpha = 0.54;
 		FlarePx.FadeStep = 0.35;
-		FlarePx.Size = frandom(25,32);
+		FlarePx.Size = frandom(34,36);
 		FlarePx.SizeStep = -0.5;
 		FlarePx.Lifetime = 1; 
 		FlarePx.Pos = pos;

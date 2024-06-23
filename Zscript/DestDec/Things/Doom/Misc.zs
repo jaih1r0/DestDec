@@ -518,6 +518,7 @@ Class DD_TechPillar : DD_ShotDecoBase //replaces TechPillar
 		Death:
 			TNT1 A 0 A_Startsound("MetalFx",61);
 			TNT1 A 0 A_startsound("TinMetalFx",70);
+			TNT1 A 0 DD_SpawnDebris("GlassShard1",random(5,9),(0,0,15),random(3,8),random(3,8));
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(6,12),(0,0,10),random(3,8),random(3,8));
 			TNT1 A 1;
 			stop;

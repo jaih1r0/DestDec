@@ -13,6 +13,7 @@ server float DD_Flarealpha = 0.65;
 server bool DD_NoFlareDim = false;
 server bool DD_NoBurnTree = false;
 server bool DD_NoSpecificDeaths = false;
+server bool DD_PushBarrel = false;
 
 Server Float DD_HealthMulti = 1.0;
 Server Float DD_BarrelHltMulti = 1.0;

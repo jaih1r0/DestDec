@@ -20,6 +20,7 @@ DD_CUSTOMBLUD = "\cfAllows gory decorations to spawn blood: ";
 DD_BONUSHCRP = "\cfAllows gory decorations to spawn health bonuses when destroyed: ";
 DD_BURNNATURE = "\cfNature decorations burns when fired with fire/plasma attacks: ";
 DD_SPECIFICSDT = "\cfAllow special deaths to decorations: ";
+DD_PSHBAR = "\cfEnable pushable barrels: ";
 
 DD_TIP_SMOKE = "\czNote: smoke may affect the performance.";
 DD_TIP_BARREL = "\czSome levels may have too many barrels...";

@@ -17,8 +17,8 @@ Particle Fire Enhancer:
 OpenGameArt:
 	-DD_SMK1.png is a heavy edited version of a swirling smoke animation from 'Beast' -> (https://opengameart.org/content/smoke-aura)
 
-Freepik:
-	- lens flare effect (LFX# sprites) -> (https://www.freepik.com/free-vector/realistic-sparkling-stars-collection_15628130.htm#page=2&query=flare%20png&position=5&from_view=keyword&track=ais&uuid=efdc85c5-e58f-4adf-a150-3923d9953845)
+vecteezy:
+	- lens flare effect (LFX# sprites) -> https://www.vecteezy.com/png/8507320-lens-flare-light-special-effect-background
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Code		///////////////////////////////////////////////////////////////////////////////////////////////////
