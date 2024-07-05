@@ -5,9 +5,12 @@ Class DD_GoryDec : DD_ShotDecoBase
 	//this is just because a head on a stick wont be gibbing and spawning tons of blood, isnt?
 	bool isGibbingCorpse;
 	property isGibbingCorpse : isGibbingCorpse;
+	bool reallybloody;
+	property reallybloody:reallybloody;
 	default
 	{
 		DD_GoryDec.isGibbingCorpse true;
+		DD_GoryDec.reallybloody true;
 		+noicedeath;
 	}
 	
@@ -35,6 +38,19 @@ Class DD_GoryDec : DD_ShotDecoBase
 		Level.SpawnParticle (BldFx);
 	}
 	
+	void DD_SpawnSuperBlood(vector3 offs, bool big = false)
+	{
+		if(DD_NobloodMist || StopBleed || DD_AllowCustomBlood)
+			return;
+		string prj = big ? "DD_BigBleedingDebris" : "DD_BleedingDebris";
+		actor bl = self.Spawn(prj,self.vec3offset(offs.x,offs.y,offs.z));
+		if(bl)
+		{
+			bl.target = self;
+			bl.copybloodcolor(self);
+		}
+	}
+	
 	override void SpawnLineAttackBlood(Actor attacker, Vector3 bleedpos, double SrcAngleFromTarget, int originaldamage, int actualdamage)
 	{
 		//if the custom blood isnt allowed, or is not a corpse, return the function here
@@ -46,8 +62,8 @@ Class DD_GoryDec : DD_ShotDecoBase
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
-		if(inflictor)
-			A_SpawnBloodMist1(inflictor.pos);
+		if(inflictor && !DD_NobloodMist && !StopBleed && !DD_AllowCustomBlood && health > 0)
+			DD_SpawnSuperBlood(levellocals.vec3diff(pos,inflictor.pos),reallybloody);//A_SpawnBloodMist1(inflictor.pos);
 			
 		return super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 	}

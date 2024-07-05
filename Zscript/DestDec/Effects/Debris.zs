@@ -363,3 +363,81 @@ Class DD_BurningDebris : BouncingDebrisBase
 		Level.SpawnParticle (FlarePx);
 	}
 }
+
+Class DD_BleedingDebris : NoTickActor
+{
+	default
+	{
+		bouncecount 1;
+		+noblockmap;
+		speed 7;
+		+thruactors;
+		gravity 2.5;
+	}
+	
+	states
+	{
+		Spawn:
+			BLUD CBA 2 DD_spawnBlood(pos);	
+			Stop;
+		Spray:
+			SPRY ABCDEF 1;
+			SPRY G 1;
+			Stop;
+
+	}
+	
+	override void tick()
+	{
+		super.tick();
+		if(isfrozen())
+			return;
+		setxyz(pos + (0,0,-gravity));
+	}
+	
+	override void postbeginplay()
+	{
+		if(target)
+			copybloodcolor(target);
+		super.postbeginplay();
+	}
+	
+	void DD_spawnBlood(vector3 where)
+	{
+		color col = gameinfo.defaultbloodcolor;
+		col = bloodcolor;
+		if(col == "000000")
+			col = "FF0000";
+		
+		FSpawnParticleParams BDTIL;
+		BDTIL.Texture = TexMan.CheckForTexture("VLOD1");
+		BDTIL.Color1 = col;
+		BDTIL.Style = STYLE_TRANSLUCENT;
+		BDTIL.Flags = SPF_ROLL;
+		BDTIL.Vel = (frandom(-2.5,2.5),frandom(-2.5,2.5),frandom(-0.5,1.2)); 
+		BDTIL.accel = (0,0,frandom(-0.35,-0.12));
+		BDTIL.Startroll = random(0,360);
+		BDTIL.RollVel = frandom(-4,4);
+		BDTIL.StartAlpha = 0.90;
+		BDTIL.FadeStep = 0.027;
+		BDTIL.Size = 20;
+		BDTIL.SizeStep = int(20 * 0.05);
+		BDTIL.Lifetime = random(10,13); 
+		BDTIL.Pos = where;
+		Level.SpawnParticle(BDTIL);
+	}
+}
+
+Class DD_BigBleedingDebris : DD_BleedingDebris
+{
+	states
+	{
+		Spawn:
+			BLUD CCBBAA 1 DD_spawnBlood(pos);
+			Stop;
+		Spray:
+			SPRY ABCDEF 1;
+			SPRY G 1;
+			Stop;
+	}
+}

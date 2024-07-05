@@ -309,6 +309,7 @@ Class DD_HeadCandles : DD_GoryDec //replaces HeadCandles
 		Height 40;
 		ProjectilePassHeight -16;
 		+solid
+		DD_GoryDec.reallybloody false;
 	}
 	States
 	{
@@ -398,6 +399,14 @@ Class DD_EvilierEye : DD_GoryDec //replaces EvilEye
 		}
 		
 		super.tick();
+	}
+	
+	override void Die(Actor Source, Actor inflictor, int dmgflags, Name MeansOfDeath )
+	{
+		super.Die(Source,inflictor,dmgflags,meansofdeath);
+		if(candil)
+			candil.destroy();
+		
 	}
 	
 	override string DD_GetBonusDrop()

@@ -21,9 +21,17 @@ Class DD_BloodyTwitch : DD_GoryDec //replaces BloodyTwitch
 			loop;
 		Death:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
 			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,45),random(3,6),random(3,7));
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(4,7),(0,0,40),random(3,6),random(3,7));
 			0RE0 F -1;
+			stop;
+		Xdeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 AAA 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
+			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,45),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(4,7),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 1;
 			stop;
 	}
 }
@@ -64,8 +72,16 @@ Class DD_Meat2 : DD_GoryDec //replaces meat2
 		Death:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
 			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,45),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(4,7),(0,0,40),random(3,6),random(3,7));
 			0RE2 C -1;
+			stop;
+		XDeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,45),random(3,6),random(3,7));
+			TNT1 AAA 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(4,7),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 1;
 			stop;
 	}
 }
@@ -102,9 +118,17 @@ Class DD_Meat3 : DD_GoryDec //replaces meat3
 			loop;
 		Death:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
 			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,45),random(3,6),random(3,7));
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(4,7),(0,0,40),random(3,6),random(3,7));
 			0RE1 E -1;
+			stop;
+		XDeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 AAA 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
+			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,45),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(4,7),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 1;
 			stop;
 	}
 }
@@ -135,7 +159,14 @@ Class DD_Meat4 : DD_GoryDec //replaces Meat4
 		Death:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
 			0RE2 C -1;
+			stop;
+		xDeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 AA 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
+			TNT1 A 1;
 			stop;
 	}
 }
@@ -157,6 +188,7 @@ Class DD_Meat5 : DD_GoryDec //replaces meat5
 		+SOLID
 		+NOGRAVITY
 		+SPAWNCEILING
+		DD_GoryDec.reallybloody false;
 	}
 	
 	states
@@ -167,7 +199,14 @@ Class DD_Meat5 : DD_GoryDec //replaces meat5
 		Death:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
 			0RE4 B -1;
+			stop;
+		Xdeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
+			TNT1 A 1;
 			stop;
 	}
 }
@@ -205,8 +244,15 @@ Class DD_Hang1NG : DD_GoryDec //replaces HangNoGuts
 			loop;
 		Death:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
 			0RE5 C -1;
+			stop;
+		Xdeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 AA 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 1;
 			stop;
 	}
 }
@@ -234,8 +280,15 @@ Class DD_Hang2NB : DD_GoryDec //replaces HangBNoBrain
 			loop;
 		Death:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
 			0RE6 C -1;
+			stop;
+		Xdeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 AA 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
+			0RE6 C 1;
 			stop;
 	}
 }
@@ -257,9 +310,17 @@ Class DD_Hang3TLD : DD_GoryDec //replaces HangTLookingDown
 			stop;
 		Death:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
 			0RE7 B -1;
 			stop;
+		XDeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 AA 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 1;
+			stop;
+		
 	}
 }
 
@@ -281,7 +342,14 @@ Class DD_HAng4TLU : DD_GoryDec //replaces HangTLookingUp
 		Death:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
 			0RE9 B -1;
+			stop;
+		Xdeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
+			TNT1 A 1;
 			stop;
 	}
 }
@@ -304,7 +372,14 @@ Class DD_HangTSK : DD_GoryDec //replaces HangTSkull
 		Death:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
 			0RE8 B -1;
+			stop;
+		Xdeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
+			TNT1 A 1;
 			stop;
 	}
 }
@@ -327,7 +402,14 @@ Class DD_HangTNB : DD_GoryDec //replaces HANGTNOBRAIN
 		Death:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
 			0REA B -1;
+			stop;
+		XDeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(3,6),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
+			0REA B 1;
 			stop;
 	}
 }
@@ -341,7 +423,6 @@ Class DD_DeadStick : DD_GoryDec //replaces DeadStick
 		Height 64;
 		ProjectilePassHeight -16;
 		+SOLID;
-		
 	}
 	states
 	{
@@ -352,8 +433,17 @@ Class DD_DeadStick : DD_GoryDec //replaces DeadStick
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(8,12),(0,0,40),random(3,6),random(3,7));
 			TNT1 A 0 DD_SpawnDebris("PinkSkullDebris1",1,(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
 			TNT1 A 0 { bnoblood = true; }
 			0RE3 E -1;
+			stop;
+		Xdeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(8,12),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnDebris("PinkSkullDebris1",1,(0,0,40),random(3,6),random(3,7));
+			TNT1 AAA 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
+			TNT1 A 0 { bnoblood = true; }
+			0RE3 E 1;
 			stop;
 	}
 
@@ -379,8 +469,18 @@ Class DD_liveStick : DD_GoryDec //replaces livestick
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(8,12),(0,0,40),random(3,6),random(3,7));
 			TNT1 A 0 DD_SpawnDebris("PinkSkullDebris1",1,(0,0,40),random(3,6),random(3,7));
 			TNT1 A 0 DD_SpawnDebris("HeartofGlass1",1,(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
 			TNT1 A 0 { bnoblood = true; }
 			0RE3 E -1;
+			stop;
+		Xdeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(8,12),(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnDebris("PinkSkullDebris1",1,(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnDebris("HeartofGlass1",1,(0,0,40),random(3,6),random(3,7));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
+			TNT1 A 0 { bnoblood = true; }
+			0RE3 E 1;
 			stop;
 	}
 }
@@ -395,6 +495,7 @@ Class DD_HeadStick : DD_GoryDec //replaces HeadOnAStick
 		ProjectilePassHeight -16;
 		DD_GoryDec.isGibbingCorpse false;
 		+SOLID
+		DD_GoryDec.reallybloody false;
 	}
 	states
 	{
@@ -404,7 +505,7 @@ Class DD_HeadStick : DD_GoryDec //replaces HeadOnAStick
 		LowDamage:
 			TNT1 A 0 A_Startsound("SkullFx",66);
 			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,45),random(3,6),random(3,7));
-			TNT1 A 0 { StopBleed = True; }
+			TNT1 A 0 { StopBleed = True; bnoblood = true; }
 		LowDamageLoop:
 			HST1 B -1;
 			stop;
@@ -429,6 +530,7 @@ Class DD_HeadsStick : DD_GoryDec //replaces HeadsOnAStick
 		ProjectilePassHeight -16;
 		+SOLID
 		DD_GoryDec.isGibbingCorpse false;
+		DD_GoryDec.reallybloody false;
 		health 350;
 	}
 	int headsleft;
@@ -481,7 +583,7 @@ Class DD_HeadsStick : DD_GoryDec //replaces HeadsOnAStick
 			TNT1 A 0 A_Startsound("SkullFx",66);
 			TNT1 A 0 DD_SkullSub();
 			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,45),random(3,6),random(3,7));
-			TNT1 A 0 { StopBleed = True; }
+			TNT1 A 0 { StopBleed = True; bnoblood = true; }
 		StickLoop:
 			HST2 F -1;
 			stop;

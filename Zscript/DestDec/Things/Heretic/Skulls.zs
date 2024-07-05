@@ -134,8 +134,15 @@ Class DD_HangingCorpse : DD_GoryDec
 			stop;
 		Death:
 			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,0.75,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
 			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(4,7),(0,0,40),random(3,6),random(3,7));
 			HHC1 C -1;
+			stop;
+		XDeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,0.75,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 AAA 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(4,7),(0,0,40),random(3,6),random(3,7));
+			HHC1 C 1;
 			stop;
 	}
 	
