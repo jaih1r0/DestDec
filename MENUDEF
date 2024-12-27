@@ -33,6 +33,9 @@ OptionMenu "DD_Options"
 	option "$DD_BLUDMS","DD_NobloodMist","Yesnt"
 	statictext ""
 	
+	option "$DD_BDECALS","DD_NoBloodDecals","Yesnt"
+	statictext ""
+	
 	DDOption "$DD_BARFX","$DD_TIP_BARREL","DD_NoBarrelNukage","Yesnt"
 	statictext ""
 	

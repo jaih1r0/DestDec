@@ -329,9 +329,10 @@ Class DD_HeadCandles : DD_GoryDec //replaces HeadCandles
 			TNT1 A 0 A_Startsound("SkullFx",63);
 			TNT1 A 0 A_Startsound("StoneFx",62); 
 			TNT1 A 0 A_removelight('HEADCAND1');
-			TNT1 A 0 DD_SpawnDebris("RedRockDebris1",random(3,6),(0,0,40),random(3,8),random(3,8));
+			TNT1 A 0 DD_SpawnDebris("RedRockDebris1",random(2,4),(0,0,40),random(3,8),random(3,8));
 			TNT1 A 0 DD_SpawnDebris("SkullDebris1",4,(0,0,40),random(3,8),random(3,8));
 			TNT1 A 0 DD_SpawnDebris("PinkSkullDebris1",2,(0,0,40),random(3,8),random(3,8));
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(2,3),(0,0,40),random(3,6),random(3,7));
 			TNT1 A 1;
 			stop;
 	}

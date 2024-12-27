@@ -221,6 +221,7 @@ Class HeartofGlass1 : BouncingDebrisBase
 	default
 	{
 		scale 0.9;
+		//decal "BloodSplat";
 	}
 	states
 	{
@@ -231,10 +232,12 @@ Class HeartofGlass1 : BouncingDebrisBase
 			loop;
 		Death:
 			TNT1 A 0 { bmissile = false; }
+			TNT1 A 0 DD_TraceBlood();
 			HRTL AABC 3;
 			HRTL AABC 3;
 			HRTL AABC 3;
 			HRTL AABC 3;
+			TNT1 A 0 DD_TraceBlood();
 			HRTL AABC 3;
 			HRTL AABC 3;
 			HRTL AA 50;
@@ -248,6 +251,7 @@ Class HeartofGlass1 : BouncingDebrisBase
 		A_Setscale(self.scale.x + frandom(-0.05,0.1));
 		super.beginplay();
 	}
+	
 }
 
 Class EvilEyeDebris1 : BouncingDebrisBase
@@ -256,6 +260,7 @@ Class EvilEyeDebris1 : BouncingDebrisBase
 	{
 		scale 1.0;
 		speed 8;
+		//decal "BloodSplat";
 	}
 	states
 	{
@@ -263,6 +268,7 @@ Class EvilEyeDebris1 : BouncingDebrisBase
 			EVYT CCC 3 A_Setroll(roll + rollsidespeed);
 			loop;
 		Death:
+			TNT1 A 0 DD_TraceBlood();
 			EVYT C -1;
 			stop;
 	}
@@ -273,6 +279,7 @@ Class EvilEyeDebris1 : BouncingDebrisBase
 		A_Setscale(self.scale.x + frandom(-0.05,0.1));
 		super.beginplay();
 	}
+	
 }
 
 Class BouncingGib1 : BouncingDebrisBase
@@ -280,6 +287,7 @@ Class BouncingGib1 : BouncingDebrisBase
 	default
 	{
 		scale 1.0;
+		//decal "BloodSplat";
 	}
 	states
 	{
@@ -294,6 +302,7 @@ Class BouncingGib1 : BouncingDebrisBase
 			}
 			loop;
 		Death:
+			TNT1 "#" 0 DD_TraceBlood();
 			GBBC "#" -1;
 			stop;
 	}
@@ -304,6 +313,7 @@ Class BouncingGib1 : BouncingDebrisBase
 		A_Setscale(self.scale.x + frandom(-0.1,0.25));
 		super.beginplay();
 	}
+	
 }
 
 Class DD_BurningDebris : BouncingDebrisBase
@@ -373,16 +383,19 @@ Class DD_BleedingDebris : NoTickActor
 		speed 7;
 		+thruactors;
 		gravity 2.5;
+		//decal "BloodSplat";
 	}
 	
 	states
 	{
 		Spawn:
-			BLUD CBA 2 DD_spawnBlood(pos);	
+			BLUD CBA 2 DD_spawnBlood(pos);
+			TNT1 A 0 DD_TraceBlood();
 			Stop;
 		Spray:
 			SPRY ABCDEF 1;
 			SPRY G 1;
+			TNT1 A 0 DD_TraceBlood();
 			Stop;
 
 	}
@@ -401,6 +414,15 @@ Class DD_BleedingDebris : NoTickActor
 			copybloodcolor(target);
 		super.postbeginplay();
 	}
+	
+	void DD_TraceBlood(int ammount = 1)
+	{
+		if(DD_NoBloodDecals)
+			return;
+		if(randompick(0,1,0) == 1)
+			self.A_SprayDecal("BloodSplat",15,(0,0,0),(random(-1,1),random(-1,1),0),true);
+	}
+	
 	
 	void DD_spawnBlood(vector3 where)
 	{
@@ -434,10 +456,12 @@ Class DD_BigBleedingDebris : DD_BleedingDebris
 	{
 		Spawn:
 			BLUD CCBBAA 1 DD_spawnBlood(pos);
+			TNT1 A 0 DD_TraceBlood();
 			Stop;
 		Spray:
 			SPRY ABCDEF 1;
 			SPRY G 1;
+			TNT1 A 0 DD_TraceBlood();
 			Stop;
 	}
 }

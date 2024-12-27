@@ -15,6 +15,7 @@ server bool DD_NoBurnTree = false;
 server bool DD_NoSpecificDeaths = false;
 server bool DD_PushBarrel = false;
 server bool DD_NoChangeSize = false;
+server bool DD_NoBloodDecals = false;
 
 Server Float DD_HealthMulti = 1.0;
 Server Float DD_BarrelHltMulti = 1.0;

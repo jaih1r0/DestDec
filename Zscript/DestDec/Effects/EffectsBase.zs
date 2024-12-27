@@ -159,4 +159,12 @@ Class BouncingDebrisBase : Actor
 			super.tick();
 	}
 	
+	void DD_TraceBlood(int ammount = 1)
+	{
+		if(DD_NoBloodDecals)
+			return;
+		if(random(0,1) == 1)
+			self.A_SprayDecal("BloodSplat",15,(0,0,0),(random(-1,1),random(-1,1),0),true);
+	}
+	
 }

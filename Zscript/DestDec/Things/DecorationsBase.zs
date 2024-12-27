@@ -65,6 +65,8 @@ Class DD_ShotDecoBase : Actor
 	//variables
 	DD_FlareBase FB;
 	int zofs;
+	vector3 LastHitDir;
+	double LastHitAngle;
 	
 	//this are used instead of explicit values for destruction state checks
 	int slightdamaged;
@@ -142,7 +144,7 @@ Class DD_ShotDecoBase : Actor
 			db = Spawn(type,vec3offset(offs.x,offs.y,zvar != 0 ? offs.z + random(-zvar,zvar) : offs.z));
 			if(db)
 			{
-				db.angle = random(0,360);
+				db.angle = self.LastHitDir != (0,0,0) && randompick(0,1,0,0,0,0) == 0 ? LastHitAngle + random(-30,30) : random(0,360);
 				int vad = random(-velxy,velxy) * 0.5;
 				db.velfromangle(velxy + vad,db.angle);
 				db.vel.z += (velz + vad);
@@ -158,6 +160,7 @@ Class DD_ShotDecoBase : Actor
 		if(projpass != -1)
 			ProjectilePassHeight = projpass;
 	}
+	
 	double testAng;
 	void DD_SpawnHeightTest(bool h = true, bool radii = false,int life = 1)
 	{
@@ -196,5 +199,24 @@ Class DD_ShotDecoBase : Actor
 		Super.Beginplay();
 	}
 	
+	override int TakeSpecialDamage(Actor inflictor, Actor source, int damage, Name damagetype)
+	{
+		if(inflictor)
+		{
+			LastHitDir = levellocals.vec3diff(inflictor.pos,pos);
+			LastHitAngle = atan2(LastHitDir.y,LastHitDir.x);
+			LastHitDir = LastHitDir.Unit();
+		}
+		else
+		{
+			if(source)
+			{
+				LastHitDir = levellocals.vec3diff(source.pos,pos);
+				LastHitAngle = atan2(LastHitDir.y,LastHitDir.x);
+				LastHitDir = LastHitDir.Unit();
+			}
+		}
+		return super.TakeSpecialDamage(inflictor, source, damage, damagetype);
+	}
 	
 }

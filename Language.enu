@@ -23,6 +23,7 @@ DD_SPECIFICSDT = "\cfAllow special deaths to decorations: ";
 DD_PSHBAR = "\cfEnable pushable barrels: ";
 DD_SIZECHAN = "\cfDecorations change its size based in its state: ";
 DD_FXDENS = "\cfDebris spawn multiplier";
+DD_BDECALS = "\cfGibs can leave blood decals: ";
 
 DD_TIP_MAXDEBS = "\czLimit the ammount of debris spawned (set to 0 to disable limit)";
 DD_TIP_SMOKE = "\czSmoke may affect the performance.";
