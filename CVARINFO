@@ -14,9 +14,11 @@ server bool DD_NoFlareDim = false;
 server bool DD_NoBurnTree = false;
 server bool DD_NoSpecificDeaths = false;
 server bool DD_PushBarrel = false;
+server bool DD_NoChangeSize = false;
 
 Server Float DD_HealthMulti = 1.0;
 Server Float DD_BarrelHltMulti = 1.0;
+server Float DD_FXMulti = 1.0;
 
 Server Bool DD_SigilEvEyes = false;
 Server Bool DD_Working = true;

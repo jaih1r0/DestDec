@@ -69,6 +69,7 @@ Class DD_NatureThing : DD_ShotDecoBase
 		super.Die(source, inflictor, dmgflags, MeansOfDeath);
 	}
 	
+	
 }
 
 Class DD_BigTree : DD_NatureThing //replaces BigTree
@@ -94,6 +95,7 @@ Class DD_BigTree : DD_NatureThing //replaces BigTree
 			TNT1 A 0 A_SpawnWoodSmoke(0,0,50);
 			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 A 0 DD_SpawnDebris("BigWoodStick",random(4,7),(0,0,40),random(3,8),random(3,8));
+			TNT1 A 0 DD_SetSize(-1,80);
 		LowDamageLoop:
 			BTR3 B 1 A_Jumpif(health < halflife,"MidDamage");
 			loop;
@@ -113,6 +115,7 @@ Class DD_BigTree : DD_NatureThing //replaces BigTree
 			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 A 0 A_SpawnWoodSmoke(0,0,40);
 			TNT1 A 0 DD_SpawnDebris("BigWoodStick",random(4,7),(0,0,40),random(3,8),random(3,8));
+			TNT1 A 0 DD_SetSize(-1,26);
 		highDamageLooP:
 			BTR3 E 1 A_Jumpif(health < 1,"Death");
 			loop;
@@ -124,24 +127,6 @@ Class DD_BigTree : DD_NatureThing //replaces BigTree
 			TNT1 A 0 DD_SpawnDebris("BigWoodStick",random(7,12),(0,0,40),random(3,8),random(3,8));
 			TNT1 A 1;
 			stop;
-		/*	
-		Death.Electric:
-		Death.Fire:
-		Death.Plasma:
-			TNT1 "#" 0 A_settranslation("Burned");
-			TNT1 "#" 0 A_Startsound("TorchLoop",69,CHANF_LOOPING,1.0,ATTN_NORM,frandom(0.1,1.1));
-			TNT1 "#" 0 { repeattimes = random(15,30); }
-		BurnLoop:
-			TNT1 "#" 0 { repeattimes--; }
-			BTR3 "##########" 2 A_SpawnFiringDeath(random(-radius,radius),random(-radius,radius),45);
-			BTR3 "#" 1 A_SpawnEndSmokeFx(random(-radius,radius),random(-radius,radius),45);
-			BTR3 "#" 0 A_jumpif(repeattimes > 0,"BurnLoop");
-			TNT1 "#" 0 A_Stopsound(69);
-			TNT1 "#" 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
-			BTR3 "#" 0 A_KillFlare();
-			BTR3 "#" 0 A_SpawnEndSmokeFx(random(-radius,radius),random(-radius,radius),45);
-			BTR3 "#" -1;
-			stop;*/
 	}
 	
 	override void tick()
@@ -149,6 +134,7 @@ Class DD_BigTree : DD_NatureThing //replaces BigTree
 		DD_ShotDecoBase.tick();
 		double zof = height - (15 * (1 + stateact)) + random(-5,5); //when the tree dies, the particles spawns under the floor, so below i check if this is more than 0 to avoid that
 		DD_handleBurning(fireevery: (firesep > 0 ? firesep : 3),ofs: (random(-radius,radius),random(-radius,radius),zof > 0 ? zof : random(10,20)),who: self);
+		
 	}
 	
 }
@@ -173,6 +159,7 @@ Class DD_torchTree : DD_NatureThing //replaces TorchTree
 			TNT1 A 0 A_SpawnWoodSmoke(0,0,50);
 			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 A 0 DD_SpawnDebris("BigWoodStick",random(3,6),(0,0,40),random(3,8),random(3,8));
+			TNT1 A 0 DD_SetSize(-1,36);
 		MidDamageLoop:
 			TRE3 B -1;
 			loop;
@@ -183,6 +170,7 @@ Class DD_torchTree : DD_NatureThing //replaces TorchTree
 			stop;
 		
 	}
+
 }
 //this is the grey one
 Class DD_Stalagmite : DD_NatureThing //replaces stalagmite
@@ -204,6 +192,7 @@ Class DD_Stalagmite : DD_NatureThing //replaces stalagmite
 			TNT1 A 0 A_SpawnWoodSmoke(0,0,50);
 			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 A 0 DD_SpawnDebris("WoodenStickPc2",random(3,6),(0,0,40),random(3,8),random(3,8));
+			TNT1 A 0 DD_SetSize(-1,18);
 		MidDamageLoop:
 			STM3 B -1;
 			loop;
@@ -214,6 +203,7 @@ Class DD_Stalagmite : DD_NatureThing //replaces stalagmite
 			TNT1 A 1;
 			Stop;
 	}
+	
 }
 //this is not the grey one
 Class DD_Stalagtite : DD_NatureThing //replaces Stalagtite
@@ -235,6 +225,7 @@ Class DD_Stalagtite : DD_NatureThing //replaces Stalagtite
 			TNT1 A 0 A_SpawnWoodSmoke(0,0,50);
 			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 A 0 DD_SpawnDebris("WoodenStickPc2",random(3,6),(0,0,40),random(3,8),random(3,8));
+			TNT1 A 0 DD_SetSize(-1,18);
 		MidDamageLoop:
 			STT3 B -1;
 			loop;

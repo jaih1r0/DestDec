@@ -591,7 +591,10 @@ Class DD_HeadsStick : DD_GoryDec //replaces HeadsOnAStick
 		Death:
 			TNT1 A 0 {
 				if(headsleft > 0)
-					DD_SpawnDebris("SkullDebris1",headsleft,(0,0,45),random(3,6),random(3,7));
+				{
+					for(int i = 0; i < headsleft; i++)
+						DD_SpawnDebris("SkullDebris1",1,(0,0,45),random(3,6),random(3,7));
+				}
 			}
 			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 A 0 DD_SpawnDebris("WoodenStickPc",random(3,6),(0,0,40),random(3,8),random(3,8));

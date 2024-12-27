@@ -5,71 +5,90 @@ addoptionmenu "OptionsMenu"
 
 OptionMenu "DD_Options"
 {
+	class "DestDecMenu"
 	Title "$DD_TITLE"
+	
 	Statictext ""
 	Statictext ""
+	statictext "$DD_SEPT2"
 	statictext "$DD_INSTEFFECT"
+	statictext "$DD_SEPT1"
 	statictext ""
-	Slider "$DD_MaxDebs","DD_MaxGibsAllowed",0,900,16
+	
+	DDSlider "$DD_MaxDebs","$DD_TIP_MAXDEBS","DD_MaxGibsAllowed",0,900,16
 	Statictext ""
+	
+	DDSlider "$DD_FXDENS","$DD_TIP_FXDENSITY","DD_FXMulti",0.0,5.0,0.5
+	Statictext ""
+	
 	control "$DD_BUTNOW","netevent DD_ClearDebris"
 	Statictext ""
-	Slider "$DD_CLEANTIME","DD_CleanTics",0,30,1,0
-	statictext "$DD_TIP_CLEANTIME"
+	
+	DDSlider "$DD_CLEANTIME","$DD_TIP_CLEANTIME","DD_CleanTics",0,30,1,0
 	statictext ""
-	option "$DD_SMOKE","DD_NoSmokeFx","Yesnt"
-	statictext "$DD_TIP_SMOKE"
+	
+	DDOption "$DD_SMOKE","$DD_TIP_SMOKE","DD_NoSmokeFx","Yesnt"
 	statictext ""
+	
 	option "$DD_BLUDMS","DD_NobloodMist","Yesnt"
 	statictext ""
-	option "$DD_BARFX","DD_NoBarrelNukage","Yesnt"
-	statictext "$DD_TIP_BARREL"
+	
+	DDOption "$DD_BARFX","$DD_TIP_BARREL","DD_NoBarrelNukage","Yesnt"
 	statictext ""
-	option "$DD_BONUSHCRP","DD_CrpSpwnbonus","yessir"
-	statictext "$DD_TIP_BONCRPH"
+	
+	DDOption "$DD_BONUSHCRP","$DD_TIP_BONCRPH","DD_CrpSpwnbonus","yessir"
 	statictext ""
+	
+	DDOption "$DD_BURNNATURE","$DD_TIP_TREEBURN","DD_NoBurnTree","Yesnt"
 	statictext ""
-	option "$DD_BURNNATURE","DD_NoBurnTree","Yesnt"
-	statictext "$DD_TIP_TREEBURN"
+	
+	DDOption "$DD_SPECIFICSDT","$DD_TIP_SPECDEATH","DD_NoSpecificDeaths","Yesnt"
 	statictext ""
+	
 	statictext ""
-	option "$DD_SPECIFICSDT","DD_NoSpecificDeaths","Yesnt"
-	statictext "$DD_TIP_SPECDEATH"
-	statictext ""
+	statictext "$DD_SEPT2"
 	statictext "$DD_MAPEFFECT"
+	statictext "$DD_SEPT1"
 	statictext ""
-	Slider "$DD_MULHT","DD_HealthMulti",0.2,10.0,0.1
-	statictext "$DD_TIP_HEALTH1"
+	
+	DDSlider "$DD_MULHT","$DD_TIP_HEALTH1","DD_HealthMulti",0.2,10.0,0.1
 	Statictext ""
-	Slider "$DD_MULHTBAR","DD_BarrelHltMulti",0.2,10.0,0.1
-	statictext "$DD_TIP_HEALTH2"
+	
+	DDSlider "$DD_MULHTBAR","$DD_TIP_HEALTH2","DD_BarrelHltMulti",0.2,10.0,0.1
 	Statictext ""
+	
 	option "$DD_FLARES","DD_NoFlares","Yesnt"
 	statictext ""
+	
 	Slider "$DD_FLARESALFA","DD_Flarealpha",0.1,1.0,0.05
 	Statictext ""
-	option "$DD_BARREP","DD_ReplaceBarrels","yessir"
-	statictext "$DD_TIP_BARREP"
+	
+	DDOption "$DD_BARREP","$DD_TIP_BARREP","DD_ReplaceBarrels","yessir"
 	statictext ""
-	statictext ""
+	
 	option "$DD_PSHBAR","DD_PushBarrel","yessir"
 	statictext ""
+	
+	DDOption "$DD_DYNLIGHTS","$DD_TIP_DYNLGT","DD_DynLights","yessir"
 	statictext ""
-	option "$DD_DYNLIGHTS","DD_DynLights","yessir"
-	statictext "$DD_TIP_DYNLGT"
+	
+	DDOption "$DD_CUSTOMBLUD","$DD_TIP_CUSTOMBLUD","DD_AllowCustomBlood","yessir"
 	statictext ""
-	option "$DD_CUSTOMBLUD","DD_AllowCustomBlood","yessir"
-	statictext "$DD_TIP_CUSTOMBLUD"
+	
+	DDOption "$DD_SIGILEYES","$DD_TIP_SIGEYE","DD_SigilEvEyes","yessir"
 	statictext ""
-	Option "$DD_SIGILEYES","DD_SigilEvEyes","yessir"
-	statictext "$DD_TIP_SIGEYE"
+	
+	DDOption "$DD_SIZECHAN","$DD_TIP_ADJSIZE","DD_NoChangeSize","Yesnt"
 	statictext ""
+	
 	ifgame(Heretic)
 	{
 		StaticText "$DD_HERETICS"
 		StaticText ""
+		
 		Option "$DD_HERETICPOD","DD_ReplacePods","yessir"
 		statictext ""
+		
 		Option "$DD_HERETICVOLCANO","DD_ReplaceVolcano","yessir"
 		statictext ""
 	}

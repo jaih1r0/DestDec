@@ -36,6 +36,7 @@ Class DD_Lamp1 : DD_ShotDecoBase //replaces TechLamp
 			TNT1 A 0 A_Startsound("MetalFx",60);
 			TNT1 A 0 A_killFlare();
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(3,6),(0,0,45),random(3,10),random(3,10));
+			TNT1 A 0 DD_SetSize(-1,48);
 		D_MidLoop:
 			TNT1 A 0 A_killFlare();
 			DLM1 C 1;
@@ -48,6 +49,7 @@ Class DD_Lamp1 : DD_ShotDecoBase //replaces TechLamp
 			TNT1 A 0 A_killFlare();
 			TNT1 AAAAA 0 A_SpawnSparksFx1();
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(3,6),(0,0,45),random(3,10),random(3,10));
+			TNT1 A 0 DD_SetSize(-1,18);
 		D_HighLoop:
 			DLM1 D -1;
 			stop;
@@ -70,7 +72,6 @@ Class DD_Lamp1 : DD_ShotDecoBase //replaces TechLamp
 			A_AttachLightDef('Lamp1',"WhiteLampBig");
 		super.postbeginplay();
 	}
-	
 
 }
 
@@ -111,6 +112,7 @@ Class DD_Lamp2 : DD_ShotDecoBase //replaces TechLamp2
 			TNT1 A 0 A_Startsound("MetalFx",61);
 			TNT1 A 0 A_killFlare();
 			TNT1 AAAA 0 A_SpawnSparksFx1();
+			TNT1 A 0 DD_SetSize(-1,32);
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(3,6),(0,0,30),random(3,10),random(3,10));
 		D_MidLoop:
 			DLM2 C -1;
@@ -125,6 +127,7 @@ Class DD_Lamp2 : DD_ShotDecoBase //replaces TechLamp2
 			TNT1 A 1;
 			stop;
 	}
+	
 	
 	override void postbeginplay()
 	{
@@ -172,6 +175,7 @@ Class DD_Lamp3 : DD_ShotDecoBase //replaces column
 			TNT1 A 0 A_startsound("TinMetalFx",70);
 			TNT1 A 0 A_killFlare();
 			TNT1 AAAA 0 A_SpawnSparksFx1();
+			TNT1 A 0 DD_SetSize(-1,26);
 			TNT1 A 0 DD_SpawnDebris("MetalScrap1",random(3,5),(0,0,30),random(3,10),random(3,10));
 		D_MidLoop:
 			DLM3 C -1;
@@ -224,6 +228,7 @@ Class DD_Candil1 : DD_ShotDecoBase //replaces Candelabra
 			TNT1 A 0 A_RemoveLight('Lamp4');
 			TNT1 A 0 A_Startsound("MetalFx",61);
 			TNT1 A 0 A_startsound("TinMetalFx",70);
+			TNT1 A 0 DD_SetSize(-1,25);
 			TNT1 A 0 DD_SpawnDebris("GoldScrap1",random(3,5),(0,0,30),random(3,10),random(3,10));
 			TNT1 A 0 A_killFlare();
 			CND0 C -1;
@@ -237,6 +242,7 @@ Class DD_Candil1 : DD_ShotDecoBase //replaces Candelabra
 			TNT1 A 1;
 			Stop;
 	}
+	
 	
 	override void postbeginplay()
 	{

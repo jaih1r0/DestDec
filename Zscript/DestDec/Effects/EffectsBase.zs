@@ -152,6 +152,7 @@ Class BouncingDebrisBase : Actor
 			self.bmissile = false;
 			self.bnogravity = false;
 			selfzfloor = self.pos.z;
+			self.bnointeraction = true;
 		}
 		
 		if(!died)

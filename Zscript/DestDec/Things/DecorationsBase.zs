@@ -132,19 +132,44 @@ Class DD_ShotDecoBase : Actor
 		}
 	}
 	
-	void DD_SpawnDebris(string type,int num,vector3 offs = (0,0,0),int velxy = 1, int velz = 1)
+	void DD_SpawnDebris(string type,int num,vector3 offs = (0,0,0),int velxy = 1, int velz = 1,int zvar = 3)
 	{
 		actor db;
+		if(DD_FXMulti != 1.0 && num != 1)
+			num *= DD_FXMulti;
 		for(int i = 0; i < num; i++)
 		{
-			db = Spawn(type,vec3offset(offs.x,offs.y,offs.z));
+			db = Spawn(type,vec3offset(offs.x,offs.y,zvar != 0 ? offs.z + random(-zvar,zvar) : offs.z));
 			if(db)
 			{
 				db.angle = random(0,360);
-				int vad = random(-2,2);
+				int vad = random(-velxy,velxy) * 0.5;
 				db.velfromangle(velxy + vad,db.angle);
 				db.vel.z += (velz + vad);
 			}
+		}
+	}
+	
+	void DD_SetSize(double rad = -1,double he = -1,double projpass = -1)
+	{
+		if(DD_NoChangeSize)
+			return;
+		A_SetSize(rad,he);
+		if(projpass != -1)
+			ProjectilePassHeight = projpass;
+	}
+	double testAng;
+	void DD_SpawnHeightTest(bool h = true, bool radii = false,int life = 1)
+	{
+		if(h)
+			A_Spawnparticle("Orange",SPF_FULLBRIGHT|SPF_RELATIVE,life,3 + (testAng % 15),testAng,5,5,height);
+		if(radii)
+		{
+			A_Spawnparticle("Yellow",SPF_FULLBRIGHT|SPF_RELATIVE,life,5,testAng,radius,radius,height * 0.5);
+			A_Spawnparticle("Green",SPF_FULLBRIGHT|SPF_RELATIVE,life,5,testAng,-radius,radius,height * 0.5);
+			A_Spawnparticle("Green",SPF_FULLBRIGHT|SPF_RELATIVE,life,5,testAng,radius,-radius,height * 0.5);
+			A_Spawnparticle("Yellow",SPF_FULLBRIGHT|SPF_RELATIVE,life,5,testAng,-radius,-radius,height * 0.5);
+			testAng += 1;
 		}
 	}
 	

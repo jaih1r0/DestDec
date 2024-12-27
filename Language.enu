@@ -21,8 +21,11 @@ DD_BONUSHCRP = "\cfAllows gory decorations to spawn health bonuses when destroye
 DD_BURNNATURE = "\cfNature decorations burns when fired with fire/plasma attacks: ";
 DD_SPECIFICSDT = "\cfAllow special deaths to decorations: ";
 DD_PSHBAR = "\cfEnable pushable barrels: ";
+DD_SIZECHAN = "\cfDecorations change its size based in its state: ";
+DD_FXDENS = "\cfDebris spawn multiplier";
 
-DD_TIP_SMOKE = "\czNote: smoke may affect the performance.";
+DD_TIP_MAXDEBS = "\czLimit the ammount of debris spawned (set to 0 to disable limit)";
+DD_TIP_SMOKE = "\czSmoke may affect the performance.";
 DD_TIP_BARREL = "\czSome levels may have too many barrels...";
 DD_TIP_BARREP = "\czSome mods may have its own barrels with functionality attached to them, \nthis option is for those cases";
 DD_TIP_DYNLGT = "\czDynamic Lights may tank performance.";
@@ -31,14 +34,18 @@ DD_TIP_HEALTH2 = "\czSame as above, but for barrels, leave this at 1.0 if the ma
 DD_TIP_SIGEYE = "\czMakes the 'Evil Eye' unshootable, useful for sigil or similar maps.";
 DD_TIP_CUSTOMBLUD = "\czUse this if using custom gore mods to allow custom blood";
 DD_TIP_BONCRPH = "\cz*Health bonus spawned by this wont count towards the items counter\nunless another mod replaces them with something not inheriting from inventory";
-DD_TIP_TREEBURN = "\cz*they only burn when damaged with attacks with fire/plasma damage type explicitly defined";
-DD_TIP_SPECDEATH = "\cz*decorations reacts to specific damagetype";
-DD_TIP_CLEANTIME = "\cz*time in seconds (set to 0 to disable autoclean)";
+DD_TIP_TREEBURN = "\cz*They only burn when damaged with attacks with fire/plasma damage type explicitly defined";
+DD_TIP_SPECDEATH = "\cz*Decorations reacts to specific damagetype";
+DD_TIP_CLEANTIME = "\cz*Time in seconds (set to 0 to disable autoclean)";
+DD_TIP_ADJSIZE = "\czMore accurate hitboxes for damaged decorations";
+DD_TIP_FXDENSITY = "\czIncrease or decrease the ammount of debris spawned (\cr*may affect performance*\cz)\c-";
 
 DD_ENAB1 = "\cdEnabled";
 DD_DISAB1 = "\crDisabled";
 
-DD_INSTEFFECT = "\ct=========\cc These options take effect instantly \ct=========\c-";
-DD_MAPEFFECT = "\ct=========\cc These options take effect on map change \ct=========\c-";
+DD_INSTEFFECT = "\ct============\cc These options take effect instantly \ct============\c-";
+DD_MAPEFFECT = "\ct============\cc These options take effect on map change \ct============\c-";
+DD_SEPT1 = "\ct~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\c-";
+DD_SEPT2 = "\ct______________________________________________________________\c-";
 
 DD_HERETICS = "\cdHeretic Specific";

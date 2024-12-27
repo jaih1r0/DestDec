@@ -246,7 +246,7 @@ Class DD_NukageBarrel : DD_ShotDecoBase //replaces explosivebarrel
 		NKGFX.Color1 = "FFFFFF";
 		NKGFX.Style = STYLE_Add;
 		NKGFX.Flags = SPF_ROLL|SPF_FULLBRIGHT;
-		NKGFX.Vel = (0,0,FRandom(0.1,0.35)); 
+		NKGFX.Vel = (0,0,FRandom(0.1,0.15)); 
 		NKGFX.Startroll = random(0,360);
 		NKGFX.RollVel = frandom(-0.5,0.5);
 		NKGFX.StartAlpha = 0.4;

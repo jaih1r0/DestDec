@@ -79,6 +79,7 @@ Class DD_RedTorch : DD_TorchBase //replaces RedTorch
 			loop;
 		NoFire:
 			TNT1 A 0 A_RemoveLight('Red1');
+			TNT1 A 0 DD_SetSize(-1,54,-16);
 			TNT1 A 0 A_stopsound(69);
 			TNT1 A 0 DD_TurnTorchFire();
 			TNT1 A 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
@@ -92,6 +93,7 @@ Class DD_RedTorch : DD_TorchBase //replaces RedTorch
 			TNT1 A 0 {
 				if(FireOn)
 					A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+				DD_SetSize(-1,35,-8);
 			}
 			TNT1 A 0 A_Startsound("MetalFx",61);
 			TNT1 A 0 A_startsound("TinMetalFx",70);
@@ -144,6 +146,7 @@ Class DD_BlueTorch : DD_TorchBase //replaces BlueTorch
 		NoFire:
 			TNT1 A 0 A_stopsound(69);
 			TNT1 A 0 A_killFlare();
+			TNT1 A 0 DD_SetSize(-1,54,-16);
 			TNT1 A 0 DD_TurnTorchFire();
 			TNT1 A 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
 			TNT1 A 0 A_RemoveLight('Blue1');
@@ -156,6 +159,7 @@ Class DD_BlueTorch : DD_TorchBase //replaces BlueTorch
 			TNT1 A 0 {
 				if(FireOn)
 					A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+				DD_SetSize(-1,35,-8);
 			}
 			TNT1 A 0 A_Startsound("MetalFx",61);
 			TNT1 A 0 A_startsound("TinMetalFx",70);
@@ -208,6 +212,7 @@ Class DD_GreenTorch : DD_TorchBase //replaces GreenTorch
 			TNT1 A 0 A_stopsound(69);
 			TNT1 A 0 A_killFlare();
 			TNT1 A 0 DD_TurnTorchFire();
+			TNT1 A 0 DD_SetSize(-1,54,-16);
 			TNT1 A 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
 			TNT1 A 0 A_RemoveLight('Green1');
 		NoFireLoop:
@@ -219,6 +224,7 @@ Class DD_GreenTorch : DD_TorchBase //replaces GreenTorch
 			TNT1 A 0 {
 				if(FireOn)
 					A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+				DD_SetSize(-1,35,-8);
 			}
 			TNT1 A 0 A_Startsound("MetalFx",61);
 			TNT1 A 0 A_startsound("TinMetalFx",70);
@@ -295,6 +301,7 @@ Class DD_SRedTorch : DD_SmallTorchBase //replaces ShortRedTorch
 		NoFire:
 			TNT1 A 0 A_stopsound(69);
 			TNT1 A 0 DD_TurnTorchFire();
+			TNT1 A 0 DD_SetSize(-1,32);
 			TNT1 A 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
 			TNT1 A 0 A_RemoveLight('Red2');
 			TNT1 A 0 A_killFlare();
@@ -307,6 +314,7 @@ Class DD_SRedTorch : DD_SmallTorchBase //replaces ShortRedTorch
 			TNT1 A 0 {
 				if(FireOn)
 					A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+				DD_SetSize(-1,14);
 			}
 			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 A 0 A_RemoveLight('Red2');
@@ -329,6 +337,7 @@ Class DD_SRedTorch : DD_SmallTorchBase //replaces ShortRedTorch
 			TNT1 A 1;
 			stop;
 	}
+	
 	override void postbeginplay()
 	{ 
 		A_SpawnLensFlare("DD_RedFlare",32);
@@ -361,6 +370,7 @@ Class DD_SblueTorch : DD_SmallTorchBase //replaces ShortBlueTorch
 		NoFire:
 			TNT1 A 0 A_stopsound(69);
 			TNT1 A 0 DD_TurnTorchFire();
+			TNT1 A 0 DD_SetSize(-1,32);
 			TNT1 A 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
 			TNT1 A 0 A_RemoveLight('Blue2');
 			TNT1 A 0 A_killFlare();
@@ -373,6 +383,7 @@ Class DD_SblueTorch : DD_SmallTorchBase //replaces ShortBlueTorch
 			TNT1 A 0 {
 				if(FireOn)
 					A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+				DD_SetSize(-1,14);
 			}
 			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 A 0 A_RemoveLight('Blue2');
@@ -428,6 +439,7 @@ Class DD_SGreenTorch : DD_SmallTorchBase //replaces ShortGreenTorch
 			TNT1 A 0 A_stopsound(69);
 			TNT1 A 0 DD_TurnTorchFire();
 			TNT1 A 0 A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+			TNT1 A 0 DD_SetSize(-1,32);
 			TNT1 A 0 A_RemoveLight('Green2');
 			TNT1 A 0 A_killFlare();
 		NoFireLoop:
@@ -439,6 +451,7 @@ Class DD_SGreenTorch : DD_SmallTorchBase //replaces ShortGreenTorch
 			TNT1 A 0 {
 				if(FireOn)
 					A_startsound("TorchOffFx",69,0,1.0,ATTN_NORM,frandom(0.9,1.1));
+				DD_SetSize(-1,14);
 			}
 			TNT1 A 0 A_Startsound("WoodFx",64);
 			TNT1 A 0 A_RemoveLight('Green2');

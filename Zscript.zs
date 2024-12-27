@@ -1,5 +1,7 @@
 Version "4.3"
 
+#include "Zscript/DestDec/Core/Menu.zs"
+
 #include "Zscript/DestDec/Effects/EffectsBase.zs"
 #include "Zscript/DestDec/Effects/Flares.zs"
 #include "Zscript/DestDec/Effects/Debris.zs"
