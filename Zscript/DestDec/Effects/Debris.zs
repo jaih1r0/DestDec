@@ -316,6 +316,14 @@ Class BouncingGib1 : BouncingDebrisBase
 	
 }
 
+Class BlueBounceGib1 : BouncingGib1
+{
+	default
+	{
+		translation "168:191=192:207", "16:47=240:240";
+		bloodcolor "blue";
+	}
+}
 Class DD_BurningDebris : BouncingDebrisBase
 {
 	default

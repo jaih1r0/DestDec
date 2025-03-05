@@ -1,4 +1,4 @@
-Class DD_TorchBase : DD_ShotDecoBase
+Class DD_TorchBase : DD_ShotDecoBase abstract
 {
 	default
 	{

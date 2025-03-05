@@ -122,6 +122,15 @@ Class DestDec_Handler : EventHandler
 				case 'HeadOnAStick'	: e.replacement =	'DD_HeadStick'; 	Break;
 				case 'HeadsOnAStick'	: e.replacement =	'DD_HeadsStick'; 	Break;
 				
+				case 'GibbedMarine'			: e.replacement =	DD_MapCorpsesRep ? 'DD_GibbedMarine' 		: 'GibbedMarine'; 			Break;
+				case 'GibbedMarineExtra'	: e.replacement =	DD_MapCorpsesRep ? 'DD_GibbedMarineExtra' 	: 'GibbedMarineExtra'; 		Break;
+				case 'DeadMarine'			: e.replacement =	DD_MapCorpsesRep ? 'DD_DeadMarine' 			: 'DeadMarine'; 			Break;
+				case 'DeadZombieMan'		: e.replacement =	DD_MapCorpsesRep ? 'DD_DeadZombieMan' 		: 'DeadZombieMan'; 			Break;
+				case 'DeadShotgunGuy'		: e.replacement =	DD_MapCorpsesRep ? 'DD_DeadShotgunGuy' 		: 'DeadShotgunGuy'; 		Break;
+				case 'DeadDoomImp'			: e.replacement =	DD_MapCorpsesRep ? 'DD_DeadDoomImp' 		: 'DeadDoomImp'; 			Break;
+				case 'DeadDemon'			: e.replacement =	DD_MapCorpsesRep ? 'DD_DeadDemon' 			: 'DeadDemon'; 				Break;
+				case 'DeadCacodemon'		: e.replacement =	DD_MapCorpsesRep ? 'DD_DeadCacodemon' 		: 'DeadCacodemon'; 			Break;
+				
 				//
 				//Heretic compat
 				//

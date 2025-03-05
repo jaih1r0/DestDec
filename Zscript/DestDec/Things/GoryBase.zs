@@ -1,4 +1,4 @@
-Class DD_GoryDec : DD_ShotDecoBase
+Class DD_GoryDec : DD_ShotDecoBase abstract
 {
 	
 	bool StopBleed;

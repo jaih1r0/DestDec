@@ -1,4 +1,4 @@
-Class DD_GizmoBase : DD_ShotDecoBase
+Class DD_GizmoBase : DD_ShotDecoBase abstract
 {
 	int gizmocolor;
 	property gizmocolor:gizmocolor;

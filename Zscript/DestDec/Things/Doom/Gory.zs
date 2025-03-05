@@ -629,3 +629,153 @@ Class DD_HeadsStick : DD_GoryDec //replaces HeadsOnAStick
 	}
 	
 }
+
+//
+//
+//	dead map things
+//
+//
+
+Class DD_DeadThingBase : DD_GoryDec abstract
+{
+	default
+	{
+		height 20;
+	}
+}
+
+Class DD_GibbedMarine : DD_DeadThingBase 
+{
+	States
+	{
+		Spawn:
+			PLAY W -1;
+			Stop;
+		Death:
+		XDeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,20),random(3,6),random(3,7));
+			TNT1 AAA 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height*2 + random(-1,1)),true);
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(4,7),(0,0,21),random(3,6),random(3,7));
+			TNT1 A 1;
+			stop;
+	}
+}
+
+Class DD_GibbedMarineExtra : DD_GibbedMarine 
+{}
+
+class DD_DeadMarine : DD_DeadThingBase 
+{
+	States
+	{
+		Spawn:
+			PLAY N -1;
+			Stop;
+		Death:
+		XDeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,20),random(3,6),random(3,7));
+			TNT1 AAA 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height*2 + random(-1,1)),true);
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(4,7),(0,0,21),random(3,6),random(3,7));
+			TNT1 A 1;
+			stop;
+	}
+}
+
+class DD_DeadZombieMan : DD_DeadThingBase 
+{
+	States
+	{
+		Spawn:
+			POSS L -1;
+			stop;
+		Death:
+		XDeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,20),random(3,6),random(3,7));
+			TNT1 AAA 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height*2 + random(-1,1)),true);
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(4,7),(0,0,21),random(3,6),random(3,7));
+			TNT1 A 1;
+			stop;
+	}
+}
+
+class DD_DeadShotgunGuy : DD_DeadThingBase 
+{
+	States
+	{
+		Spawn:
+			SPOS L -1;
+			stop;
+		Death:
+		XDeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,20),random(3,6),random(3,7));
+			TNT1 AAA 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height*2 + random(-1,1)),true);
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(4,7),(0,0,21),random(3,6),random(3,7));
+			TNT1 A 1;
+			stop;
+	}
+}
+
+class DD_DeadDoomImp : DD_DeadThingBase 
+{
+	States
+	{
+		Spawn:
+			TROO M -1;
+			stop;
+		Death:
+		XDeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 A 0 DD_SpawnDebris("SkullDebris1",1,(0,0,20),random(3,6),random(3,7));
+			TNT1 AAA 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height*2 + random(-1,1)),true);
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(4,7),(0,0,21),random(3,6),random(3,7));
+			TNT1 A 1;
+			stop;
+	}
+}
+
+class DD_DeadDemon : DD_DeadThingBase 
+{
+	default
+	{
+		height 25;
+	}
+	States
+	{
+		Spawn:
+			SARG N -1;
+			stop;
+		Death:
+		XDeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 AAAA 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height*2 + random(-1,1)),true);
+			TNT1 A 0 DD_SpawnDebris("BouncingGib1",random(5,8),(0,0,21),random(3,6),random(3,7));
+			TNT1 A 1;
+			stop;
+	}
+}
+
+class DD_DeadCacodemon : DD_DeadThingBase 
+{
+	default
+	{
+		bloodcolor "blue";
+		height 45;
+	}
+	States
+	{
+		Spawn:
+			HEAD L -1;
+			stop;
+		Death:
+		XDeath:
+			TNT1 A 0 A_Startsound("GIBBIE",CHAN_AUTO,0,1.0,ATTN_NORM,frandom(0.8,1.2));
+			TNT1 AAA 0 DD_SpawnSuperBlood((random(-5,5),random(-5,5),height + random(-1,1)),true);
+			TNT1 A 0 DD_SpawnDebris("BlueBounceGib1",random(6,10),(0,0,21),random(3,6),random(3,7));
+			TNT1 A 1;
+			stop;
+	}
+}

@@ -144,16 +144,50 @@ Class DD_BarrelExplosionFx : NoTickActor
 	{
 		renderstyle "add";
 		+bright;
+		scale 0.8;
 	}
 	states
 	{
 		Spawn:
-			BEX0 ABCDEFGHIJKLM 1;
+			DXPL ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
+			DXPX AB 1;
+			//BEX0 ABCDEFGHIJKLM 1;
 			stop;
 	}
 	override void beginplay()
 	{
-		A_Setscale(self.scale.x + frandom(-0.1,0.35));
+		A_Setscale(self.scale.x + frandom(-0.1,0.3));
+		bxflip = random(0,1);
+		super.beginplay();
+	}
+}
+
+Class DD_BarrelElectroFx : NoTickActor
+{
+	default
+	{
+		renderstyle "add";
+		+bright;
+		scale 0.3;
+		+rollsprite;
+		+rollcenter;
+	}
+	states
+	{
+		spawn:
+			LSPK ABCDEFGHIJKLMNOPQRSTUVWX 1;
+			stop;
+	}
+	override void tick()
+	{
+		super.tick();
+		if(master)
+			setxyz(master.pos);
+	}
+	override void beginplay()
+	{
+		A_Setscale(self.scale.x + frandom(-0.05,0.05));
+		A_SetRoll(random(0,360));
 		bxflip = random(0,1);
 		super.beginplay();
 	}
@@ -202,6 +236,11 @@ Class DD_NukageBarrel : DD_ShotDecoBase //replaces explosivebarrel
 			stop;
 		Death.Electric:
 			"####" "#" 0 A_Jumpif(DD_NoSpecificDeaths,"Death"); //jump to basic death state if the specific deaths are disabled
+			TNT1 A 0 {
+				actor elc = spawn("DD_BarrelElectroFx",pos);
+				if(elc)
+					elc.master = self;
+			}
 			BRNK BBBBBB 2 A_SpawnLightningfx();
 			BRNK BB 1 A_SpawnLightningfx();
 			BRNK C 1 A_SpawnLightningfx();
@@ -286,6 +325,7 @@ Class DD_NukageBarrel : DD_ShotDecoBase //replaces explosivebarrel
 	
 	void A_SpawnLightningfx(vector3 ofs = (0,0,0))
 	{
+		return;
 		FSpawnParticleParams LGTB;
 		int f = random(1,3);
 		LGTB.Texture = TexMan.CheckForTexture ("DD_LGT"..f);

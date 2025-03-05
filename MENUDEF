@@ -24,6 +24,9 @@ OptionMenu "DD_Options"
 	control "$DD_BUTNOW","netevent DD_ClearDebris"
 	Statictext ""
 	
+	safecommand "$DD_BUTRIGHTNOW","netevent DD_ClearDebris"
+	statictext ""
+	
 	DDSlider "$DD_CLEANTIME","$DD_TIP_CLEANTIME","DD_CleanTics",0,30,1,0
 	statictext ""
 	
@@ -82,6 +85,9 @@ OptionMenu "DD_Options"
 	statictext ""
 	
 	DDOption "$DD_SIZECHAN","$DD_TIP_ADJSIZE","DD_NoChangeSize","Yesnt"
+	statictext ""
+	
+	DDOption "$DD_CORPMAP","$DD_TIP_CORPMAP","DD_MapCorpsesRep","yessir"
 	statictext ""
 	
 	ifgame(Heretic)

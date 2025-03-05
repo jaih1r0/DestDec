@@ -1,4 +1,4 @@
-Class DD_HangingSkullBase : DD_ShotDecoBase
+Class DD_HangingSkullBase : DD_ShotDecoBase abstract
 {
 	default
 	{

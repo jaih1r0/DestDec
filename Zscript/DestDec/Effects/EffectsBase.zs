@@ -1,4 +1,4 @@
-Class NoTickActor : Actor
+Class NoTickActor : Actor abstract	//i need to turn effects inheriting from this into visualthinkers
 {
 	//this comes from Beautiful Doom
 	override void tick()
@@ -28,7 +28,7 @@ Class NoTickActor : Actor
 	
 }
 
-Class DD_FlareBase : NoTickActor
+Class DD_FlareBase : NoTickActor abstract
 {
 	default
 	{
@@ -92,7 +92,7 @@ Class DD_FlareBase : NoTickActor
 }
 
 
-Class BouncingDebrisBase : Actor
+Class BouncingDebrisBase : Actor abstract
 {
 	default
 	{
@@ -123,6 +123,12 @@ Class BouncingDebrisBase : Actor
 		ChangeStatNum(DestDec_Handler.DD_DebrisStat);
 		rollsidespeed = randompick(-60,-50,-45,-30,-15,15,30,45,50,60);
 		super.beginplay();
+	}
+	
+	override void postbeginplay()
+	{
+		super.postbeginplay();
+		gravity *= frandom[DDGrav](0.9,1.1);
 	}
 	
 	

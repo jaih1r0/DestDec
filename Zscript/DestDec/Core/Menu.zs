@@ -61,7 +61,7 @@ Class DestDecMenu : OptionMenu
 			
 			double dimy = bkln.count() * tf.GetHeight()* CleanYfac_1 * 0.5; 
 			Screen.dim("050505",
-			0.9,	//a
+			0.7,	//a
 			xm, 	//x
 			ym,		//y
 			 tf.StringWidth (tip),	// w

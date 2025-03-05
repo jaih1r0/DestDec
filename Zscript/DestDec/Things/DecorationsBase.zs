@@ -1,4 +1,4 @@
-Class DD_ShotDecoBase : Actor
+Class DD_ShotDecoBase : Actor abstract
 {
 	default
 	{

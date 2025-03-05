@@ -1,4 +1,4 @@
-Class DD_NatureThing : DD_ShotDecoBase
+Class DD_NatureThing : DD_ShotDecoBase abstract
 {
 	mixin DD_BurnableThing;
 	int firesep;
